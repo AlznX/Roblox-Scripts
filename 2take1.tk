@@ -2910,7 +2910,7 @@ local function AZMG_fake_script() -- Key.LocalScript
 			--
 			game.StarterGui:SetCore("SendNotification",  {
 				Title = "Thanks for Using!";
-				Text = "This Menu is undetectable, we update everyday, Credits: Ava_Scripting and Codeey, Have Fun! (Note: Some Things Don't work No More)";
+				Text = "This Menu is undetectable, we update everyday, Credits: Ava_Scripting and Codeey, Have Fun! (Note: Updated 7/2/2022)";
 				Icon = "";
 				Duration = 5;
 				Button1 = "Close";
