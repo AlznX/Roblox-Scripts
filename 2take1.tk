@@ -2511,7 +2511,7 @@ local function ZDSIKVD_fake_script() -- _2TAKE1_2.Main
 	
 	
 	Invisible.MouseButton1Down:connect(function()
-		loadstring(game:HttpGet('https://avascripting.000webhostapp.com/Ghost_Hub'))()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/AlznX/Sword-Simulator-2take1.tk/main/Ghost_Hub'))()
 	end)
 	
 	
