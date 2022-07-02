@@ -1,0 +1,109 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Svun X Vince", "Ocean")
+
+-- MAIN
+local MAIN = Window:NewTab("MAIN")
+local MAINSection = MAIN:NewSection("MAIN")
+
+
+MAINSection:NewButton("Elite AutoFarm", "too overpowered.", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/VinceAutofarm/main/H'))()
+
+end)
+
+MAINSection:NewButton("EliteLoopKill", "Client Sided", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/JhHFzD9N'))()
+end)
+
+
+MAINSection:NewButton("EliteLoopKill OFF", "stops loopkill", function()
+    loadstring(game:HttpGet('https://pastebin.com/raw/n2i9fwjb'))()
+end)
+
+MAINSection:NewButton("EmperorWings", "SuperPower", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/EmperorWings/main/WingsSaga'))()
+end)
+
+MAINSection:NewButton("2take1", ".", function()
+    loadstring(game:HttpGet('http://2take1.tk'))() 
+end)
+
+
+MAINSection:NewButton("Sword Damage", "do Inf Dmg", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/DmgSword1/main/yo'))()
+end)
+
+MAINSection:NewButton("Sword Reach", "Svun Hitbox", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/SVUN-HITBOX/main/MINE'))()
+end)
+
+MAINSection:NewButton("Hub", "cool stuff", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/dad/main/ffff'))()
+end)
+
+MAINSection:NewButton("CooqiHub", "SoCooqi", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/CooqiNigger/main/Cooqi'))()
+end)
+
+-- PLAYER ----
+
+local Player = Window:NewTab("Player")
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewSlider("WalkSpeed", "Sonic", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+
+--Other--
+local Other = Window:NewTab("Other")
+local OtherSection = Other:NewSection("Other")
+
+OtherSection:NewButton("GavHub", "Daddy Yankee", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/GavHubPart2/main/niglet'))() 
+end)
+
+OtherSection:NewButton("Alznhub", "voom", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/AlznScript/main/Pull'))() 
+end)
+
+
+OtherSection:NewButton("DomainX", "Hub", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source%27,true'))()
+end)
+
+
+OtherSection:NewButton("SwordBeamGui", "Alot of niggas use this", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/icuck/Sword-Simulator-GUI/master/main.lua'))()
+end)
+
+
+OtherSection:NewKeybind("change keybind", "key", Enum.KeyCode.X, function()
+	Library:ToggleUI()
+end)
+
+----- PLAYER ------
+
+PlayerSection:NewButton("EliteGod", "become powerful niglet", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/EliteGodPart2/main/Best%20God'))()
+end)
+
+
+PlayerSection:NewButton("SwordSpin", "fuck", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/Sword-Spin/main/phoenix'))()
+end)
+
+
+PlayerSection:NewButton("AutoRejoin", "credits to Svun", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/AUTOREJOIN/main/DOA'))()
+end)
+
+
+PlayerSection:NewButton("GodGiver", "credits to Gabriel", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/kRA/main/goddd'))()
+end)
+
+
+PlayerSection:NewButton("AntiAfk", "Anti Afk-ONLY FOR FARMING", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/nammme/main/dougieb'))()
+end)
