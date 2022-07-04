@@ -1,0 +1,264 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Modules = Instance.new("Folder")
+local Configuration = Instance.new("Configuration")
+local Form = Instance.new("Frame")
+local Controls = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local title = Instance.new("TextLabel")
+local login = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local username = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local password = Instance.new("TextBox")
+local UICorner_4 = Instance.new("UICorner")
+local loginto = Instance.new("TextLabel")
+local error = Instance.new("TextLabel")
+local voidxd = Instance.new("TextLabel")
+local alzn = Instance.new("TextLabel")
+local UILogin = Instance.new("Frame")
+local UICorner_5 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Modules.Name = "Modules"
+Modules.Parent = ScreenGui
+
+Configuration.Parent = ScreenGui
+
+Form.Name = "Form"
+Form.Parent = ScreenGui
+Form.AnchorPoint = Vector2.new(0.5, 0.5)
+Form.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Form.BorderSizePixel = 0
+Form.Position = UDim2.new(0.499603808, 0, 0.499557912, 0)
+Form.Size = UDim2.new(0, 397, 0, 230)
+
+Controls.Name = "Controls"
+Controls.Parent = Form
+Controls.AnchorPoint = Vector2.new(0.5, 0.5)
+Controls.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
+Controls.BackgroundTransparency = 1.000
+Controls.BorderSizePixel = 0
+Controls.Position = UDim2.new(0.5, 0, 0.5, 0)
+Controls.Size = UDim2.new(0, 397, 0, 230)
+
+UICorner.Parent = Controls
+
+title.Name = "title"
+title.Parent = Controls
+title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+title.BackgroundTransparency = 1.000
+title.BorderSizePixel = 0
+title.Position = UDim2.new(-0.0189737938, 0, 0.142403245, 0)
+title.Size = UDim2.new(0, 168, 0, 55)
+title.Font = Enum.Font.SourceSans
+title.Text = "2take1"
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
+title.TextScaled = true
+title.TextSize = 20.000
+title.TextWrapped = true
+
+login.Name = "login"
+login.Parent = Controls
+login.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
+login.BorderSizePixel = 0
+login.Position = UDim2.new(0.491183877, 0, 0.139130428, 0)
+login.Size = UDim2.new(0, 164, 0, 47)
+login.Font = Enum.Font.SourceSans
+login.Text = "LOGIN"
+login.TextColor3 = Color3.fromRGB(255, 255, 255)
+login.TextSize = 40.000
+login.TextWrapped = true
+
+UICorner_2.Parent = login
+
+username.Name = "username"
+username.Parent = Controls
+username.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
+username.BorderSizePixel = 0
+username.Position = UDim2.new(0.0352644846, 0, 0.426086962, 0)
+username.Size = UDim2.new(0, 125, 0, 50)
+username.ClearTextOnFocus = false
+username.Font = Enum.Font.SourceSans
+username.PlaceholderText = "Username"
+username.Text = ""
+username.TextColor3 = Color3.fromRGB(255, 255, 255)
+username.TextSize = 20.000
+username.TextWrapped = true
+
+UICorner_3.Parent = username
+
+password.Name = "password"
+password.Parent = Controls
+password.BackgroundColor3 = Color3.fromRGB(12, 12, 12)
+password.BorderSizePixel = 0
+password.Position = UDim2.new(0.0352644846, 0, 0.686956525, 0)
+password.Size = UDim2.new(0, 125, 0, 50)
+password.ClearTextOnFocus = false
+password.Font = Enum.Font.SourceSans
+password.PlaceholderText = "Password"
+password.Text = ""
+password.TextColor3 = Color3.fromRGB(255, 255, 255)
+password.TextSize = 20.000
+password.TextWrapped = true
+
+UICorner_4.Parent = password
+
+loginto.Name = "login to"
+loginto.Parent = Controls
+loginto.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+loginto.BackgroundTransparency = 1.000
+loginto.BorderSizePixel = 0
+loginto.Position = UDim2.new(0.0367354788, 0, 0.0916956365, 0)
+loginto.Size = UDim2.new(0, 125, 0, 21)
+loginto.Font = Enum.Font.Ubuntu
+loginto.Text = "L O G I N  T O"
+loginto.TextColor3 = Color3.fromRGB(255, 255, 255)
+loginto.TextScaled = true
+loginto.TextSize = 20.000
+loginto.TextWrapped = true
+
+error.Name = "error"
+error.Parent = Controls
+error.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+error.BackgroundTransparency = 1.000
+error.BorderSizePixel = 0
+error.Position = UDim2.new(0.517843783, 0, 0.339521706, 0)
+error.Size = UDim2.new(0, 142, 0, 35)
+error.Visible = false
+error.Font = Enum.Font.Ubuntu
+error.Text = "Invalid Credentials"
+error.TextColor3 = Color3.fromRGB(255, 0, 4)
+error.TextScaled = true
+error.TextSize = 20.000
+error.TextWrapped = true
+
+voidxd.Name = "voidxd"
+voidxd.Parent = Controls
+voidxd.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+voidxd.BackgroundTransparency = 1.000
+voidxd.BorderSizePixel = 0
+voidxd.Position = UDim2.new(0.684090674, 0, 0.900391281, 0)
+voidxd.Size = UDim2.new(0, 125, 0, 21)
+voidxd.Font = Enum.Font.Ubuntu
+voidxd.Text = "VoidXD#0001"
+voidxd.TextColor3 = Color3.fromRGB(255, 255, 255)
+voidxd.TextScaled = true
+voidxd.TextSize = 20.000
+voidxd.TextWrapped = true
+
+alzn.Name = "alzn"
+alzn.Parent = Controls
+alzn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+alzn.BackgroundTransparency = 1.000
+alzn.BorderSizePixel = 0
+alzn.Position = UDim2.new(0.64630729, 0, 0.809086919, 0)
+alzn.Size = UDim2.new(0, 125, 0, 21)
+alzn.Font = Enum.Font.Ubuntu
+alzn.Text = "Alzn#0409"
+alzn.TextColor3 = Color3.fromRGB(255, 255, 255)
+alzn.TextScaled = true
+alzn.TextSize = 20.000
+alzn.TextWrapped = true
+
+UILogin.Name = "UILogin"
+UILogin.Parent = Controls
+UILogin.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UILogin.BackgroundTransparency = 1.000
+UILogin.BorderSizePixel = 0
+UILogin.Position = UDim2.new(0.0201511327, 0, 0.378260881, 0)
+UILogin.Size = UDim2.new(0, 138, 0, 130)
+
+UICorner_5.Parent = UILogin
+
+-- Module Scripts:
+
+local fake_module_scripts = {}
+
+do -- Modules.RandomString
+	local script = Instance.new('ModuleScript', Modules)
+	script.Name = "RandomString"
+	local function module_script()
+		local random = {}
+		
+		function random.Random(object)
+			local length = math.random(10,20)
+			
+			local array = {}
+			for i = 1, length do
+				array[i] = string.char(math.random(32, 126))
+			end
+			object.Name = table.concat(array)
+		end
+		
+		return random
+		
+	end
+	fake_module_scripts[script] = module_script
+end
+
+
+-- Scripts:
+
+local function ITLWHWF_fake_script() -- ScreenGui.Handler 
+	local script = Instance.new('LocalScript', ScreenGui)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local Gui = script.Parent
+	local Modules = script.Parent.Modules
+	local RandomString = Modules.RandomString
+	local Form = Gui.Form
+	
+	Form.Size = UDim2.new(0, 54,0, 31)
+	wait()
+	Form:TweenSize(UDim2.new(0, 397,0, 230), "Out", "Sine", .5)
+	wait(.1)
+	Form.Controls.Visible = true
+	
+	while true do
+		wait()
+		require(RandomString).Random(Gui)
+	end
+end
+coroutine.wrap(ITLWHWF_fake_script)()
+local function ISVRS_fake_script() -- login.asyefgwui6crgwzev 
+	local script = Instance.new('LocalScript', login)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	script.Parent.MouseButton1Click:Connect(function()
+		local pw = script.Parent.Parent.password.Text
+		local us = script.Parent.Parent.username.Text
+		local check = "http://alzn-x.tk/check.php?login=" .. us ..":" .. pw
+		if game:HttpGet(check) == "Correct!" then
+		    script.Parent.Parent.Parent.Parent:Destroy()
+			loadstring(game:HttpGet("http://alzn-x.tk/script.lua"))()
+		else
+			script.Parent.Parent.error.Visible = true
+			wait(3)
+			script.Parent.Parent.error.Visible = false
+		end
+	end)
+end
+coroutine.wrap(ISVRS_fake_script)()
