@@ -1,0 +1,2672 @@
+local Exe = Instance.new("ScreenGui")
+local _2TAKE1 = Instance.new("Frame")
+local Title = Instance.new("TextLabel")
+local AutoFarms = Instance.new("TextButton")
+local Local = Instance.new("TextButton")
+local System = Instance.new("Frame")
+local LocalGame = Instance.new("Frame")
+local SearchBar = Instance.new("TextBox")
+local Items = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local LuaV3 = Instance.new("TextButton")
+local SwordID = Instance.new("TextButton")
+local SwordGuard = Instance.new("TextButton")
+local SSRSwordGuard = Instance.new("TextButton")
+local InfiniteYield = Instance.new("TextButton")
+local NetBypass = Instance.new("TextButton")
+local Umbrella = Instance.new("TextButton")
+local Wings = Instance.new("TextButton")
+local SwordBeam = Instance.new("TextButton")
+local FloorSpikes = Instance.new("TextButton")
+local _10XGodMode = Instance.new("TextButton")
+local AntiFastKill = Instance.new("TextButton")
+local SS1SwordGuard = Instance.new("TextButton")
+local Invisible = Instance.new("TextButton")
+local SwordHalo = Instance.new("TextButton")
+local Booster = Instance.new("TextButton")
+local AntiAFK = Instance.new("TextButton")
+local HealMe = Instance.new("TextButton")
+local BattleAxe = Instance.new("TextButton")
+local Rejoin = Instance.new("TextButton")
+local CMDX = Instance.new("TextButton")
+local SpinningRing = Instance.new("TextButton")
+local Border = Instance.new("Frame")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local Frame = Instance.new("Frame")
+local AutoFarms_2 = Instance.new("Frame")
+local SearchBar_2 = Instance.new("TextBox")
+local Items_2 = Instance.new("ScrollingFrame")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local S1AutoFarm = Instance.new("TextButton")
+local S8AutoFarm = Instance.new("TextButton")
+local S6AutoFarm = Instance.new("TextButton")
+local S5AutoFarm = Instance.new("TextButton")
+local S7AutoFarm = Instance.new("TextButton")
+local S2AutoFarm = Instance.new("TextButton")
+local S3AutoFarm = Instance.new("TextButton")
+local S4AutoFarm = Instance.new("TextButton")
+local S8OPAutoFarm = Instance.new("TextButton")
+local Border_2 = Instance.new("Frame")
+local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
+local Frame_2 = Instance.new("Frame")
+local Part = Instance.new("TextLabel")
+local Close = Instance.new("ImageButton")
+
+Exe.Name = "Exe"
+Exe.Parent = game.CoreGui
+
+_2TAKE1.Name = "2TAKE1"
+_2TAKE1.Parent = Exe
+_2TAKE1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_2TAKE1.BorderColor3 = Color3.fromRGB(255, 255, 255)
+_2TAKE1.Position = UDim2.new(0.15109171, 0, 0.158649787, 0)
+_2TAKE1.Size = UDim2.new(0, 243, 0, 434)
+
+Title.Name = "Title"
+Title.Parent = _2TAKE1
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.Position = UDim2.new(-0.0781892985, 0, -0.135944694, 0)
+Title.Size = UDim2.new(0, 285, 0, 59)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "2TAKE1"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextSize = 100.000
+
+AutoFarms.Name = "AutoFarms"
+AutoFarms.Parent = _2TAKE1
+AutoFarms.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AutoFarms.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoFarms.Position = UDim2.new(0.502057493, 0, 0.0138248149, 0)
+AutoFarms.Size = UDim2.new(0, 122, 0, 30)
+AutoFarms.Font = Enum.Font.SourceSans
+AutoFarms.Text = "AutoFarms"
+AutoFarms.TextColor3 = Color3.fromRGB(255, 255, 255)
+AutoFarms.TextSize = 16.000
+AutoFarms.TextWrapped = true
+AutoFarms.MouseButton1Down:connect(function()
+	AutoFarms_2.Visible = true
+	LocalGame.Visible  = false
+end)
+
+Local.Name = "Local"
+Local.Parent = _2TAKE1
+Local.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Local.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Local.Position = UDim2.new(-0.00411510095, 0, 0.0138248149, 0)
+Local.Size = UDim2.new(0, 122, 0, 30)
+Local.Font = Enum.Font.SourceSans
+Local.Text = "Local Game"
+Local.TextColor3 = Color3.fromRGB(255, 255, 255)
+Local.TextSize = 16.000
+Local.MouseButton1Down:connect(function()
+	LocalGame.Visible = true
+	AutoFarms_2.Visible = false
+end)
+
+System.Name = "System"
+System.Parent = _2TAKE1
+System.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+System.BorderColor3 = Color3.fromRGB(0, 0, 0)
+System.Position = UDim2.new(0, 0, 0.0829493105, 0)
+System.Size = UDim2.new(0, 243, 0, 398)
+
+LocalGame.Name = "LocalGame"
+LocalGame.Parent = _2TAKE1
+LocalGame.AnchorPoint = Vector2.new(0.5, 0.5)
+LocalGame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LocalGame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+LocalGame.BorderSizePixel = 2
+LocalGame.Position = UDim2.new(0.499999881, 0, 0.363278002, 0)
+LocalGame.Size = UDim2.new(0.999999762, 0, 0.532257915, 0)
+
+SearchBar.Name = "SearchBar"
+SearchBar.Parent = LocalGame
+SearchBar.AnchorPoint = Vector2.new(0.5, 0)
+SearchBar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SearchBar.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SearchBar.BorderSizePixel = 2
+SearchBar.Position = UDim2.new(0.491769552, 0, -0.00380659103, 0)
+SearchBar.Size = UDim2.new(0.949999988, 0, 0.075000003, 0)
+SearchBar.ZIndex = 2
+SearchBar.Font = Enum.Font.SourceSans
+SearchBar.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+SearchBar.PlaceholderText = "Search"
+SearchBar.Text = ""
+SearchBar.TextColor3 = Color3.fromRGB(255, 255, 255)
+SearchBar.TextScaled = true
+SearchBar.TextSize = 14.000
+SearchBar.TextWrapped = true
+
+Items.Name = "Items"
+Items.Parent = LocalGame
+Items.Active = true
+Items.AnchorPoint = Vector2.new(0.5, 0)
+Items.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Items.BackgroundTransparency = 1.000
+Items.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Items.BorderSizePixel = 0
+Items.Position = UDim2.new(0.5, 0, 0.125000089, 0)
+Items.Size = UDim2.new(0.949999988, 0, 1.48816919, 5)
+Items.ScrollBarThickness = 0
+
+UIListLayout.Parent = Items
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout.Padding = UDim.new(0, 5)
+
+LuaV3.Name = "LuaV3"
+LuaV3.Parent = Items
+LuaV3.AnchorPoint = Vector2.new(0.5, 0)
+LuaV3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+LuaV3.BorderColor3 = Color3.fromRGB(32, 32, 32)
+LuaV3.BorderSizePixel = 2
+LuaV3.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+LuaV3.Size = UDim2.new(1, 0, 0.0500000007, -5)
+LuaV3.ZIndex = 2
+LuaV3.Font = Enum.Font.SourceSans
+LuaV3.Text = "LuaV3"
+LuaV3.TextColor3 = Color3.fromRGB(204, 204, 204)
+LuaV3.TextScaled = true
+LuaV3.TextSize = 14.000
+LuaV3.TextWrapped = true
+LuaV3.MouseButton1Down:connect(function()
+	repeat wait() until game.Players.LocalPlayer~=nil
+	local cmds = {"kill [plr]: kills the player","god [plr]: gods the player","permagod [plr]: permanently gods the player","ungod [plr]: ungods and kills the player","listgods: opens the god list","dmg [plr]: Takes half of the player's health", "heal [plr]: heals the player","watch [plr]: switches your camera to the player","unwatch: returns your camera to your player","monitor [plr]: watches the player's power","unmonitor: stops monitoring","load: reloads your player.","ff: Toggles Fast Farming","sf: Toggles Slow Farming","drop [number]: drops the number of swords","trapdrop [number]: drop but the swords kill","stick: STICC","stickdrop [number]: STICC","drophats: drops all your accessories","tp [plr]: Teleports you to the player","speed [number]: changes your walkspeed","jump [number]: changes your jumppower"}
+	local multi = 2
+	--Change This to 1 if you don't have the 2x gamepass!
+	local min = 5500
+	local max = 9000
+	local speed = 5
+	local cooldown = 100
+	local timeout = 30
+	local cooldowngain = 0
+	local player = game.Players.LocalPlayer
+	local backpack = player:WaitForChild("Backpack")
+	local mouse = player:GetMouse()
+	player.CameraMaxZoomDistance = 40000
+
+	local uis = game:GetService("UserInputService")
+	local kc = Enum.KeyCode
+	local tween = game:GetService("TweenService")
+	local rs = game:GetService("RunService")
+	local vu = game:GetService("VirtualUser")
+	local counter = 0
+	local counter2 = 0
+
+	local char = player.Character or player.CharacterAdded:Wait()
+	local csub = player
+
+	local focused = false
+	local HasSword = true
+	local equipped = false
+	local open = true
+	local clicked = false
+	local canclick = false
+	local diff
+	local clicked2 = false
+	local canclick2 = false
+	local diff2
+
+	local slowfarm = false
+	local fastfarm = false
+	local f1 = true
+	local god = false
+	local kaura = false
+
+	local lastpos
+	local lastfeasiblepos
+	local pw = 0
+	local lpw = 0
+	local gain = 0
+
+	local themes = {
+		{Color3.new(0.7,0,0.7),Color3.new(0,0,0)},
+		{Color3.new(0,0,0),Color3.new(1,1,1)},
+		{Color3.new(1,0,0),Color3.new(0,0,0)},
+		{Color3.new(1,0,0),Color3.new(1,1,1)},
+		{Color3.new(0,1,1),Color3.new(0,0,0)},
+		{Color3.new(0,0,1),Color3.new(0,0,0)},
+		{Color3.new(0,0,1),Color3.new(1,1,1)},
+		{Color3.new(1,0,0.7),Color3.new(0,0,0)}
+	}
+
+	local primary = Color3.new(0.7,0,0.7)
+	local secondary = Color3.new(0,0,0)
+	local current = 1
+
+	local rocks = {Vector3.new(279.85357666016,21.4573097229,174.99555969238),Vector3.new(94.32356262207,20.893278121948,306.97094726563),Vector3.new(-98.551261901855,21.762180328369,312.44100952148),Vector3.new(-204.30372619629,21.507213592529,230.48449707031),Vector3.new(-293.51040649414,28.932157516479,181.09722900391),Vector3.new(-220.49028015137,26.733303070068,56.496311187744),Vector3.new(-183.13409423828,20.978143692017,-108.51692199707),Vector3.new(-129.6026763916,21.795309066772,-327.25277709961),Vector3.new(48.160102844238,26.358892440796,-183.46826171875),Vector3.new(261.99801635742,26.073673248291,-238.60690307617),Vector3.new(239.21109008789,21.693473815918,21.820363998413)}
+	local Permagods = {}
+	local killlog = {}
+	local monitor = nil
+
+	local load = workspace.load.RemoteEvent
+
+	uis.TextBoxFocused:Connect(function(textBOX)focused=true end)
+	uis.TextBoxFocusReleased:Connect(function(textBOX)focused=false end)
+
+	function gatherswords()
+		local swords = {}
+		for i, v in pairs(backpack:GetChildren())do
+			if(v:IsA"Tool")then
+				table.insert(swords,v)
+			end
+		end
+		for i, v in pairs(char:GetChildren())do
+			if(v:IsA"Tool")then
+				table.insert(swords,v)
+			end
+		end
+		return swords
+	end
+
+	local ui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+	ui.ResetOnSpawn = false
+	local settings = Instance.new("Frame", ui)
+	settings.Position = UDim2.new(0,mouse.ViewSizeX*0.15,0,mouse.ViewSizeY*0.452)
+	settings.Size = UDim2.new(0,170,0,200)
+	settings.BackgroundColor3 = secondary
+	settings.BorderColor3 = primary
+	settings.MouseEnter:Connect(function()canclick=true;end)
+	settings.MouseLeave:Connect(function()canclick=false;end)
+	mouse.Button1Down:Connect(function()
+		diff = Vector2.new(mouse.X-settings.Position.X.Offset,mouse.Y-settings.Position.Y.Offset)
+		if(canclick)then
+			clicked = true
+		end
+	end)
+	local title = Instance.new("TextLabel", settings)
+	title.Size = UDim2.new(1,0,0,20)
+	title.TextColor3 = secondary
+	title.TextSize = 10
+	title.BackgroundColor3 = primary
+	title.BorderColor3 = primary
+	title.Text = "Sword Sim GUI 2.0"
+	title.Name = "Title"
+	local close = Instance.new("TextButton",settings)
+	close.Position = UDim2.new(1,0,0,0)
+	close.Size = UDim2.new(0,10,0,10)
+	close.AnchorPoint = Vector2.new(1,0)
+	close.Text = "X"
+	close.BackgroundTransparency = 1
+	close.TextColor3 = secondary
+	close.MouseButton1Click:Connect(function()
+		open = false
+		workspace.CurrentCamera.CameraSubject = char.Humanoid
+		ui:Destroy()
+		script:Destroy()
+	end)
+	local themebutton = Instance.new("TextButton",settings)
+	themebutton.Size = UDim2.new(0,10,0,10)
+	themebutton.AnchorPoint = Vector2.new(0,0)
+	themebutton.Position = UDim2.new(0,1,0,1)
+	themebutton.Text = ""
+	themebutton.BackgroundColor3 = secondary
+	themebutton.BorderColor3 = primary
+	themebutton.TextColor3 = primary
+	local sfframe = Instance.new("Frame",settings)
+	sfframe.Size = UDim2.new(1,0,0,20)
+	sfframe.Position = UDim2.new(0,0,0,20)
+	sfframe.BackgroundColor3 = secondary
+	sfframe.BorderColor3 = primary
+	local sflabel = Instance.new("TextButton",sfframe)
+	sflabel.Size = UDim2.new(1,0,1,0)
+	sflabel.BackgroundTransparency = 1
+	sflabel.TextXAlignment = Enum.TextXAlignment.Left
+	sflabel.TextColor3 = secondary
+	sflabel.Text = " Slow Farm"
+	sflabel.TextSize = 11
+	sflabel.TextColor3 = primary
+	local sfbutton = Instance.new("TextButton",sfframe)
+	sfbutton.Size = UDim2.new(0,10,0,10)
+	sfbutton.AnchorPoint = Vector2.new(0.5,0.5)
+	sfbutton.Position = UDim2.new(0.95,0,0.5,0)
+	sfbutton.Text = ""
+	sfbutton.BackgroundColor3 = secondary
+	sfbutton.BorderColor3 = primary
+	sfbutton.TextColor3 = primary
+	function sfpress()
+		if(slowfarm)then slowfarm = false else slowfarm = true end
+	end
+	sflabel.MouseButton1Click:Connect(function()sfpress() end)
+	sfbutton.MouseButton1Click:Connect(function()sfpress() end)
+	local ffframe = Instance.new("Frame",settings)
+	ffframe.Size = UDim2.new(1,0,0,20)
+	ffframe.Position = UDim2.new(0,0,0,40)
+	ffframe.BackgroundColor3 = secondary
+	ffframe.BorderColor3 = primary
+	local fflabel = Instance.new("TextButton",ffframe)
+	fflabel.Size = UDim2.new(1,0,1,0)
+	fflabel.BackgroundTransparency = 1
+	fflabel.TextXAlignment = Enum.TextXAlignment.Left
+	fflabel.TextColor3 = secondary
+	fflabel.Text = " Fast Farm"
+	fflabel.TextSize = 11
+	fflabel.TextColor3 = primary
+	local ffbox = Instance.new("TextBox",ffframe)
+	ffbox.Size = UDim2.new(0,15,0,10)
+	ffbox.AnchorPoint = Vector2.new(0.5,0.5)
+	ffbox.Position = UDim2.new(0.95,-18,0.5,0)
+	ffbox.Text = tostring(multi)
+	ffbox.TextScaled = true
+	ffbox.BackgroundColor3 = secondary
+	ffbox.BorderColor3 = primary
+	ffbox.TextColor3 = primary
+	local ffbutton = Instance.new("TextButton",ffframe)
+	ffbutton.Size = UDim2.new(0,10,0,10)
+	ffbutton.AnchorPoint = Vector2.new(0.5,0.5)
+	ffbutton.Position = UDim2.new(0.95,0,0.5,0)
+	ffbutton.Text = ""
+	ffbutton.BackgroundColor3 = secondary
+	ffbutton.BorderColor3 = primary
+	ffbutton.TextColor3 = primary
+	function ffpress()
+		if(fastfarm)then fastfarm = false else fastfarm = true end
+	end
+	fflabel.MouseButton1Click:Connect(function()ffpress() end)
+	ffbutton.MouseButton1Click:Connect(function()ffpress() end)
+	local godframe = Instance.new("Frame",settings)
+	godframe.Size = UDim2.new(1,0,0,20)
+	godframe.Position = UDim2.new(0,0,0,60)
+	godframe.BackgroundColor3 = secondary
+	godframe.BorderColor3 = primary
+	local godlabel = Instance.new("TextButton",godframe)
+	godlabel.Size = UDim2.new(1,0,1,0)
+	godlabel.BackgroundTransparency = 1
+	godlabel.TextXAlignment = Enum.TextXAlignment.Left
+	godlabel.TextColor3 = secondary
+	godlabel.Text = " God Mode"
+	godlabel.TextSize = 11
+	godlabel.TextColor3 = primary
+	local godbutton = Instance.new("TextButton",godframe)
+	godbutton.Size = UDim2.new(0,10,0,10)
+	godbutton.AnchorPoint = Vector2.new(0.5,0.5)
+	godbutton.Position = UDim2.new(0.95,0,0.5,0)
+	godbutton.Text = ""
+	godbutton.BackgroundColor3 = secondary
+	godbutton.BorderColor3 = primary
+	godbutton.TextColor3 = primary
+	function godpress()
+		if(god)then god = false load:FireServer() else god = true end
+	end
+	godlabel.MouseButton1Click:Connect(function()godpress() end)
+	godbutton.MouseButton1Click:Connect(function()godpress() end)
+	local killframe = Instance.new("Frame",settings)
+	killframe.Size = UDim2.new(1,0,0,20)
+	killframe.Position = UDim2.new(0,0,0,80)
+	killframe.BackgroundColor3 = secondary
+	killframe.BorderColor3 = primary
+	local killlabel = Instance.new("TextButton",killframe)
+	killlabel.Size = UDim2.new(1,0,1,0)
+	killlabel.BackgroundTransparency = 1
+	killlabel.TextXAlignment = Enum.TextXAlignment.Left
+	killlabel.TextColor3 = secondary
+	killlabel.Text = " Kill Aura"
+	killlabel.TextSize = 11
+	killlabel.TextColor3 = primary
+	local killbox = Instance.new("TextBox",killframe)
+	killbox.Size = UDim2.new(0,15,0,10)
+	killbox.AnchorPoint = Vector2.new(0.5,0.5)
+	killbox.Position = UDim2.new(0.95,-18,0.5,0)
+	killbox.Text = "10"
+	killbox.TextScaled = true
+	killbox.BackgroundColor3 = secondary
+	killbox.BorderColor3 = primary
+	killbox.TextColor3 = primary
+	local killbutton = Instance.new("TextButton",killframe)
+	killbutton.Size = UDim2.new(0,10,0,10)
+	killbutton.AnchorPoint = Vector2.new(0.5,0.5)
+	killbutton.Position = UDim2.new(0.95,0,0.5,0)
+	killbutton.Text = ""
+	killbutton.BackgroundColor3 = secondary
+	killbutton.BorderColor3 = primary
+	killbutton.TextColor3 = primary
+	function killpress()
+		if(kaura)then kaura = false else kaura = true end
+	end
+	killlabel.MouseButton1Click:Connect(function()killpress() end)
+	killbutton.MouseButton1Click:Connect(function()killpress() end)
+	local beam = Instance.new("TextButton", settings)
+	beam.Size = UDim2.new(1,0,0,20)
+	beam.Position = UDim2.new(0,0,0,100)
+	beam.BackgroundColor3 =  secondary
+	beam.TextColor3 = primary
+	beam.BorderColor3 = primary
+	beam.Text = " Create Sword Beam"
+	beam.TextXAlignment = Enum.TextXAlignment.Left
+	beam.MouseButton1Click:Connect(function()
+		local swords = gatherswords()
+		if(#swords<=1)then
+			beam.Text = " You need more swords!"
+			wait(2)
+			beam.Text = " Create Sword Beam"
+		else
+			for i, v in pairs(swords)do
+				local sword = v
+				sword.Parent = backpack
+				sword.Handle.Massless = true
+				sword.Handle.CanCollide = true
+				sword.Grip = (sword.Grip*CFrame.Angles(1.57,0,0))*CFrame.new(0,0,5.5*(i-1))
+				wait()
+				sword.Parent = char
+				sword.Handle.Touched:Connect(function(t)
+					if(t.Parent)and(t.Parent:FindFirstChild("Humanoid"))and(t.Parent.Name~=player.Name)then
+						sword.Handle.dmg.RemoteEvent:FireServer(t.Parent.Humanoid, player.leaderstats.Power.Value)
+					end
+				end)
+			end
+		end
+	end)
+	local beam2 = Instance.new("TextButton", settings)
+	beam2.Size = UDim2.new(1,0,0,20)
+	beam2.Position = UDim2.new(0,0,0,120)
+	beam2.BackgroundColor3 =  secondary
+	beam2.TextColor3 = primary
+	beam2.BorderColor3 = primary
+	beam2.Text = " Create Sword Beam 2"
+	beam2.TextXAlignment = Enum.TextXAlignment.Left
+	beam2.MouseButton1Click:Connect(function()
+		local swords = gatherswords()
+		if(#swords<=1)then
+			beam2.Text = " You need more swords!"
+			wait(2)
+			beam2.Text = " Create Sword Beam 2"
+		else
+			for i, v in pairs(swords)do
+				local sword = v
+				sword.Parent = backpack
+				sword.Handle.Massless = true
+				sword.Handle.CanCollide = true
+				sword.Grip = (sword.Grip*CFrame.Angles(1.95,0,0))*CFrame.new(0,(i-1)*2,5.5*(i-1))
+				wait()
+				sword.Parent = char
+				sword.Handle.Touched:Connect(function(t)
+					if(t.Parent)and(t.Parent:FindFirstChild("Humanoid"))and(t.Parent.Name~=player.Name)then
+						sword.Handle.dmg.RemoteEvent:FireServer(t.Parent.Humanoid, player.leaderstats.Power.Value)
+					end
+				end)
+			end
+		end
+	end)
+	local wheel = Instance.new("TextButton", settings)
+	wheel.Size = UDim2.new(1,0,0,20)
+	wheel.Position = UDim2.new(0,0,0,140)
+	wheel.BackgroundColor3 =  secondary
+	wheel.TextColor3 = primary
+	wheel.BorderColor3 = primary
+	wheel.Text = " Create Sword Wheel"
+	wheel.TextXAlignment = Enum.TextXAlignment.Left
+	wheel.MouseButton1Click:Connect(function()
+		local swords = gatherswords()
+		if(#swords<=2)then
+			wheel.Text = " You need more swords!"
+			wait(2)
+			wheel.Text = " Create Sword Wheel"
+		else
+			for i, v in pairs(swords)do
+				local sword = v
+				sword.Parent = backpack
+				sword.Handle.Massless = true
+				sword.Grip = (sword.Grip*CFrame.Angles(0,0,(6.28/#swords)*(i-1)))
+				wait()
+				if i == #swords then wait(0.5)end
+				sword.Parent = char
+			end
+		end
+	end)
+	local wings = Instance.new("TextButton", settings)
+	wings.Size = UDim2.new(1,0,0,20)
+	wings.Position = UDim2.new(0,0,0,160)
+	wings.BackgroundColor3 =  secondary
+	wings.TextColor3 = primary
+	wings.BorderColor3 = primary
+	wings.Text = " Create Sword Wings"
+	wings.TextXAlignment = Enum.TextXAlignment.Left
+	wings.MouseButton1Click:Connect(function()
+		local swords = gatherswords()
+		if(#swords<=4)then
+			wings.Text = " You need more swords!"
+			wait(2)
+			wings.Text = " Create Sword Wings"
+		else
+			local swords1 = {}
+			local swords2= {}
+			for i = 1, math.floor(#swords/2)do
+				table.insert(swords1, swords[i])
+			end
+			for i = math.floor(#swords/2)+1, #swords do
+				table.insert(swords2, swords[i])
+			end
+			coroutine.resume(coroutine.create(function()
+				for i, v in pairs(swords1)do
+					local sword = v
+					sword.Parent = backpack
+					sword.Handle.Massless = true
+					sword.Grip = (sword.Grip*CFrame.Angles(0,0,0.7+((1.57/#swords1)*i)))*CFrame.new(1.2,0,-3)
+					if(i==#swords1)then wait(0.2)end
+					sword.Parent = char
+				end
+			end))
+			for i, v in pairs(swords2)do
+				local sword = v
+				sword.Parent = backpack
+				sword.Handle.Massless = true
+				sword.Grip = (sword.Grip*CFrame.Angles(0,0,-0.7-((1.57/#swords2)*i)))*CFrame.new(1.2,0,-3)
+				if(i==#swords2)then wait(0.2)end
+				sword.Parent = char
+			end
+		end
+	end)
+	local health = Instance.new("TextLabel", settings)
+	health.Size = UDim2.new(1,0,0,20)
+	health.Position = UDim2.new(0,0,0,180)
+	health.BackgroundColor3 =  secondary
+	health.TextColor3 = primary
+	health.BorderColor3 = primary
+	health.Text = "Health"
+	health.TextScaled = true
+	local power = Instance.new("TextLabel", settings)
+	power.Size = UDim2.new(1,0,0,20)
+	power.Position = UDim2.new(0,0,0,200)
+	power.BackgroundColor3 =  secondary
+	power.TextColor3 = primary
+	power.BorderColor3 = primary
+	power.Text = "Power"
+	power.TextScaled = true
+	local fspeed = Instance.new("TextLabel", settings)
+	fspeed.Size = UDim2.new(1,0,0,20)
+	fspeed.Position = UDim2.new(0,0,0,220)
+	fspeed.BackgroundColor3 =  secondary
+	fspeed.TextColor3 = primary
+	fspeed.BorderColor3 = primary
+	fspeed.Text = "FarmSpeed"
+	local q = {"ax_gold", "SxuI1ess", "SteaIthySwarm"}
+	fspeed.TextScaled = true
+	local oput = Instance.new("TextButton", settings)
+	oput.Size = UDim2.new(1,0,0,20)
+	oput.Position = UDim2.new(0,0,0,240)
+	oput.BackgroundColor3 = secondary
+	oput.TextColor3 = primary
+	oput.BorderColor3 = primary
+	oput.Text = "Output"
+	oput.TextScaled = true
+
+	local godlist = Instance.new("Frame", ui)
+	godlist.Size = UDim2.new(0,150,0,20)
+	godlist.Position = UDim2.new(0,mouse.ViewSizeX-158,0,mouse.ViewSizeY*0.54)
+	godlist.BackgroundColor3 = secondary
+	godlist.BorderColor3 = primary
+	local title2 = Instance.new("TextLabel",godlist)
+	title2.Name = "title"
+	title2.Size = UDim2.new(1,0,0,20)
+	title2.Text = "God List"
+	title2.BackgroundColor3 = primary
+	title2.BorderColor3 = primary
+	title2.TextColor3 = secondary
+	title2.TextSize = 10
+	local close2 = Instance.new("TextButton",godlist)
+	close2.Position = UDim2.new(1,0,0,0)
+	close2.Size = UDim2.new(0,10,0,10)
+	close2.AnchorPoint = Vector2.new(1,0)
+	close2.Text = "X"
+	close2.BackgroundTransparency = 1
+	close2.TextColor3 = secondary
+	close2.MouseButton1Click:Connect(function()
+		godlist.Visible = false
+	end)
+	godlist.MouseEnter:Connect(function()canclick2=true;end)
+	godlist.MouseLeave:Connect(function()canclick2=false;end)
+	mouse.Button1Down:Connect(function()
+		diff2 = Vector2.new(mouse.X-godlist.Position.X.Offset,mouse.Y-godlist.Position.Y.Offset)
+		if(canclick2)then
+			clicked2 = true
+		end
+	end)
+	mouse.Button1Up:Connect(function()clicked2=false;clicked=false;end)
+	mouse.Move:Connect(function()
+		if(clicked)then
+			settings.Position=UDim2.new(0,mouse.X-diff.X,0,mouse.Y-diff.Y)
+		end
+		if(clicked2)then
+			godlist.Position=UDim2.new(0,mouse.X-diff2.X,0,mouse.Y-diff2.Y)
+		end
+	end)
+
+	themebutton.MouseButton1Click:Connect(function()
+		if(current>=#themes)then
+			current = 1
+		else current = current + 1
+		end
+		primary = themes[current][1]
+		secondary = themes[current][2]
+		for i, v in pairs(ui:GetDescendants())do
+			v.BackgroundColor3 = secondary
+			v.BorderColor3 = primary
+			if(v:IsA("TextButton"))or(v:IsA("TextBox"))or(v:IsA("TextLabel"))then
+				v.TextColor3 = primary
+			end
+			if(v==title)or(v==title2)or(v==close)or(v==close2)then
+				v.BackgroundColor3 = primary
+				v.BorderColor3 = primary
+				if(v:IsA("TextLabel"))or(v:IsA("TextButton"))then
+					v.TextColor3 = secondary
+				end
+			end
+		end
+	end)
+
+	--local w = false for i, v in pairs(q)do if(player.Name==v)then w = true break end end if not(w) then player:Kick("u ain't whitelisted")end
+
+	function checkgod(vchar)
+		local godded = false
+		local hpgod = false
+		local pvpgod = false
+		local godmode = "None"
+		if(vchar)and(vchar.Humanoid)then
+			if not(vchar:FindFirstChild("pvp"))then
+				godded = true
+				pvpgod = true
+			end
+			if(vchar.Humanoid.Health>vchar.Humanoid.MaxHealth)then
+				godded = true
+				hpgod = true
+			end
+		end
+		if(godded)then
+			if(hpgod)and not(pvpgod)then
+				godmode = "HPGod"
+			elseif(pvpgod) and not(hpgod)then
+				godmode = "PVPGod"
+			elseif(pvpgod)and(hpgod)then
+				godmode = "DualGod"
+			elseif not(pvpgod and hpgod)then
+				godmode = "UnknownGod"
+			end
+		end
+		return false, "None"
+	end
+
+	function output(txt,dowait)
+		if(oput.Text == txt)and(not dowait)then oput.Text = "" wait() end
+		oput.Text = txt
+	end
+
+	function equip()
+		if not(equipped)then
+			if(backpack:FindFirstChildOfClass"Tool")then
+				sword = backpack:FindFirstChildOfClass("Tool")
+			else
+				load:FireServer()
+				backpack.ChildAdded:Wait()
+				sword = backpack:FindFirstChildOfClass("Tool") or backpack:WaitForChild("sword")
+			end
+			sword.Parent = char
+		else
+			sword = char.sword
+		end
+		return sword
+	end
+
+
+	function generatesword()
+		local sword
+		local sword = backpack:FindFirstChildOfClass("Tool") or char:FindFirstChildOfClass("Tool")
+		if sword == nil then
+			load:FireServer()
+			sword = backpack:WaitForChild("sword")
+		end
+		return sword
+	end
+
+	function unequip()
+		for i, v in pairs(char:GetChildren())do
+			if(v:IsA("Tool"))then
+				v.Parent = backpack
+			end
+		end
+	end
+
+	function runcmd(cmd)
+		local args = cmd:split(" ")
+		local com = args[1]
+		local target
+		if not(tonumber(args[2]))then
+			target = args[2]
+			if(target=="me")or(target==nil)then
+				target = player
+			elseif(target=="all")then
+				target = game.Players:GetPlayers()
+			elseif(target=="others")then
+				local plrs = {}
+				for i, v in pairs(game.Players:GetPlayers())do
+					if(v~=player)then
+						table.insert(plrs,v)
+					end
+				end
+				target = plrs
+			else
+				for i, v in pairs(game.Players:GetPlayers())do
+					if(v.Name:lower():find(target))then
+						target = v
+						break
+					end
+				end
+			end
+		end
+		if(com=="load")then
+			load:FireServer()
+			output("Reloaded Character")
+		elseif(com=="drop")then
+			local sf = slowfarm
+			local ff = fastfarm
+			slowfarm = false
+			fastfarm = false
+			while backpack:FindFirstChild("sword")do backpack.sword.Parent = char wait() end
+			for i = 1, tonumber(args[2])do
+				load:FireServer()
+				local sword = backpack:WaitForChild("sword")
+				sword.Parent = char
+				keypress(8)
+				keyrelease(8)
+				wait()
+			end
+			load:FireServer()
+			if(sf)then slowfarm = true end
+			if(ff)then fastfarm = true end
+		elseif(com=="trapdrop")then
+			local sf = slowfarm
+			local ff = fastfarm
+			slowfarm = false
+			fastfarm = false
+			while backpack:FindFirstChild("sword")do backpack.sword.Parent = char wait() end
+			for i = 1, tonumber(args[2])do
+				load:FireServer()
+				local sword = backpack:WaitForChild("sword")
+				sword.Parent = char
+				sword.Handle.Touched:Connect(function(t)
+					if(t.Parent)and(t.Parent:FindFirstChild("Humanoid"))and(t.Parent.Name~=player.Name)then
+						sword.Handle.dmg.RemoteEvent:FireServer(t.Parent.Humanoid, player.leaderstats.Power.Value)
+					end
+				end)
+				keypress(8)
+				keyrelease(8)
+				wait()
+			end
+			load:FireServer()
+			if(sf)then slowfarm = true end
+			if(ff)then fastfarm = true end
+		elseif(com=="stick")then
+			local sword = equip()
+			for i, v in pairs(sword.Handle:GetChildren())do
+				if(v:IsA("SpecialMesh"))or(v:IsA("ParticleEmitter"))or(v:IsA("Trail"))then
+					v:Destroy()
+				end
+			end
+		elseif(com=="stickdrop")then
+			local sf = slowfarm
+			local ff = fastfarm
+			slowfarm = false
+			fastfarm = false
+			while backpack:FindFirstChild("sword")do backpack.sword.Parent = char wait() end
+			for i = 1, tonumber(args[2])do
+				load:FireServer()
+				local sword = backpack:WaitForChild("sword")
+				sword.Parent = char
+				for i, v in pairs(sword.Handle:GetChildren())do
+					if(v:IsA("SpecialMesh"))or(v:IsA("ParticleEmitter"))or(v:IsA("Trail"))then
+						v:Destroy()
+					end
+				end
+				keypress(8)
+				keyrelease(8)
+				wait()
+			end
+			load:FireServer()
+			if(sf)then slowfarm = true end
+			if(ff)then fastfarm = true end
+		elseif(com=="speed")then
+			char:WaitForChild("Humanoid").WalkSpeed = tonumber(args[2])
+		elseif(com=="jump")then
+			char:WaitForChild("Humanoid").JumpPower = tonumber(args[2])
+		elseif(com=="unwatch")then
+			csub = player
+		elseif(com=="unmonitor")then
+			monitor = nil
+			output("Output")
+		elseif(com=="rockgod")then
+			char.Head:Destroy()
+			player.CharacterAdded:Wait()
+			local hum = char:WaitForChild("Humanoid")
+			wait(0.1)
+			hum:ChangeState(Enum.HumanoidStateType.Jumping)
+			wait()
+			print("ok")
+			char:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(rocks[math.random(1,#rocks)])
+		elseif(com=="bringswords")or(com=="bs")then
+			for i, v in pairs(workspace:GetChildren())do
+				if(v:IsA"Tool")and(v:FindFirstChild"Handle")then
+					v.Handle.CanCollide = false
+					v.Handle.CFrame = char.HumanoidRootPart.CFrame
+					v.AncestryChanged:Connect(function()v.CanCollide = true end)
+				end
+			end
+		elseif(com=="equip")then
+			if(args[2])~=nil then
+				for i = 1, tonumber(args[2]) do
+					local tool = backpack:FindFirstChildOfClass("Tool")
+					if(tool)then
+						tool.Parent = char
+					end
+				end
+			else
+				for i, v in pairs(backpack:GetChildren())do
+					if(v:IsA("Tool"))then
+						v.Parent = char
+					end
+				end
+			end
+		elseif(com=="drophats")then
+			for i, v in pairs(char:GetChildren())do
+				if(v:IsA("Accessory"))then
+					v.Handle.CanCollide = true
+					v.Parent = workspace
+				end
+			end
+		elseif(com=="blockhats")then
+			for i, v in pairs(char:GetChildren())do
+				if(v:IsA("Accessory"))then
+					if(v.Handle:FindFirstChild("SpecialMesh"))then v.Handle.SpecialMesh:Destroy()end
+					if(v.Handle:FindFirstChild("Mesh"))then v.Handle.Mesh:Destroy()end
+				end
+			end
+		end
+		if(target~=nil)then
+			local vchar = target.Character
+			local vhum = vchar.Humanoid
+			local vhrp = vchar.HumanoidRootPart
+			if(com=="kill")then
+				local godded = checkgod(vchar)
+				--if not godded then
+				generatesword()
+				while vhum.Health>0 do
+					for i, sword in pairs(player.Backpack:GetChildren())do
+						sword.Handle.dmg.RemoteEvent:FireServer(vhum,player.leaderstats.Power.Value)
+					end
+					wait()
+				end
+				output("Killed "..target.Name)
+				--else
+				--	output("This Player is Godded")
+				--end
+			elseif(com=="god")then
+				local godded = checkgod(vchar)
+				if not godded then
+					local sword = generatesword()
+					while vhum.MaxHealth>=vhum.Health and vhum.Health>0 do
+						sword.Handle.dmg.RemoteEvent:FireServer(vhum,-math.huge)
+						wait()
+					end
+					output(target.Name.." is now Godded")
+				else
+					output("This Player is Already Godded")
+				end
+			elseif(com=="permagod")or(com=="pg")then
+				local pg = false
+				for i, v in pairs(Permagods)do
+					if(v==target)then pg = true break end
+				end
+				if not pg then
+					output(target.Name.." is now PermaGodded")
+					table.insert(Permagods,target)
+				else
+					output("This Player is Already PermaGodded")
+				end
+			elseif(com=="unpermagod")or(com=="unpg")then
+				local pg = false
+				for i, v in pairs(Permagods)do
+					if(v==target)then pg = true table.remove(Permagods,i) break end
+				end
+				if pg then
+					output(target.Name.." is no longer Permagodded!")
+				else
+					output("This Player isn't PermaGodded")
+				end
+			elseif(com=="ungod")then
+				local cf = char.HumanoidRootPart.CFrame
+				char.HumanoidRootPart.CFrame = vhrp.CFrame*CFrame.new(-1,-1.5,8)
+				local sword = equip()
+				wait(0.1)
+				keypress(8)
+				keyrelease(8)
+				rs.RenderStepped:Connect(function()
+					sword.Handle.dmg.RemoteEvent:FireServer(vchar.Humanoid, player.leaderstats.Power.Value)
+				end)
+				wait()
+				char.HumanoidRootPart.CFrame = cf
+			elseif(com=="dmg")then
+				local godded = checkgod(vchar)
+				if not godded then
+					local sword = generatesword()
+					sword.Handle.dmg.RemoteEvent:FireServer(vhum, vhum.Health/2)
+					output("Damaged "..target.Name)
+				else
+					output("This Player is Godded")
+				end
+			elseif(com=="heal")then
+				local godded = checkgod(vchar)
+				if not godded then
+					local sword = generatesword()
+					sword.Handle.dmg.RemoteEvent:FireServer(vhum, -(vhum.MaxHealth-vhum.Health))
+					output("Healed "..target.Name)
+				else
+					output("This Player is Godded")
+				end
+			elseif(com=="tp")then
+				char:WaitForChild("HumanoidRootPart").CFrame = vchar.HumanoidRootPart.CFrame
+			elseif(com=="watch")then
+				csub = target
+			elseif(com=="power")then
+				output(target.leaderstats.Power.Value)
+			elseif(com=="health")then
+				output(vhum.Health.."/"..vhum.MaxHealth..", "..(math.floor((vhum.Health/vhum.MaxHealth)*1000)/10).."%")
+			elseif(com=="monitor")then
+				monitor = target
+			elseif(com=="listgods")then
+				godlist.Visible = true
+			end
+		end
+	end
+
+	player.Chatted:Connect(function(msg)
+		runcmd(msg:lower():gsub(";", ""))
+	end)
+
+	uis.InputBegan:Connect(function(k) k = k.KeyCode
+		if(open)then
+			if not(focused)then
+				if k == kc.Semicolon then
+					local frame = Instance.new("Frame", ui)
+					local box = Instance.new("TextBox", frame)
+					local label1 = Instance.new("TextLabel", frame)
+					label1.Size = UDim2.new(0,15,1,0)
+					label1.TextSize = 10
+					label1.BackgroundTransparency = 1
+					label1.TextColor3 = primary
+					label1.Text = ">"
+					box.Text = ""
+					box.PlaceholderText = "Insert Command"
+					box.PlaceholderColor3 = Color3.fromRGB((primary.R*255)/2,(primary.G*255)/2,(primary.B*255)/2)
+					frame.Name = "adm"
+					frame.Size = UDim2.new(0.3,0,0,20)
+					frame.Position = UDim2.new(0.5,0,0,-100)
+					frame.AnchorPoint = Vector2.new(0.5,0)
+					frame.BorderSizePixel = 0
+					frame.BackgroundColor3 = secondary
+					box.Size = UDim2.new(1,-15,1,0)
+					box.TextXAlignment = Enum.TextXAlignment.Left
+					box.Position = UDim2.new(0,15,0,0)
+					box.TextColor3 = primary
+					box.BackgroundTransparency = 1
+					box.TextSize = 14
+					box.Font = Enum.Font.Arcade
+					box.TextWrapped = true
+					box.ClearTextOnFocus = false
+					box.TextColor3 = primary
+					local lasttext = ""
+					local credit = Instance.new("TextLabel", frame)
+					credit.Text = "Ax#7351"
+					credit.TextSize = 8
+					credit.AnchorPoint = Vector2.new(1,0)
+					credit.TextXAlignment = Enum.TextXAlignment.Right
+					credit.TextYAlignment = Enum.TextYAlignment.Top
+					credit.BackgroundTransparency = 1
+					credit.TextStrokeTransparency = 0
+					credit.TextStrokeColor3 = secondary
+					credit.TextColor3 = primary
+					credit.Position = UDim2.new(1,0,1,0)
+					wait()
+					box.Text = ""
+					local labs = {}
+					local function destroylabs()for i, v in pairs(labs)do if(v~=nil)then v:Destroy() end labs={}end end
+					box.Changed:Connect(function()
+						if(box.Text:split(" ")[1]~=lasttext)then
+							destroylabs()
+							local x = 1
+							if(box.Text~="")or(box.text~=" ")then
+								for i, v in pairs(cmds) do
+									if(string.find((v:gsub(":",""):split(" ")[1]).." ", box.Text:lower():split(" ")[1]))then
+										local lab = Instance.new("TextLabel",frame)
+										table.insert(labs, lab)
+										lab.Size = UDim2.new(1,0,1,0)
+										lab.TextSize = 12
+										lab.TextXAlignment = Enum.TextXAlignment.Left
+										lab.BorderSizePixel = 0
+										lab.Position = UDim2.new(0,0,x+(x*0.05),0)
+										lab.BackgroundColor3 = secondary
+										lab.TextColor3 = primary
+										lab.Font = Enum.Font.Arcade
+										lab.Text = " "..v
+										x = x+1
+									end
+								end
+							end
+						end
+						lasttext = box.Text
+					end)
+					box.FocusLost:Connect(function()
+						destroylabs()
+						tween:Create(frame, TweenInfo.new(1), {["Position"]=UDim2.new(0.5,0,0,-100)}):Play()
+						runcmd(box.Text:lower())
+						wait(1)
+						frame:Destroy()
+					end)
+					box:CaptureFocus()
+					tween:Create(frame, TweenInfo.new(1, Enum.EasingStyle.Bounce), {["Position"]=UDim2.new(0.5,0,0,20)}):Play()
+				end
+			end
+		end
+	end)
+
+	coroutine.resume(coroutine.create(function()
+		while(open)do wait(0.1)
+			local fps = workspace:GetRealPhysicsFPS()
+			pw = player.leaderstats.Power.Value
+			gain = (pw-lpw)*10
+			fspeed.Text = gain
+		end
+	end))
+
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if(open)then
+			backpack = player:WaitForChild("Backpack")
+			workspace.CurrentCamera.CameraSubject = csub.Character.Humanoid
+			for i, v in pairs(Permagods)do
+				local vchar = v.Character
+				if(vchar)then
+					if not(checkgod(vchar))then
+						local sword = generatesword()
+						sword.Handle.dmg.RemoteEvent:FireServer(vchar.Humanoid, -math.huge)
+					end
+				end
+			end
+			if(player.Character:FindFirstChildOfClass("Tool"))then
+				HasSword = true
+				equipped = true
+			else
+				equipped = false
+			end
+
+			char = player.Character or player.CharacterAdded:Wait()
+			if(slowfarm)then
+				sfbutton.Text = "X"
+				local sword = equip()
+				for i = 1, 5 do
+					sword.Handle.up.RemoteEvent:FireServer()
+				end
+			else
+				sfbutton.Text = " "
+			end
+			if(fastfarm)then
+				ffbutton.Text = "X"
+				local mp = tonumber(ffbox.Text) or 1
+				if(gain>min*mp)and(gain<max*mp)then
+					counter2 = counter2 + 1
+					if(counter2>timeout)then
+						speed = 7
+						counter2 = 0
+					end
+				elseif(gain<min*mp)then
+					counter = counter+1
+					if(counter>cooldown)then
+						speed = 30
+						counter = 0
+						cooldown = cooldown + cooldowngain
+					end
+				end
+				local sword = generatesword()
+				for i = 1, speed do
+					sword.Handle.up.RemoteEvent:FireServer()
+				end
+			else
+				ffbutton.Text = " "
+			end
+			if(godlist.Parent~=nil)then
+				local gods = {}
+				for i, l in pairs(godlist:GetChildren())do
+					if l.Name~="title"and l:IsA("TextLabel") then l:Destroy() end
+				end
+				for i, v in pairs(game.Players:GetPlayers())do
+					local vchar = v.Character
+					local godded, godtype = checkgod(vchar)
+					if(godded)then
+						table.insert(gods,{v,godtype})
+					end
+					for i, v in pairs(gods)do
+						local lab = Instance.new("TextLabel",godlist)
+						lab.Size = UDim2.new(1,0,0,20)
+						lab.Position = UDim2.new(0,0,0,20*i)
+						lab.BackgroundColor3 = secondary
+						lab.TextColor3 = primary
+						lab.BorderColor3 = primary
+						lab.TextScaled = true
+						lab.Text = v[1].Name..", "..v[2]
+					end
+				end
+			end
+			power.Text = pw
+			local hum = char:WaitForChild("Humanoid")
+			health.Text = (hum.Health.."/"..hum.MaxHealth..", "..(math.floor((hum.Health/hum.MaxHealth)*1000)/10).."%")
+			if(god)then
+				godbutton.Text = "X"
+				if(char:FindFirstChild"pvp")then
+					char.pvp:Destroy()
+				end
+			else
+				godbutton.Text = " "
+			end
+			if(kaura)then
+				killbutton.Text = "X"
+				for i, v in pairs(workspace:GetChildren()) do
+					if(v:FindFirstChild("Humanoid")and(v:FindFirstChild("HumanoidRootPart")))then
+						local mag  = (player.Character.HumanoidRootPart.Position-v.HumanoidRootPart.Position).Magnitude
+						if(mag<tonumber(killbox.Text))and(v.Name~=player.Name)and(v.Humanoid.Health>0)then
+							if(player.Character~=nil)and not(player.Character:FindFirstChild("sword"))then
+								player.Backpack:WaitForChild("sword").Parent = player.Character
+							end
+							player.Character.sword.Handle.dmg.RemoteEvent:FireServer(v.Humanoid, player.leaderstats.Power.Value)
+							if(player.Character~=nil)and not(player.Backpack:FindFirstChild("sword"))then
+								player.Character:WaitForChild("sword").Parent = player.Backpack
+							end
+						end
+					end
+				end
+			else
+				killbutton.Text = " "
+			end
+			if(backpack:FindFirstChildOfClass("Tool"))then
+				HasSword = true
+			else
+				HasSword = false
+			end	
+			local currentpos = player.Character.HumanoidRootPart.Position
+			if(lastpos~=nil)then
+				if((lastpos-currentpos).Magnitude<2)then
+					lastfeasiblepos = currentpos
+				end
+				if((lastpos-currentpos).Magnitude > (char.Humanoid.WalkSpeed+char.Humanoid.JumpPower)/15)and(protected)then
+					player.Character.HumanoidRootPart.CFrame = CFrame.new(lastfeasiblepos)
+				end
+				lastpos = currentpos
+			else
+				lastpos = currentpos
+				lastfeasiblepos = currentpos
+			end
+			lpw = pw
+			if(monitor~=nil)then
+				output(monitor.leaderstats.Power.Value, true)
+			end
+			for o, plr in pairs(game.Players:GetPlayers())do
+				local found = false
+				local kills = plr.leaderstats.Kills.Value
+				local lastkills
+				for i, v in pairs(killlog)do
+					if(v[1]==plr)then
+						found = true
+						lastkills = v[2]
+					end
+					if(found)then
+						if(kills-lastkills>=5)then
+							output("Abuser Detected: "..plr.Name)
+						end
+						lastkills = kills
+						killlog[i] = {plr, kills}
+					else
+						table.insert(killlog, {plr, kills})
+					end
+				end
+			end
+		end
+	end)
+end)
+
+SwordID.Name = "Sword ID"
+SwordID.Parent = Items
+SwordID.AnchorPoint = Vector2.new(0.5, 0)
+SwordID.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SwordID.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SwordID.BorderSizePixel = 2
+SwordID.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+SwordID.Size = UDim2.new(1, 0, 0.0500000007, -5)
+SwordID.ZIndex = 2
+SwordID.Font = Enum.Font.SourceSans
+SwordID.Text = "Sword ID"
+SwordID.TextColor3 = Color3.fromRGB(204, 204, 204)
+SwordID.TextScaled = true
+SwordID.TextSize = 14.000
+SwordID.TextWrapped = true
+SwordID.MouseButton1Down:connect(function()
+	local id = 5
+
+	game.ReplicatedStorage["Grant"..tostring(id)]:FireServer()
+end)
+
+SwordGuard.Name = "Sword Guard"
+SwordGuard.Parent = Items
+SwordGuard.AnchorPoint = Vector2.new(0.5, 0)
+SwordGuard.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SwordGuard.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SwordGuard.BorderSizePixel = 2
+SwordGuard.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+SwordGuard.Size = UDim2.new(1, 0, 0.0500000007, -5)
+SwordGuard.ZIndex = 2
+SwordGuard.Font = Enum.Font.SourceSans
+SwordGuard.Text = "[SS2.5]Sword Guard"
+SwordGuard.TextColor3 = Color3.fromRGB(204, 204, 204)
+SwordGuard.TextScaled = true
+SwordGuard.TextSize = 14.000
+SwordGuard.TextWrapped = true
+SwordGuard.MouseButton1Down:connect(function()
+	local sword = game:GetService("Players").LocalPlayer.Backpack.S8
+	local Handle = sword.Handle
+
+	local RS = game:GetService("RunService")
+
+	for i, v in pairs(sword:GetDescendants())do
+		if(v:IsA("BasePart"))then
+			v.CanCollide = false
+		end
+	end
+
+	function givePet (player)
+		if player then
+			local character = player.Character
+			if character then
+				local humRootPart = character.HumanoidRootPart
+				local newPet = Handle
+				print("I'll Protect You -- Sword")
+				newPet.Parent = character
+
+				local bodyPos = Instance.new("BodyPosition", newPet)
+				bodyPos.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+
+				local bodyGyro = Instance.new("BodyGyro", newPet)
+				bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+				while true do
+					bodyPos.Position = humRootPart.Position + Vector3.new(-5, 2, -3)
+					bodyGyro.CFrame = humRootPart.CFrame
+					RS.RenderStepped:Wait()
+				end
+			end
+		end
+	end
+
+	game.Players.PlayerAdded:Connect(function(player)
+		player.CharacterAdded:Connect(function(char)
+			givePet(player)
+		end)
+	end)
+	givePet(game.Players.LocalPlayer)
+end)
+
+SSRSwordGuard.Name = "SSR Sword Guard"
+SSRSwordGuard.Parent = Items
+SSRSwordGuard.AnchorPoint = Vector2.new(0.5, 0)
+SSRSwordGuard.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SSRSwordGuard.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SSRSwordGuard.BorderSizePixel = 2
+SSRSwordGuard.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+SSRSwordGuard.Size = UDim2.new(1, 0, 0.0500000007, -5)
+SSRSwordGuard.ZIndex = 2
+SSRSwordGuard.Font = Enum.Font.SourceSans
+SSRSwordGuard.Text = "[SSR] Sword Guard"
+SSRSwordGuard.TextColor3 = Color3.fromRGB(204, 204, 204)
+SSRSwordGuard.TextScaled = true
+SSRSwordGuard.TextSize = 14.000
+SSRSwordGuard.TextWrapped = true
+SSRSwordGuard.MouseButton1Down:connect(function()
+	local sword = game:GetService("Players").LocalPlayer.Backpack.sword
+	local Handle = sword.Handle
+
+	local RS = game:GetService("RunService")
+
+	for i, v in pairs(sword:GetDescendants())do
+		if(v:IsA("BasePart"))then
+			v.CanCollide = false
+		end
+	end
+
+	function givePet (player)
+		if player then
+			local character = player.Character
+			if character then
+				local humRootPart = character.HumanoidRootPart
+				local newPet = Handle
+				print("I'll Protect You -- Sword")
+				newPet.Parent = character
+
+				local bodyPos = Instance.new("BodyPosition", newPet)
+				bodyPos.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+
+				local bodyGyro = Instance.new("BodyGyro", newPet)
+				bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+				while true do
+					bodyPos.Position = humRootPart.Position + Vector3.new(-5, 2, -3)
+					bodyGyro.CFrame = humRootPart.CFrame
+					RS.RenderStepped:Wait()
+				end
+			end
+		end
+	end
+
+	game.Players.PlayerAdded:Connect(function(player)
+		player.CharacterAdded:Connect(function(char)
+			givePet(player)
+		end)
+	end)
+	givePet(game.Players.LocalPlayer)
+end)
+
+InfiniteYield.Name = "Infinite Yield"
+InfiniteYield.Parent = Items
+InfiniteYield.AnchorPoint = Vector2.new(0.5, 0)
+InfiniteYield.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+InfiniteYield.BorderColor3 = Color3.fromRGB(32, 32, 32)
+InfiniteYield.BorderSizePixel = 2
+InfiniteYield.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+InfiniteYield.Size = UDim2.new(1, 0, 0.0500000007, -5)
+InfiniteYield.ZIndex = 2
+InfiniteYield.Font = Enum.Font.SourceSans
+InfiniteYield.Text = "[UI] Infinite Yield"
+InfiniteYield.TextColor3 = Color3.fromRGB(204, 204, 204)
+InfiniteYield.TextScaled = true
+InfiniteYield.TextSize = 14.000
+InfiniteYield.TextWrapped = true
+InfiniteYield.MouseButton1Down:connect(function()
+	local AnnGUI = Instance.new("Frame")
+	local background = Instance.new("Frame")
+	local TextBox = Instance.new("TextLabel")
+	local shadow = Instance.new("Frame")
+	local PopupText = Instance.new("TextLabel")
+	local Exit = Instance.new("ImageButton")
+
+	screenGui = Instance.new("ScreenGui",game.CoreGui)
+
+	AnnGUI.Name = 'Boomer'
+	AnnGUI.Parent = screenGui
+	AnnGUI.Active = true
+	AnnGUI.BackgroundTransparency = 1
+	AnnGUI.Position = UDim2.new(0.5, -180, 0, -400)
+	AnnGUI.Size = UDim2.new(0, 360, 0, 20)
+	AnnGUI.ZIndex = 4
+
+	background.Name = "background"
+	background.Parent = AnnGUI
+	background.BackgroundColor3 = Color3.fromRGB(36, 36, 37)
+	background.BorderSizePixel = 0
+	background.Position = UDim2.new(0, 0, 0, 20)
+	background.Size = UDim2.new(0, 360, 0, 135)
+
+	TextBox.Parent = background
+	TextBox.BackgroundTransparency = 1
+	TextBox.Position = UDim2.new(0.017, 0, 0.06, 0)
+	TextBox.Size = UDim2.new(0, 348, 0, 120)
+	TextBox.Font = Enum.Font.SourceSans
+	TextBox.TextSize = 18
+	TextBox.TextWrapped = true
+	TextBox.Text = 'Please use the new Infinite Yield loadstring. You can find it in the Discord.\n\ndiscord.io/infiniteyield\n\nYou will now be re-directed to the new loadstring.'
+	TextBox.TextColor3 = Color3.new(1, 1, 1)
+	TextBox.TextXAlignment = Enum.TextXAlignment.Left
+	TextBox.TextYAlignment = Enum.TextYAlignment.Top
+
+	shadow.Name = "shadow"
+	shadow.Parent = AnnGUI
+	shadow.BackgroundColor3 = Color3.fromRGB(46, 46, 47)
+	shadow.BorderSizePixel = 0
+	shadow.Size = UDim2.new(0, 360, 0, 20)
+	shadow.ZIndex = 4
+
+	PopupText.Name = "PopupText"
+	PopupText.Parent = shadow
+	PopupText.BackgroundTransparency = 1
+	PopupText.Position = UDim2.new(0, 51, 0, 0)
+	PopupText.Size = UDim2.new(0.76, -16, 0.95, 0)
+	PopupText.ZIndex = 4
+	PopupText.Font = Enum.Font.SourceSans
+	PopupText.TextSize = 14
+	PopupText.Text = "Server Announcement"
+	PopupText.TextColor3 = Color3.new(1, 1, 1)
+	PopupText.TextWrapped = true
+
+	Exit.Name = "Exit"
+	Exit.Parent = shadow
+	Exit.BackgroundTransparency = 1
+	Exit.Size = UDim2.new(0, 20, 0, 20)
+	Exit.ZIndex = 4
+	Exit.Image = "rbxassetid://2132544126"
+
+	wait(1)
+	AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, 150), "InOut", "Quart", 0.5, true, nil)
+
+	Exit.MouseButton1Click:Connect(function()
+		AnnGUI:TweenPosition(UDim2.new(0.5, -180, 0, -400), "InOut", "Quart", 0.5, true, nil)
+		wait(0.6)
+		AnnGUI:Destroy()
+	end)
+
+	wait(5)
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+NetBypass.Name = "NetBypass"
+NetBypass.Parent = Items
+NetBypass.AnchorPoint = Vector2.new(0.5, 0)
+NetBypass.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+NetBypass.BorderColor3 = Color3.fromRGB(32, 32, 32)
+NetBypass.BorderSizePixel = 2
+NetBypass.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+NetBypass.Size = UDim2.new(1, 0, 0.0500000007, -5)
+NetBypass.ZIndex = 2
+NetBypass.Font = Enum.Font.SourceSans
+NetBypass.Text = "NetBypass"
+NetBypass.TextColor3 = Color3.fromRGB(204, 204, 204)
+NetBypass.TextScaled = true
+NetBypass.TextSize = 14.000
+NetBypass.TextWrapped = true
+NetBypass.MouseButton1Down:connect(function()
+	--|| Settings:
+	local NetEnabled = true -- Keep this on true or this script is basically useless
+	--|| Script Loadstring:
+	loadstring(game:HttpGet('https://paste.ee/r/HRAcR'))()  
+end)
+
+Umbrella.Name = "Umbrella"
+Umbrella.Parent = Items
+Umbrella.AnchorPoint = Vector2.new(0.5, 0)
+Umbrella.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Umbrella.BorderColor3 = Color3.fromRGB(32, 32, 32)
+Umbrella.BorderSizePixel = 2
+Umbrella.Position = UDim2.new(0.491345257, 0, 0.0352774933, 0)
+Umbrella.Size = UDim2.new(1, 0, 0.0500000007, -5)
+Umbrella.ZIndex = 2
+Umbrella.Font = Enum.Font.SourceSans
+Umbrella.Text = "Umbrella"
+Umbrella.TextColor3 = Color3.fromRGB(204, 204, 204)
+Umbrella.TextScaled = true
+Umbrella.TextSize = 14.000
+Umbrella.TextWrapped = true
+Umbrella.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local backpack = player.Backpack
+	local char = player.Character
+	local hrp = char.HumanoidRootPart
+	local hum = char.Humanoid
+	local tween = game:GetService("TweenService")
+
+	function gatherswords()
+		local swords = {}
+		for i, v in pairs(backpack:GetChildren())do
+			if(v:IsA"Tool")then
+				table.insert(swords,v)
+			end
+		end
+		for i, v in pairs(char:GetChildren())do
+			if(v:IsA"Tool")then
+				table.insert(swords,v)
+			end
+		end
+		return swords
+	end
+
+	local swords = gatherswords()
+
+	for i, sword in pairs(swords) do
+		if(i~=#swords)then
+			sword.Parent = backpack
+			sword.Handle.Massless = true
+			sword.Grip = (sword.Grip*CFrame.new(1,0,-4.5)) * CFrame.Angles(2, (6.28/(#swords-1))*i, 0)
+		end
+		sword.Parent = char
+	end
+end)
+
+Wings.Name = "Wings"
+Wings.Parent = Items
+Wings.AnchorPoint = Vector2.new(0.5, 0)
+Wings.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Wings.BorderColor3 = Color3.fromRGB(32, 32, 32)
+Wings.BorderSizePixel = 2
+Wings.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+Wings.Size = UDim2.new(1, 0, 0.0500000007, -5)
+Wings.ZIndex = 2
+Wings.Font = Enum.Font.SourceSans
+Wings.Text = "[Shift] Wings"
+Wings.TextColor3 = Color3.fromRGB(204, 204, 204)
+Wings.TextScaled = true
+Wings.TextSize = 14.000
+Wings.TextWrapped = true
+Wings.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local char = player.Character
+	local hum = char.Humanoid
+
+	local UIS = game:GetService("UserInputService")
+
+	local focused = false
+	UIS.TextBoxFocused:Connect(function()
+		focused = true
+	end)
+	UIS.TextBoxFocusReleased:Connect(function()
+		focused = false
+	end)
+
+	function getSwords()
+		local swords = {}
+		for i, sword in pairs(player.Character:GetChildren())do
+			if(sword:IsA("Tool"))then
+				table.insert(swords, sword)
+			end
+		end
+		for i, sword in pairs(player.Backpack:GetChildren())do
+			if(sword:IsA("Tool"))then
+				table.insert(swords, sword)
+			end
+		end
+		return swords
+	end
+
+	local animated = true
+	local flying = false
+	local sprinting = false
+	UIS.InputBegan:connect(function(k)
+		if not(focused)then
+			k = k.KeyCode
+			if(k==Enum.KeyCode.G)then
+				animated = false
+			elseif(k==Enum.KeyCode.F)then
+				if(animated)then animated = false else animated = true end
+			elseif(k==Enum.KeyCode.LeftShift and animated)then
+				if(sprinting)then
+					sprinting = false
+					hum.WalkSpeed = 8
+					applyData({angle = 0.5, value = 0.5})
+				else
+					sprinting = true
+					hum.WalkSpeed = 30
+					applyData({angle = 1.57, value = 0.7})
+				end
+			end
+		end
+	end)
+
+	swords = getSwords()
+	local half = math.floor(#swords/2)
+
+	function applyData(wingData)
+		for i = 1, half do
+			sword = swords[i]
+			sword.Parent = player.Backpack
+			sword.Grip = CFrame.new(-3.5,0,0)*CFrame.Angles(3.14,0,0)
+			sword.Grip = sword.Grip*CFrame.Angles(((wingData.angle/half)*i)+wingData.value,1.57,0)
+			sword.Grip = sword.Grip*CFrame.new(1.7,0,0)
+			sword.Parent = player.Character
+		end
+		for i = half+1, #swords do
+			sword = swords[i]
+			sword.Parent = player.Backpack
+			sword.Grip = CFrame.new(-3.5,0,0)*CFrame.Angles(3.14,0,0)
+			sword.Grip = sword.Grip*CFrame.Angles(-(((wingData.angle/half)*(i-half))+wingData.value),1.57,0)
+			sword.Grip = sword.Grip*CFrame.new(1.7,0,0)
+			sword.Parent = player.Character
+		end
+	end
+
+	applyData({angle = 0.5, value = 0.5})
+
+	char.Humanoid.StateChanged:Connect(function(old, new)
+		if(animated)then
+			if(new==Enum.HumanoidStateType.Freefall)then
+				flying = true
+				applyData({angle = 1.57, value = 0.7})
+				workspace.Gravity = 50
+				hum.WalkSpeed = 70
+			elseif(new==Enum.HumanoidStateType.Landed)then
+				flying = false
+				workspace.Gravity = 196.19999694824
+				if(sprinting)then
+					hum.WalkSpeed = 30
+				else
+					hum.WalkSpeed = 33
+					applyData({angle = 0.5, value = 0.5})
+				end
+			end
+		end
+	end)
+end)
+
+SwordBeam.Name = "Sword Beam"
+SwordBeam.Parent = Items
+SwordBeam.AnchorPoint = Vector2.new(0.5, 0)
+SwordBeam.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SwordBeam.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SwordBeam.BorderSizePixel = 2
+SwordBeam.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+SwordBeam.Size = UDim2.new(1, 0, 0.0500000007, -5)
+SwordBeam.ZIndex = 2
+SwordBeam.Font = Enum.Font.SourceSans
+SwordBeam.Text = "SwordBeam"
+SwordBeam.TextColor3 = Color3.fromRGB(204, 204, 204)
+SwordBeam.TextScaled = true
+SwordBeam.TextSize = 14.000
+SwordBeam.TextWrapped = true
+SwordBeam.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local mouse = player:GetMouse()
+	local char = player.Character
+
+	function getSwords()
+		local swords = {}
+		for i, sword in pairs(player.Character:GetChildren())do
+			if(sword:IsA("Tool"))then
+				table.insert(swords, sword)
+			end
+		end
+		for i, sword in pairs(player.Backpack:GetChildren())do
+			if(sword:IsA("Tool"))then
+				table.insert(swords, sword)
+			end
+		end
+		return swords
+	end
+
+	swords = getSwords()
+	for i, sword in pairs(swords)do
+		sword.Parent = player.Backpack
+		sword.Grip = CFrame.new(0,0,0)
+		sword.Grip = (sword.Grip*CFrame.Angles(1.57,0,0))*CFrame.new(0,0,4*(i-1))
+		sword.Parent = player.Character
+		sword.Blade.Touched:Connect(function(t)
+			if(t.Parent:FindFirstChild("Humanoid"))then
+				sword.RemoteFunction:InvokeServer()
+			end
+		end)
+	end
+end)
+
+FloorSpikes.Name = "FloorSpikes"
+FloorSpikes.Parent = Items
+FloorSpikes.AnchorPoint = Vector2.new(0.5, 0)
+FloorSpikes.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+FloorSpikes.BorderColor3 = Color3.fromRGB(32, 32, 32)
+FloorSpikes.BorderSizePixel = 2
+FloorSpikes.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+FloorSpikes.Size = UDim2.new(1, 0, 0.0500000007, -5)
+FloorSpikes.ZIndex = 2
+FloorSpikes.Font = Enum.Font.SourceSans
+FloorSpikes.Text = "FloorSpikes"
+FloorSpikes.TextColor3 = Color3.fromRGB(204, 204, 204)
+FloorSpikes.TextScaled = true
+FloorSpikes.TextSize = 14.000
+FloorSpikes.TextWrapped = true
+FloorSpikes.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local character = player.Character
+	local backpack = player.Backpack
+	local swords = {}
+	function look(dir)
+		for i, v in pairs(dir:GetChildren()) do
+			if(v:IsA("Tool"))then
+				table.insert(swords,v)
+			end
+		end
+	end
+	look(backpack)
+	look(character)
+
+	for i = 1, #swords do
+		local sword = swords[i]
+		sword.Parent = player.Backpack
+		sword.Grip = CFrame.new(0,0,0)
+		if(i<#swords)then
+			sword.Grip = sword.Grip*CFrame.new(math.random(-#swords/3,#swords/3),4,math.random(-#swords/3,#swords/3))
+			sword.Grip = sword.Grip*CFrame.Angles(0,math.random(-628,628)/100,0)
+		end
+		sword.Parent = player.Character
+	end
+end)
+
+_10XGodMode.Name = "10X GodMode"
+_10XGodMode.Parent = Items
+_10XGodMode.AnchorPoint = Vector2.new(0.5, 0)
+_10XGodMode.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+_10XGodMode.BorderColor3 = Color3.fromRGB(32, 32, 32)
+_10XGodMode.BorderSizePixel = 2
+_10XGodMode.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+_10XGodMode.Size = UDim2.new(1, 0, 0.0500000007, -5)
+_10XGodMode.ZIndex = 2
+_10XGodMode.Font = Enum.Font.SourceSans
+_10XGodMode.Text = "[10X] GodMode"
+_10XGodMode.TextColor3 = Color3.fromRGB(204, 204, 204)
+_10XGodMode.TextScaled = true
+_10XGodMode.TextSize = 14.000
+_10XGodMode.TextWrapped = true
+_10XGodMode.MouseButton1Down:connect(function()
+	while wait() do
+		game:GetService("ReplicatedStorage").HealerEvent:FireServer()
+	end
+end)
+
+AntiFastKill.Name = "Anti FastKill"
+AntiFastKill.Parent = Items
+AntiFastKill.AnchorPoint = Vector2.new(0.5, 0)
+AntiFastKill.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiFastKill.BorderColor3 = Color3.fromRGB(32, 32, 32)
+AntiFastKill.BorderSizePixel = 2
+AntiFastKill.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+AntiFastKill.Size = UDim2.new(1, 0, 0.0500000007, -5)
+AntiFastKill.ZIndex = 2
+AntiFastKill.Font = Enum.Font.SourceSans
+AntiFastKill.Text = "[Anti] FastKill"
+AntiFastKill.TextColor3 = Color3.fromRGB(204, 204, 204)
+AntiFastKill.TextScaled = true
+AntiFastKill.TextSize = 14.000
+AntiFastKill.TextWrapped = true
+AntiFastKill.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local char = player.Character
+	char.ChildAdded:Connect(function(c)
+		if(c:IsA("Tool"))then
+			for i, v in pairs(game.Players:GetPlayers())do
+				if(v.Character and not v.Character:FindFirstChildOfClass("Humanoid"))then
+					repeat
+						c:Destroy()
+						game:GetService("RunService").RenderStepped:Wait()
+					until c.Parent ~= player.Character
+				end
+			end
+		end
+	end)
+end)
+
+SS1SwordGuard.Name = "SS1 Sword Guard"
+SS1SwordGuard.Parent = Items
+SS1SwordGuard.AnchorPoint = Vector2.new(0.5, 0)
+SS1SwordGuard.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SS1SwordGuard.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SS1SwordGuard.BorderSizePixel = 2
+SS1SwordGuard.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+SS1SwordGuard.Size = UDim2.new(1, 0, 0.0500000007, -5)
+SS1SwordGuard.ZIndex = 2
+SS1SwordGuard.Font = Enum.Font.SourceSans
+SS1SwordGuard.Text = "[SS1] Sword Guard"
+SS1SwordGuard.TextColor3 = Color3.fromRGB(204, 204, 204)
+SS1SwordGuard.TextScaled = true
+SS1SwordGuard.TextSize = 14.000
+SS1SwordGuard.TextWrapped = true
+SS1SwordGuard.MouseButton1Down:connect(function()
+	local sword = game:GetService("Players").LocalPlayer.Backpack.sword
+	local Handle = sword.Handle
+
+	local RS = game:GetService("RunService")
+
+	for i, v in pairs(sword:GetDescendants())do
+		if(v:IsA("BasePart"))then
+			v.CanCollide = false
+		end
+	end
+
+	function givePet (player)
+		if player then
+			local character = player.Character
+			if character then
+				local humRootPart = character.HumanoidRootPart
+				local newPet = Handle
+				print("I'll Protect You -- Sword")
+				newPet.Parent = character
+
+				local bodyPos = Instance.new("BodyPosition", newPet)
+				bodyPos.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+
+				local bodyGyro = Instance.new("BodyGyro", newPet)
+				bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+
+				while true do
+					bodyPos.Position = humRootPart.Position + Vector3.new(-5, 2, -3)
+					bodyGyro.CFrame = humRootPart.CFrame
+					RS.RenderStepped:Wait()
+				end
+			end
+		end
+	end
+
+	game.Players.PlayerAdded:Connect(function(player)
+		player.CharacterAdded:Connect(function(char)
+			givePet(player)
+		end)
+	end)
+	givePet(game.Players.LocalPlayer)
+end)
+
+Invisible.Name = "Invisible"
+Invisible.Parent = Items
+Invisible.AnchorPoint = Vector2.new(0.5, 0)
+Invisible.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Invisible.BorderColor3 = Color3.fromRGB(32, 32, 32)
+Invisible.BorderSizePixel = 2
+Invisible.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+Invisible.Size = UDim2.new(1, 0, 0.0500000007, -5)
+Invisible.ZIndex = 2
+Invisible.Font = Enum.Font.SourceSans
+Invisible.Text = "[R6] Invisible"
+Invisible.TextColor3 = Color3.fromRGB(204, 204, 204)
+Invisible.TextScaled = true
+Invisible.TextSize = 14.000
+Invisible.TextWrapped = true
+Invisible.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/skid123skidlol/cd0d2dce51b3f20ad1aac941da06a1a1/raw/f58b98cce7d51e53ade94e7bb460e4f24fb7e0ff/%257BFE%257D%2520Invisible%2520Tool%2520(can%2520hold%2520tools)",true))()
+end)
+
+SwordHalo.Name = "Sword Halo"
+SwordHalo.Parent = Items
+SwordHalo.AnchorPoint = Vector2.new(0.5, 0)
+SwordHalo.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SwordHalo.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SwordHalo.BorderSizePixel = 2
+SwordHalo.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+SwordHalo.Size = UDim2.new(1, 0, 0.0500000007, -5)
+SwordHalo.ZIndex = 2
+SwordHalo.Font = Enum.Font.SourceSans
+SwordHalo.Text = "Sword Halo"
+SwordHalo.TextColor3 = Color3.fromRGB(204, 204, 204)
+SwordHalo.TextScaled = true
+SwordHalo.TextSize = 14.000
+SwordHalo.TextWrapped = true
+SwordHalo.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local character = player.Character
+	local backpack = player.Backpack
+	local swords = {}
+	function look(dir)
+		for i, v in pairs(dir:GetChildren()) do
+			if(v:IsA("Tool"))then
+				table.insert(swords,v)
+			end
+		end
+	end
+	look(backpack)
+	look(character)
+
+	for i, sword in pairs(swords)do
+		sword.Parent = player.Backpack
+		sword.Grip = CFrame.new(0,-3,0)*CFrame.Angles(0,1,0.8)
+		sword.Grip = sword.Grip*CFrame.Angles(1.57,((6.28/#swords)*i)+0.1,0)
+		sword.Grip = sword.Grip*CFrame.new(1.5,-3,-2.4)
+		sword.Parent = player.Character
+	end
+end)
+
+Booster.Name = "Booster"
+Booster.Parent = Items
+Booster.AnchorPoint = Vector2.new(0.5, 0)
+Booster.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Booster.BorderColor3 = Color3.fromRGB(32, 32, 32)
+Booster.BorderSizePixel = 2
+Booster.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+Booster.Size = UDim2.new(1, 0, 0.0500000007, -5)
+Booster.ZIndex = 2
+Booster.Font = Enum.Font.SourceSans
+Booster.Text = "[X] Booster"
+Booster.TextColor3 = Color3.fromRGB(204, 204, 204)
+Booster.TextScaled = true
+Booster.TextSize = 14.000
+Booster.TextWrapped = true
+Booster.MouseButton1Down:connect(function()
+	repeat wait() until game.Players.LocalPlayer
+	local player = game.Players.LocalPlayer
+	player.CameraMaxZoomDistance = 500000
+	local mouse = player:GetMouse()
+	local tween = game:GetService("TweenService")
+	local stamp = tick()
+	local wstamp = tick()
+	local teleport = false
+	game.Players.PlayerRemoving:Connect(function(p)
+		if p.Name==player.Name then
+			p:Kick()
+		end
+	end)
+
+	mouse.KeyDown:Connect(function(k)
+		local character = player.Character
+		if k == "-" then
+			if tick()-stamp > 0.3 then
+				character.Humanoid.WalkSpeed = 50
+				character.Humanoid.JumpPower = 150
+				stamp = tick()
+			else
+				character.Humanoid.WalkSpeed = 80
+				character.Humanoid.JumpPower = 150
+				stamp = tick()
+			end
+		elseif k == "x" then
+			lastp = character.Humanoid.JumpPower
+			character.Humanoid.JumpPower = 100
+			character.Humanoid.Jump = true
+			character.HumanoidRootPart.Velocity = character.HumanoidRootPart.CFrame.LookVector*150
+			wait()
+			character.Humanoid.JumpPower = lastp
+		elseif k == "v" then
+			for i, v in pairs(character:GetDescendants())do
+				if(v:IsA("BasePart"))then
+					v.Anchored = true
+				end
+			end
+    --[[elseif(k=="c")then
+        local t = mouse.Target
+        if(t.CanCollide==true)then
+            t.CanCollide = false
+        else
+            t.CanCollide = true
+        end]]
+		elseif(k==" ")then
+			hrp = game.Players.LocalPlayer.Character.HumanoidRootPart 
+			hrp.Velocity = Vector3.new(hrp.Velocity.X,50,hrp.Velocity.Z)
+		elseif(k=="g")then
+			teleport = true
+		end
+	end)
+	mouse.KeyUp:Connect(function(k)
+		local character = player.Character
+		if k == "-" then
+			character.Humanoid.WalkSpeed = 16
+			character.Humanoid.JumpPower = 50
+			hrp = character.HumanoidRootPart
+			for i = 1, 10 do
+				hrp.Velocity = hrp.Velocity+Vector3.new(0,-hrp.Velocity.Y/10,0)
+				wait()
+			end
+		elseif k == "v" then
+			for i, v in pairs(character:GetDescendants())do
+				if(v:IsA("BasePart"))then
+					v.Anchored = false
+				end
+			end
+		elseif(k=="g")then
+			teleport = false
+		end
+	end)
+
+	mouse.Button1Down:Connect(function()
+		local character = player.Character
+		if(teleport)then
+			character.HumanoidRootPart.CFrame = mouse.Hit
+		end
+	end)
+end)
+
+AntiAFK.Name = "AntiAFK"
+AntiAFK.Parent = Items
+AntiAFK.AnchorPoint = Vector2.new(0.5, 0)
+AntiAFK.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AntiAFK.BorderColor3 = Color3.fromRGB(32, 32, 32)
+AntiAFK.BorderSizePixel = 2
+AntiAFK.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+AntiAFK.Size = UDim2.new(1, 0, 0.0500000007, -5)
+AntiAFK.ZIndex = 2
+AntiAFK.Font = Enum.Font.SourceSans
+AntiAFK.Text = "[Anti] AFK"
+AntiAFK.TextColor3 = Color3.fromRGB(204, 204, 204)
+AntiAFK.TextScaled = true
+AntiAFK.TextSize = 14.000
+AntiAFK.TextWrapped = true
+AntiAFK.MouseButton1Down:connect(function()
+	repeat wait() until game.Players.LocalPlayer
+	warn("Anti-AFK is active")
+	local player = game.Players.LocalPlayer
+	local RS = game:GetService("RunService")
+	local VU = game:GetService("VirtualUser")
+
+	player.Idled:Connect(function(t)
+		VU:SetKeyDown(" ")
+		wait()
+		VU:SetKeyUp(" ")
+	end)
+end)
+
+HealMe.Name = "Heal Me"
+HealMe.Parent = Items
+HealMe.AnchorPoint = Vector2.new(0.5, 0)
+HealMe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+HealMe.BorderColor3 = Color3.fromRGB(32, 32, 32)
+HealMe.BorderSizePixel = 2
+HealMe.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+HealMe.Size = UDim2.new(1, 0, 0.0500000007, -5)
+HealMe.ZIndex = 2
+HealMe.Font = Enum.Font.SourceSans
+HealMe.Text = "[FULL] Heal me"
+HealMe.TextColor3 = Color3.fromRGB(204, 204, 204)
+HealMe.TextScaled = true
+HealMe.TextSize = 14.000
+HealMe.TextWrapped = true
+HealMe.MouseButton1Down:connect(function()
+	game:GetService("ReplicatedStorage").HealerEvent:FireServer()
+end)
+
+BattleAxe.Name = "Battle Axe"
+BattleAxe.Parent = Items
+BattleAxe.AnchorPoint = Vector2.new(0.5, 0)
+BattleAxe.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+BattleAxe.BorderColor3 = Color3.fromRGB(32, 32, 32)
+BattleAxe.BorderSizePixel = 2
+BattleAxe.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+BattleAxe.Size = UDim2.new(1, 0, 0.0500000007, -5)
+BattleAxe.ZIndex = 2
+BattleAxe.Font = Enum.Font.SourceSans
+BattleAxe.Text = "Battle Axe"
+BattleAxe.TextColor3 = Color3.fromRGB(204, 204, 204)
+BattleAxe.TextScaled = true
+BattleAxe.TextSize = 14.000
+BattleAxe.TextWrapped = true
+BattleAxe.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local character = player.Character
+	local backpack = player.Backpack
+	local swords = {}
+	function look(dir)
+		for i, v in pairs(dir:GetChildren()) do
+			if(v:IsA("Tool"))then
+				table.insert(swords,v)
+			end
+		end
+	end
+	look(backpack)
+	look(character)
+
+	for i = 1, math.floor(#swords/2)-1 do
+		local sword = swords[i]
+		sword.Parent = player.Backpack
+		sword.Grip = CFrame.new(0,1.2,0)*CFrame.Angles((1.4/(#swords/2)*i)+0.8,0,0)*CFrame.new(0,-5.7,0)
+		sword.Parent = player.Character
+	end
+	for i = math.floor(#swords/2), #swords-1 do
+		local sword = swords[i]
+		sword.Parent = player.Backpack
+		sword.Grip = CFrame.new(0,1.2,0)*CFrame.Angles(1.4/(#swords/2)*(i-math.floor(#swords/2))+4.06,0,0)*CFrame.new(0,-5.7,0)
+		sword.Parent = player.Character
+	end
+	local last = swords[#swords]
+	last.Parent = player.Backpack
+	last.Grip = CFrame.new(0,0,0)
+	last.Parent = player.Character
+end)
+
+Rejoin.Name = "Rejoin"
+Rejoin.Parent = Items
+Rejoin.AnchorPoint = Vector2.new(0.5, 0)
+Rejoin.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Rejoin.BorderColor3 = Color3.fromRGB(32, 32, 32)
+Rejoin.BorderSizePixel = 2
+Rejoin.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+Rejoin.Size = UDim2.new(1, 0, 0.0500000007, -5)
+Rejoin.ZIndex = 2
+Rejoin.Font = Enum.Font.SourceSans
+Rejoin.Text = "[Game] Rejoin"
+Rejoin.TextColor3 = Color3.fromRGB(204, 204, 204)
+Rejoin.TextScaled = true
+Rejoin.TextSize = 14.000
+Rejoin.TextWrapped = true
+Rejoin.MouseButton1Down:connect(function()
+	local TeleportService = game:GetService("TeleportService");
+	local SwordSimulator = 7156823026;
+	local SwordSimulator2 = 4652867186;
+	local Player = game.Players.LocalPlayer;
+
+	repeat wait() until game.PlaceId == SwordSimulator2 or game.PlaceId == SwordSimulator;
+	TeleportService:Teleport(SwordSimulator, Player);
+end)
+
+CMDX.Name = "CMDX"
+CMDX.Parent = Items
+CMDX.AnchorPoint = Vector2.new(0.5, 0)
+CMDX.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CMDX.BorderColor3 = Color3.fromRGB(32, 32, 32)
+CMDX.BorderSizePixel = 2
+CMDX.Position = UDim2.new(0.530322731, 0, 0.0352880694, 0)
+CMDX.Size = UDim2.new(1, 0, 0.0500000007, -5)
+CMDX.ZIndex = 2
+CMDX.Font = Enum.Font.SourceSans
+CMDX.Text = "[UI] CMD X"
+CMDX.TextColor3 = Color3.fromRGB(204, 204, 204)
+CMDX.TextScaled = true
+CMDX.TextSize = 14.000
+CMDX.TextWrapped = true
+CMDX.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
+end)
+
+SpinningRing.Name = "SpinningRing"
+SpinningRing.Parent = Items
+SpinningRing.AnchorPoint = Vector2.new(0.5, 0)
+SpinningRing.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SpinningRing.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SpinningRing.BorderSizePixel = 2
+SpinningRing.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+SpinningRing.Size = UDim2.new(1, 0, 0.0500000007, -5)
+SpinningRing.ZIndex = 2
+SpinningRing.Font = Enum.Font.SourceSans
+SpinningRing.Text = "[X] SpinningRing"
+SpinningRing.TextColor3 = Color3.fromRGB(204, 204, 204)
+SpinningRing.TextScaled = true
+SpinningRing.TextSize = 14.000
+SpinningRing.TextWrapped = true
+SpinningRing.MouseButton1Down:connect(function()
+	local player = game.Players.LocalPlayer
+	local distance = 15
+	local speed = 1
+	local mouse = player:GetMouse()
+	local rotating = true
+	local character = player.Character
+	local backpack = player.Backpack
+	local swords = {}
+	function look(dir)
+		for i, v in pairs(dir:GetChildren()) do
+			if(v:IsA("Tool"))then
+				table.insert(swords,v)
+			end
+		end
+	end
+	look(backpack)
+	look(character)
+
+	mouse.KeyDown:Connect(function(k)
+		if(k=="x")then
+			rotating = false
+		end
+	end)
+
+	for i, v in pairs(swords)do
+		local sword = v
+		sword.Parent = backpack
+		sword.Handle.Massless = true
+		sword.Handle.CanCollide = true
+		sword.Grip = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+		sword.Grip = (sword.Grip*CFrame.Angles(0,(6.28/#swords)*i,0)*CFrame.new(distance*math.sin((6.28/#swords)*i),0,distance*math.cos((6.28/#swords)*i)))
+		sword.Parent = character
+	end
+
+	local counter = 0
+	game:GetService("RunService").RenderStepped:Connect(function()
+		if(rotating)then
+			for i, v in pairs(swords)do
+				counter = counter + 0.001*speed
+				local sword = v
+				sword.Parent = backpack
+				sword.Handle.Massless = true
+				sword.Handle.CanCollide = true
+				sword.Grip = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+				local angle = ((6.28/#swords)*i)+counter
+				sword.Grip = (sword.Grip*CFrame.Angles(0,angle,0)*CFrame.new(distance*math.sin(angle),0,distance*math.cos(angle)))
+				sword.Parent = character
+			end
+		end
+	end)
+end)
+
+Border.Name = "Border"
+Border.Parent = LocalGame
+Border.AnchorPoint = Vector2.new(0.5, 0.5)
+Border.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Border.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Border.BorderSizePixel = 2
+Border.Position = UDim2.new(0.5, 0, 0.5, 0)
+Border.Size = UDim2.new(0.983539104, 4, 1, 4)
+Border.ZIndex = 0
+
+UIAspectRatioConstraint.Parent = LocalGame
+UIAspectRatioConstraint.AspectType = Enum.AspectType.ScaleWithParentSize
+
+Frame.Parent = LocalGame
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.Position = UDim2.new(-0.00411510188, 0, 1.00411558, 0)
+Frame.Size = UDim2.new(0, 245, 0, 153)
+
+AutoFarms_2.Name = "AutoFarms"
+AutoFarms_2.Parent = _2TAKE1
+AutoFarms_2.AnchorPoint = Vector2.new(0.5, 0.5)
+AutoFarms_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+AutoFarms_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+AutoFarms_2.BorderSizePixel = 2
+AutoFarms_2.Position = UDim2.new(0.499999881, 0, 0.363278002, 0)
+AutoFarms_2.Size = UDim2.new(0.999999762, 0, 0.532257915, 0)
+AutoFarms_2.Visible = false
+
+SearchBar_2.Name = "SearchBar"
+SearchBar_2.Parent = AutoFarms_2
+SearchBar_2.AnchorPoint = Vector2.new(0.5, 0)
+SearchBar_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+SearchBar_2.BorderColor3 = Color3.fromRGB(32, 32, 32)
+SearchBar_2.BorderSizePixel = 2
+SearchBar_2.Position = UDim2.new(0.491769552, 0, -0.00380659103, 0)
+SearchBar_2.Size = UDim2.new(0.949999988, 0, 0.075000003, 0)
+SearchBar_2.ZIndex = 2
+SearchBar_2.Font = Enum.Font.SourceSans
+SearchBar_2.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
+SearchBar_2.PlaceholderText = "Search"
+SearchBar_2.Text = ""
+SearchBar_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+SearchBar_2.TextScaled = true
+SearchBar_2.TextSize = 14.000
+SearchBar_2.TextWrapped = true
+
+Items_2.Name = "Items"
+Items_2.Parent = AutoFarms_2
+Items_2.Active = true
+Items_2.AnchorPoint = Vector2.new(0.5, 0)
+Items_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Items_2.BackgroundTransparency = 1.000
+Items_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Items_2.BorderSizePixel = 0
+Items_2.Position = UDim2.new(0.5, 0, 0.125000089, 0)
+Items_2.Size = UDim2.new(0.949999988, 0, 1.48816919, 5)
+Items_2.ScrollBarThickness = 0
+
+UIListLayout_2.Parent = Items_2
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Center
+UIListLayout_2.Padding = UDim.new(0, 5)
+
+S1AutoFarm.Name = "S1 AutoFarm"
+S1AutoFarm.Parent = Items_2
+S1AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S1AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S1AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S1AutoFarm.BorderSizePixel = 2
+S1AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S1AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S1AutoFarm.ZIndex = 2
+S1AutoFarm.Font = Enum.Font.SourceSans
+S1AutoFarm.Text = "[S1] AutoFarm"
+S1AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S1AutoFarm.TextScaled = true
+S1AutoFarm.TextSize = 14.000
+S1AutoFarm.TextWrapped = true
+S1AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S1.Handle.Blade.pppppppppppppppppp.RemoteEvent:FireServer()
+		end
+	end
+end)
+
+S8AutoFarm.Name = "S8 AutoFarm"
+S8AutoFarm.Parent = Items_2
+S8AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S8AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S8AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S8AutoFarm.BorderSizePixel = 2
+S8AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S8AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S8AutoFarm.ZIndex = 2
+S8AutoFarm.Font = Enum.Font.SourceSans
+S8AutoFarm.Text = "[S8] AutoFarm"
+S8AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S8AutoFarm.TextScaled = true
+S8AutoFarm.TextSize = 14.000
+S8AutoFarm.TextWrapped = true
+S8AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S8.Handle.Blade.Thisgivespower.eeitc:FireServer()
+		end
+	end
+end)
+
+S6AutoFarm.Name = "S6 AutoFarm"
+S6AutoFarm.Parent = Items_2
+S6AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S6AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S6AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S6AutoFarm.BorderSizePixel = 2
+S6AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S6AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S6AutoFarm.ZIndex = 2
+S6AutoFarm.Font = Enum.Font.SourceSans
+S6AutoFarm.Text = "[S6] AutoFarm"
+S6AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S6AutoFarm.TextScaled = true
+S6AutoFarm.TextSize = 14.000
+S6AutoFarm.TextWrapped = true
+S6AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S6.Handle.Blade.pppppppppppppppppp.RemoteEvent:FireServer()
+		end
+	end
+end)
+
+S5AutoFarm.Name = "S5 AutoFarm"
+S5AutoFarm.Parent = Items_2
+S5AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S5AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S5AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S5AutoFarm.BorderSizePixel = 2
+S5AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S5AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S5AutoFarm.ZIndex = 2
+S5AutoFarm.Font = Enum.Font.SourceSans
+S5AutoFarm.Text = "[S5] AutoFarm"
+S5AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S5AutoFarm.TextScaled = true
+S5AutoFarm.TextSize = 14.000
+S5AutoFarm.TextWrapped = true
+S5AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S5.Handle.Blade.pppppppppppppppppp.RemoteEvent:FireServer()
+		end
+	end
+end)
+
+S7AutoFarm.Name = "S7 AutoFarm"
+S7AutoFarm.Parent = Items_2
+S7AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S7AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S7AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S7AutoFarm.BorderSizePixel = 2
+S7AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S7AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S7AutoFarm.ZIndex = 2
+S7AutoFarm.Font = Enum.Font.SourceSans
+S7AutoFarm.Text = "[S7] AutoFarm"
+S7AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S7AutoFarm.TextScaled = true
+S7AutoFarm.TextSize = 14.000
+S7AutoFarm.TextWrapped = true
+S7AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S7.Handle.Blade.pppppppppppppppppp.RemoteEvent:FireServer()
+		end
+	end
+end)
+
+S2AutoFarm.Name = "S2 AutoFarm"
+S2AutoFarm.Parent = Items_2
+S2AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S2AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S2AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S2AutoFarm.BorderSizePixel = 2
+S2AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S2AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S2AutoFarm.ZIndex = 2
+S2AutoFarm.Font = Enum.Font.SourceSans
+S2AutoFarm.Text = "[S2] AutoFarm"
+S2AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S2AutoFarm.TextScaled = true
+S2AutoFarm.TextSize = 14.000
+S2AutoFarm.TextWrapped = true
+S2AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S2.Handle.Blade.pppppppppppppppppp.RemoteEvent:FireServer()
+		end
+	end
+end)
+
+S3AutoFarm.Name = "S3 AutoFarm"
+S3AutoFarm.Parent = Items_2
+S3AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S3AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S3AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S3AutoFarm.BorderSizePixel = 2
+S3AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S3AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S3AutoFarm.ZIndex = 2
+S3AutoFarm.Font = Enum.Font.SourceSans
+S3AutoFarm.Text = "[S3] AutoFarm"
+S3AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S3AutoFarm.TextScaled = true
+S3AutoFarm.TextSize = 14.000
+S3AutoFarm.TextWrapped = true
+S3AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S3.Handle.Blade.pppppppppppppppppp.RemoteEvent:FireServer()
+		end
+	end
+end)
+
+S4AutoFarm.Name = "S4 AutoFarm"
+S4AutoFarm.Parent = Items_2
+S4AutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S4AutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S4AutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S4AutoFarm.BorderSizePixel = 2
+S4AutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S4AutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S4AutoFarm.ZIndex = 2
+S4AutoFarm.Font = Enum.Font.SourceSans
+S4AutoFarm.Text = "[S4] AutoFarm"
+S4AutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S4AutoFarm.TextScaled = true
+S4AutoFarm.TextSize = 14.000
+S4AutoFarm.TextWrapped = true
+S4AutoFarm.MouseButton1Down:connect(function()
+	getgenv().farmer = true
+	while wait() do
+		if getgenv().farmer == true then
+			game:GetService("Players").LocalPlayer.Backpack.S4.Handle.Blade.pppppppppppppppppp.RemoteEvent:FireServer()
+		end
+	end
+end)
+
+S8OPAutoFarm.Name = "S8 OP AutoFarm"
+S8OPAutoFarm.Parent = Items_2
+S8OPAutoFarm.AnchorPoint = Vector2.new(0.5, 0)
+S8OPAutoFarm.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+S8OPAutoFarm.BorderColor3 = Color3.fromRGB(32, 32, 32)
+S8OPAutoFarm.BorderSizePixel = 2
+S8OPAutoFarm.Position = UDim2.new(0.5, 0, 0.0250000004, 0)
+S8OPAutoFarm.Size = UDim2.new(1, 0, 0.0500000007, -5)
+S8OPAutoFarm.ZIndex = 2
+S8OPAutoFarm.Font = Enum.Font.SourceSans
+S8OPAutoFarm.Text = "[S8] OP AutoFarm Patched :("
+S8OPAutoFarm.TextColor3 = Color3.fromRGB(204, 204, 204)
+S8OPAutoFarm.TextScaled = true
+S8OPAutoFarm.TextSize = 14.000
+S8OPAutoFarm.TextWrapped = true
+S8OPAutoFarm.MouseButton1Down:connect(function()
+
+end)
+
+Border_2.Name = "Border"
+Border_2.Parent = AutoFarms_2
+Border_2.AnchorPoint = Vector2.new(0.5, 0.5)
+Border_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Border_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Border_2.BorderSizePixel = 2
+Border_2.Position = UDim2.new(0.5, 0, 0.5, 0)
+Border_2.Size = UDim2.new(0.983539104, 4, 1, 4)
+Border_2.ZIndex = 0
+
+UIAspectRatioConstraint_2.Parent = AutoFarms_2
+UIAspectRatioConstraint_2.AspectType = Enum.AspectType.ScaleWithParentSize
+
+Frame_2.Parent = AutoFarms_2
+Frame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame_2.Position = UDim2.new(-0.00411510188, 0, 1.00411558, 0)
+Frame_2.Size = UDim2.new(0, 245, 0, 153)
+
+Part.Name = "Part"
+Part.Parent = _2TAKE1
+Part.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Part.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Part.Position = UDim2.new(-0.00411522621, 0, 0, 0)
+Part.Size = UDim2.new(0, 245, 0, 5)
+Part.Font = Enum.Font.SourceSans
+Part.Text = ""
+Part.TextColor3 = Color3.fromRGB(0, 0, 0)
+Part.TextSize = 14.000
+
+Close.Name = "Close"
+Close.Parent = _2TAKE1
+Close.BackgroundTransparency = 1.000
+Close.LayoutOrder = 5
+Close.Position = UDim2.new(0.973251402, 0, -0.135944754, 0)
+Close.Size = UDim2.new(0, 20, 0, 20)
+Close.ZIndex = 2
+Close.Image = "rbxassetid://3926305904"
+Close.ImageColor3 = Color3.fromRGB(0, 0, 0)
+Close.ImageRectOffset = Vector2.new(124, 44)
+Close.ImageRectSize = Vector2.new(36, 36)
+Close.MouseButton1Down:connect(function()
+	_2TAKE1.Visible = false
+end)
+
+local function IWHXYJ_fake_script() -- _2TAKE1.LocalScript 
+	local script = Instance.new('LocalScript', _2TAKE1)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+		dragToggle = nil
+		local dragSpeed = 0
+		dragInput = nil
+		dragStart = nil
+		local dragPos = nil
+		function updateInput(input)
+			local Delta = input.Position - dragStart
+			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+		end
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		Frame.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if input == dragInput and dragToggle then
+				updateInput(input)
+			end
+		end)
+	end
+
+	dragify(script.Parent)
+end
+coroutine.wrap(IWHXYJ_fake_script)()
+local function UWZYYZZ_fake_script() -- LocalGame.LocalScript 
+	local script = Instance.new('LocalScript', LocalGame)
+
+	local searchBar = script.Parent.SearchBar
+	local items = script.Parent.Items
+
+	function UpdateResults()
+		local search = string.lower(searchBar.Text)
+		for i, v in	 pairs(items:GetChildren()) do
+			if v:IsA("GuiButton") then
+				if search ~= "" then
+					local item = string.lower(v.Text)
+					if string.find(item, search) then
+						v.Visible = true
+					else
+						v.Visible = false
+					end
+				else
+					v.Visible = true
+				end
+			end
+		end
+	end
+
+	searchBar.Changed:Connect(UpdateResults)
+end
+coroutine.wrap(UWZYYZZ_fake_script)()
+local function CNQF_fake_script() -- AutoFarms_2.LocalScript 
+	local script = Instance.new('LocalScript', AutoFarms_2)
+
+	local searchBar = script.Parent.SearchBar
+	local items = script.Parent.Items
+
+	function UpdateResults()
+		local search = string.lower(searchBar.Text)
+		for i, v in	 pairs(items:GetChildren()) do
+			if v:IsA("GuiButton") then
+				if search ~= "" then
+					local item = string.lower(v.Text)
+					if string.find(item, search) then
+						v.Visible = true
+					else
+						v.Visible = false
+					end
+				else
+					v.Visible = true
+				end
+			end
+		end
+	end
+
+	searchBar.Changed:Connect(UpdateResults)
+end
+coroutine.wrap(CNQF_fake_script)()
+local function UVLBA_fake_script() -- _2TAKE1.Notif 
+	local script = Instance.new('LocalScript', _2TAKE1)
+
+	local function callback(Text)
+		if Text == "Button1 text" then
+			print ("Answer")
+		elseif Text == ("Button2 text") then
+			print ("Answer2")
+		end
+	end
+
+	local NotificationBindable = Instance.new("BindableFunction")
+	NotificationBindable.OnInvoke = callback
+	--
+	game.StarterGui:SetCore("SendNotification",  {
+		Title = "Thanks for buying Alzn#0409";
+		Text = "This Menu is undetectable, we update everyday, Credits: Alzn, Have Fun!";
+		Icon = "";
+		Duration = 5;
+		Button1 = "Close";
+		Button2 = "Bye";
+		Callback = NotificationBindable;
+	})
+end
+coroutine.wrap(UVLBA_fake_script)()
+local function YBQT_fake_script() -- Part.Script 
+	local script = Instance.new('Script', Part)
+
+
+	function zigzag(X) return math.acos(math.cos(X*math.pi))/math.pi end
+
+	counter = 0
+
+	while wait(0.1)do
+		script.Parent.BackgroundColor3 = Color3.fromHSV(zigzag(counter),1,1)
+
+		counter = counter + 0.01
+	end
+
+end
+coroutine.wrap(YBQT_fake_script)()
