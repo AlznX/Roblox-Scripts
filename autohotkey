@@ -1,0 +1,40 @@
+#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
+; #Warn  ; Enable warnings to assist with detecting common errors.
+SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
+F4:: 
+Loop { 
+ if GetKeyState("F5")
+  Break
+Send, 1
+Click
+Sleep, 50
+Send, 2
+Click
+Sleep, 50
+Send, 3
+Click
+Sleep, 50
+Send, 4
+Click
+Sleep, 50
+Send, 5
+Click
+Sleep, 50
+Send, 6
+Click
+Sleep, 50
+Send, 7
+Click
+Sleep, 50
+Send, 8
+Click
+Sleep, 50
+Send, 9
+Click
+Sleep, 50
+Send, 10
+Click
+Sleep, 50
+}
+return
