@@ -1,47 +1,52 @@
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Svun X Vince", "Ocean")
-
--- MAIN
-local MAIN = Window:NewTab("MAIN")
-local MAINSection = MAIN:NewSection("MAIN")
+local Window = Library.CreateLib("Svun X Vince Premium", "GrapeTheme")
+local Premium = Window:NewTab("Premium")
+local PremiumSection = Premium:NewSection("Premium")
 
 
-MAINSection:NewButton("Elite AutoFarm", "too overpowered.", function()
+PremiumSection:NewButton("IvHub", "Admin Hub", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/IvHub/main/Jay'))()
+
+end)
+
+
+PremiumSection:NewButton("Elite Kill", "kills God Mode op", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/nothing/main/nothinghere'))()
+
+end)
+
+PremiumSection:NewButton("Elite AutoFarm", "too overpowered.", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/VinceAutofarm/main/H'))()
 
 end)
 
-MAINSection:NewButton("EliteLoopKill", "Client Sided", function()
+PremiumSection:NewButton("EliteLoopKill", "Client Sided", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/JhHFzD9N'))()
 end)
 
 
-MAINSection:NewButton("EliteLoopKill OFF", "stops loopkill", function()
+PremiumSection:NewButton("EliteLoopKill OFF", "stops loopkill", function()
     loadstring(game:HttpGet('https://pastebin.com/raw/n2i9fwjb'))()
 end)
 
-MAINSection:NewButton("EmperorWings", "SuperPower", function()
+
+PremiumSection:NewButton("EmperorWings", "SuperPower", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/EmperorWings/main/WingsSaga'))()
 end)
 
-MAINSection:NewButton("2take1", ".", function()
-    loadstring(game:HttpGet('http://2take1.tk'))() 
-end)
 
-
-MAINSection:NewButton("Sword Damage", "do Inf Dmg", function()
+PremiumSection:NewButton("Sword Damage", "do Inf Dmg", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/DmgSword1/main/yo'))()
 end)
 
-MAINSection:NewButton("Sword Reach", "Svun Hitbox", function()
+
+PremiumSection:NewButton("Sword Reach", "Svun Hitbox", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/SVUN-HITBOX/main/MINE'))()
 end)
 
-MAINSection:NewButton("Hub", "cool stuff", function()
-    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/dad/main/ffff'))()
-end)
 
-MAINSection:NewButton("CooqiHub", "SoCooqi", function()
+PremiumSection:NewButton("CooqiHub", "SoCooqi", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/CooqiNigger/main/Cooqi'))()
 end)
 
@@ -59,11 +64,17 @@ end)
 local Other = Window:NewTab("Other")
 local OtherSection = Other:NewSection("Other")
 
-OtherSection:NewButton("GavHub", "Daddy Yankee", function()
-	loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/GavHubPart2/main/niglet'))() 
+OtherSection:NewButton("GavHub V2", "Daddy Yankee Part 2", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/GavV2/main/Act2'))() 
 end)
 
-OtherSection:NewButton("Alznhub", "voom", function()
+
+OtherSection:NewButton("GavHub V1", "Daddy Yankee Part 1", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/GavHubNigga/main/Part1'))() 
+end)
+
+
+OtherSection:NewButton("Alzn", "rip Solex", function()
 	loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/AlznScript/main/Pull'))() 
 end)
 
@@ -82,14 +93,23 @@ OtherSection:NewKeybind("change keybind", "key", Enum.KeyCode.X, function()
 	Library:ToggleUI()
 end)
 
+OtherSection:NewButton("Zenistu", "In testing not released", function()
+    
+end)
+
+
+OtherSection:NewButton("Saber", "In testing not released", function()
+    
+end)
+
 ----- PLAYER ------
 
-PlayerSection:NewButton("EliteGod", "become powerful niglet", function()
+PlayerSection:NewButton("EliteGod", "F11 to turn off", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/EliteGodPart2/main/Best%20God'))()
 end)
 
 
-PlayerSection:NewButton("SwordSpin", "fuck", function()
+PlayerSection:NewButton("SwordSpin", "Spins sword", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/Sword-Spin/main/phoenix'))()
 end)
 
@@ -106,4 +126,78 @@ end)
 
 PlayerSection:NewButton("AntiAfk", "Anti Afk-ONLY FOR FARMING", function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/nammme/main/dougieb'))()
+end)
+
+PlayerSection:NewButton("Vince-Antifling", "you cant be fling.", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/AntiFling/main/Vince'))()
+end)
+
+
+PlayerSection:NewButton("Inf-Yield", "admin commands", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+PlayerSection:NewButton("RIA", "if target get hit with sword their power resets.", function()
+    local CoreGui = game:GetService("StarterGui") -- Variable of StarterGui
+
+CoreGui:SetCore("SendNotification", {
+    -- Customizable
+    Title = "RIA LOG!",
+    Text = "Invalid user only Owner can use this",
+    Duration = 10, -- Set the duration to how much you want this to stay
+    -- More code in part 2
+})
+
+end)
+
+
+
+
+---CREDITS---
+local Credits = Window:NewTab("Credits")
+local CreditsSection = Credits:NewSection("Credits")
+
+CreditsSection:NewButton("Credits to Svun", "for making gui and loadstrings", function()
+    setclipboard("https://discord.gg/8Q5pe7Mn")
+    toclipboard("https://discord.gg/8Q5pe7Mn")
+end)
+
+CreditsSection:NewButton("Credits to Vince", "Scripting and lua", function()
+    setclipboard("https://discord.gg/8Q5pe7Mn")
+     toclipboard("https://discord.gg/8Q5pe7Mn")
+end)
+
+
+
+
+local A_1 = game.Players.LocalPlayer.name.." [Executed Svun X Vince Premium]"-----message here
+    local A_2 = "All"
+    local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+    Event:FireServer(A_1, A_2)
+
+
+    ---------SOMETHING BEYOND -----
+local III = Window:NewTab("III")
+local IIISection = III:NewSection("III")
+
+IIISection:NewButton("DragonHub", "fixing", function()
+    
+end)
+
+
+IIISection:NewButton("MUI", "Buff your torso and health not god mode", function()
+    
+end)
+
+
+------------ DISCORD -------
+
+
+local Discord = Window:NewTab("Discord")
+local DiscordSection = Discord:NewSection("Discord")
+
+
+DiscordSection:NewButton("Press it will automatically Copy Link", "Link to IXDREAD Server", function()
+    setclipboard("https://discord.gg/8Q5pe7Mn")
+     toclipboard("https://discord.gg/8Q5pe7Mn")
 end)
