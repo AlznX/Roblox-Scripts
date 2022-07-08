@@ -1563,7 +1563,7 @@ end)
 local Other = Window:NewTab("Other")
 local OtherSection = Other:NewSection("Other")
 
-OtherSection:NewButton("Credit's", "Alzn_Scripting And Codeey", function()
+OtherSection:NewButton("Credit's", "Alzn_Scripting And $vun#0007", function()
     print("Clicked")
 end)
 
