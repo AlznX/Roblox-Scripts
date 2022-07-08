@@ -23,8 +23,8 @@ Section:NewButton("Old Sword Simulator Hub", "My Old GUI form Back in 2020", fun
     loadstring(game:HttpGet("https://raw.githubusercontent.com/AlznX/Sword-Simulator-2take1.tk/main/Sword%20Simulator%20Hub%20NEW",true))()
 end)
 
-Section:NewButton("Svunx Premium Hub", "Credits $vun#0007 On Discord!", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/SvunF/FINALSVUNX-RTXPREMIUM-VINCE/main/SVUNDRE"))()
+Section:NewButton("Deleted", "Deleted", function()
+    
 end)
 
 Section:NewButton("Alzn's Weapon Simulator 2 GUI Fast!!?", "Weapon Simulator 2 Auto Farm Sword Damage And God Mode!", function()
