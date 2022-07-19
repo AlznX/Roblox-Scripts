@@ -20,7 +20,7 @@ game:GetService("RunService").stepped:connect(power)
 end)
 
 Section:NewButton("Old Sword Simulator Hub", "My Old GUI form Back in 2020", function()
-    loadstring(game:HttpGet("https://github.com/AlznX/Sword-Simulator-2take1.tk/blob/main/Sword%20Simulator%20Hub",true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/AlznX/Sword-Simulator-2take1.tk/main/Sword%20Simulator%20Hub",true))()
 end)
 
 Section:NewButton("Sword Wings", "Make's A Wing of Swords Click Shift :)", function()
