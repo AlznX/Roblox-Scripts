@@ -20,7 +20,7 @@ game:GetService("RunService").stepped:connect(power)
 end)
 
 Section:NewButton("Old Sword Simulator Hub", "My Old GUI form Back in 2020", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/AlznX/Sword-Simulator-2take1.tk/main/Sword%20Simulator%20Hub%20NEW",true))()
+    loadstring(game:HttpGet("https://github.com/AlznX/Sword-Simulator-2take1.tk/blob/main/Sword%20Simulator%20Hub",true))()
 end)
 
 Section:NewButton("Sword Wings", "Make's A Wing of Swords Click Shift :)", function()
@@ -124,7 +124,7 @@ char.Humanoid.StateChanged:Connect(function(old, new)
 end)
 end)
 
-Section:NewButton("Alzn's Weapon Simulator 2 GUI Fast!!?", "Weapon Simulator 2 Auto Farm Sword Damage And God Mode!", function()
+Section:NewButton("Weapon Simulator 2 GUI", "Weapon Simulator 2 Auto Farm Sword Damage And God Mode!", function()
     
 local ScreenGui = Instance.new("ScreenGui")
 local TextButton = Instance.new("TextButton")
@@ -167,7 +167,7 @@ TextLabel.BackgroundColor3 = Color3.fromRGB(162, 162, 162)
 TextLabel.Position = UDim2.new(0.229649454, 0, 0, 0)
 TextLabel.Size = UDim2.new(0, 200, 0, 50)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Weapon Sim 2 "
+TextLabel.Text = "Weapon Simulator 2 "
 TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextLabel.TextSize = 14.000
 
@@ -1660,7 +1660,7 @@ end)
 local Other = Window:NewTab("Other")
 local OtherSection = Other:NewSection("Other")
 
-OtherSection:NewButton("Credit's", "Alzn_Scripting And $vun#0007", function()
+OtherSection:NewButton("Credit's", "Alzn#0409 And TruIy#0007", function()
     print("Clicked")
 end)
 
@@ -1727,10 +1727,60 @@ end
 end)
 
 Section:NewButton("Sword Ring", "Ring Of Sword's Click X to Stop it form Spining...", function()
-    print("Clicked")
+    local player = game.Players.LocalPlayer
+local distance = 50
+local speed = 1
+local mouse = player:GetMouse()
+local rotating = true
+local character = player.Character
+local backpack = player.Backpack
+local swords = {}
+function look(dir)
+    for i, v in pairs(dir:GetChildren()) do
+        if(v:IsA("Tool"))then
+            table.insert(swords,v)
+        end
+    end
+end
+look(backpack)
+look(character)
+
+mouse.KeyDown:Connect(function(k)
+    if(k=="x")then
+        rotating = false
+    end
 end)
 
-Section:NewButton("Sword Form", "Just A Cool looking Sword...", function()
+for i, v in pairs(swords)do
+    local sword = v
+    sword.Parent = backpack
+    sword.Handle.Massless = true
+    sword.Handle.CanCollide = true
+    sword.Grip = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    
+    sword.Grip = (sword.Grip*CFrame.Angles(0,(6.28/#swords)*i,0)*CFrame.new(distance*math.sin((6.28/#swords)*i),0,distance*math.cos((6.28/#swords)*i)))
+    sword.Parent = character
+end
+
+local counter = 0
+game:GetService("RunService").RenderStepped:Connect(function()
+if(rotating)then
+for i, v in pairs(swords)do
+    counter = counter + 0.001*speed
+    local sword = v
+    sword.Parent = backpack
+    sword.Handle.Massless = true
+    sword.Handle.CanCollide = true
+    sword.Grip = CFrame.new(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+    local angle = ((6.28/#swords)*i)+counter
+    sword.Grip = (sword.Grip*CFrame.Angles(0,angle,0)*CFrame.new(distance*math.sin(angle),0,distance*math.cos(angle)))
+    sword.Parent = character
+end
+end
+end)
+end)
+
+Section:NewButton("Sword Form", "You Need 90 Swords for it to Work.", function()
     local player = game.Players.LocalPlayer
 local character = player.Character
 local backpack = player.Backpack
@@ -1746,7 +1796,7 @@ look(backpack)
 look(character)
     local oldswords = swords
     local newswords = {}
-    for i = 1, 150 do
+    for i = 1, 90 do
         newswords[i] = oldswords[i]
     end
     local swords = newswords
@@ -3111,4 +3161,68 @@ credits:TweenPosition(UDim2.new(0.5, 98,0.565, -646),'Out','Quad',0.5)
 wait(0.5)
 maingui.Visible = true
 credits.Visible = false
+end)
+-- Dupe --
+Section:NewButton("Sword Effects Dupe", "Super Op Dupe by TruIy#0007 Edited By Me", function()
+    local SumPValues = 0
+local amountPlayerCount = 0
+for i = 1, 40
+    do 
+	--color sword
+	local Player = game.Players.LocalPlayer
+	for i = 1, 10 do
+			local v1 = "Red"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Blue"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Black"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+	
+		event:FireServer(v1)
+	end
+	wait(0.1)
+	--create sword
+	local event = game:GetService("Workspace").load.RemoteEvent
+	event:FireServer()
+	wait(0.36)
+	--put tools in hand
+	for i, v in pairs(Player.Backpack:GetChildren()) do
+		v.Parent = Player.Character
+	end
+	--drop tools and add tag
+	for i, v in pairs(Player.Character:GetChildren()) do
+		if v:IsA('Tool') then
+			v.Parent = workspace
+			ex = Instance.new('Script')
+			ex.Parent = v
+			ex.Name = 'MineYesMine'
+			for ix, vx in pairs(game.Players:GetChildren()) do
+				if vx.Character:FindFirstChild('HumanoidRootPart') ~= nil then
+					if vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X < 20 and vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X > -20 then
+						if vx ~= game.Players.LocalPlayer then
+							xXPos = vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X
+							print(v.Handle.Position.X)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+-- pick up tagged tools
+
+-- remove tags
+for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	if vt:FindFirstChild('MineYesMine') ~= nil then
+		vt.MineYesMine:Destroy()
+	end
+end
+end)
+
+OtherSection:NewButton("infinite yield", "Admin Script.", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",true))()
 end)
