@@ -3226,3 +3226,175 @@ end)
 OtherSection:NewButton("infinite yield", "Admin Script.", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",true))()
 end)
+-- Effects
+local Main = Window:NewTab("Sword Effects")
+local Section = Main:NewSection("Color Here.")
+
+Section:NewButton("Red And Blue", "Dupe", function()
+     local SumPValues = 0
+local amountPlayerCount = 0
+for i = 1, 20
+    do 
+	--color sword
+	local Player = game.Players.LocalPlayer
+	for i = 1, 10 do
+			local v1 = "Red"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Blue"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+	end
+	wait(0.1)
+	--create sword
+	local event = game:GetService("Workspace").load.RemoteEvent
+	event:FireServer()
+	wait(0.36)
+	--put tools in hand
+	for i, v in pairs(Player.Backpack:GetChildren()) do
+		v.Parent = Player.Character
+	end
+	--drop tools and add tag
+	for i, v in pairs(Player.Character:GetChildren()) do
+		if v:IsA('Tool') then
+			v.Parent = workspace
+			ex = Instance.new('Script')
+			ex.Parent = v
+			ex.Name = 'MineYesMine'
+			for ix, vx in pairs(game.Players:GetChildren()) do
+				if vx.Character:FindFirstChild('HumanoidRootPart') ~= nil then
+					if vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X < 20 and vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X > -20 then
+						if vx ~= game.Players.LocalPlayer then
+							xXPos = vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X
+							print(v.Handle.Position.X)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+-- pick up tagged tools
+
+-- remove tags
+for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	if vt:FindFirstChild('MineYesMine') ~= nil then
+		vt.MineYesMine:Destroy()
+	end
+end
+end)
+
+Section:NewButton("Black And Blue", "Dupe", function()
+     local SumPValues = 0
+local amountPlayerCount = 0
+for i = 1, 20
+    do 
+	--color sword
+	local Player = game.Players.LocalPlayer
+	for i = 1, 10 do
+			local v1 = "Black"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Blue"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+	end
+	wait(0.1)
+	--create sword
+	local event = game:GetService("Workspace").load.RemoteEvent
+	event:FireServer()
+	wait(0.36)
+	--put tools in hand
+	for i, v in pairs(Player.Backpack:GetChildren()) do
+		v.Parent = Player.Character
+	end
+	--drop tools and add tag
+	for i, v in pairs(Player.Character:GetChildren()) do
+		if v:IsA('Tool') then
+			v.Parent = workspace
+			ex = Instance.new('Script')
+			ex.Parent = v
+			ex.Name = 'MineYesMine'
+			for ix, vx in pairs(game.Players:GetChildren()) do
+				if vx.Character:FindFirstChild('HumanoidRootPart') ~= nil then
+					if vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X < 20 and vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X > -20 then
+						if vx ~= game.Players.LocalPlayer then
+							xXPos = vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X
+							print(v.Handle.Position.X)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+-- pick up tagged tools
+
+-- remove tags
+for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	if vt:FindFirstChild('MineYesMine') ~= nil then
+		vt.MineYesMine:Destroy()
+	end
+end
+end)
+
+Section:NewButton("Black And Red", "Dupe", function()
+     local SumPValues = 0
+local amountPlayerCount = 0
+for i = 1, 20
+    do 
+	--color sword
+	local Player = game.Players.LocalPlayer
+	for i = 1, 10 do
+			local v1 = "Black"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Red"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+	end
+	wait(0.1)
+	--create sword
+	local event = game:GetService("Workspace").load.RemoteEvent
+	event:FireServer()
+	wait(0.36)
+	--put tools in hand
+	for i, v in pairs(Player.Backpack:GetChildren()) do
+		v.Parent = Player.Character
+	end
+	--drop tools and add tag
+	for i, v in pairs(Player.Character:GetChildren()) do
+		if v:IsA('Tool') then
+			v.Parent = workspace
+			ex = Instance.new('Script')
+			ex.Parent = v
+			ex.Name = 'MineYesMine'
+			for ix, vx in pairs(game.Players:GetChildren()) do
+				if vx.Character:FindFirstChild('HumanoidRootPart') ~= nil then
+					if vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X < 20 and vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X > -20 then
+						if vx ~= game.Players.LocalPlayer then
+							xXPos = vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X
+							print(v.Handle.Position.X)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+-- pick up tagged tools
+
+-- remove tags
+for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	if vt:FindFirstChild('MineYesMine') ~= nil then
+		vt.MineYesMine:Destroy()
+	end
+end
+end)
+
+Section:NewButton("ButtonText", "ButtonInfo", function()
+    print("Clicked")
+end)
