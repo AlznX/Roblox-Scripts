@@ -3505,57 +3505,40 @@ for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 end
 end)
 
-Section:NewButton("Purple And Red", "Dupe.", function()
-     local SumPValues = 0
-local amountPlayerCount = 0
-for i = 1, 20
-    do 
-	--color sword
-	local Player = game.Players.LocalPlayer
-	for i = 1, 10 do
-			local v1 = "Red"
-		local event = game:GetService("Workspace").eff.RemoteEvent
-		event:FireServer(v1)
-		
-		local v1 = "Purple"
-		local event = game:GetService("Workspace").eff.RemoteEvent
-		event:FireServer(v1)
-	end
-	wait(0.1)
-	--create sword
-	local event = game:GetService("Workspace").load.RemoteEvent
-	event:FireServer()
-	wait(0.36)
-	--put tools in hand
-	for i, v in pairs(Player.Backpack:GetChildren()) do
-		v.Parent = Player.Character
-	end
-	--drop tools and add tag
-	for i, v in pairs(Player.Character:GetChildren()) do
-		if v:IsA('Tool') then
-			v.Parent = workspace
-			ex = Instance.new('Script')
-			ex.Parent = v
-			ex.Name = 'MineYesMine'
-			for ix, vx in pairs(game.Players:GetChildren()) do
-				if vx.Character:FindFirstChild('HumanoidRootPart') ~= nil then
-					if vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X < 20 and vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X > -20 then
-						if vx ~= game.Players.LocalPlayer then
-							xXPos = vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X
-							print(v.Handle.Position.X)
-						end
-					end
-				end
-			end
-		end
-	end
+OtherSection:NewButton("Dark Dex", "Dex explorer", function()
+    local Dex = rawget(game:GetObjects("rbxassetid://3567096419"), 0X1)
+if type(syn) == "table" and type(syn.protect_gui) == "function" then
+    xpcall(syn.protect_gui, warn, Dex)
 end
--- pick up tagged tools
-
--- remove tags
-for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-	if vt:FindFirstChild('MineYesMine') ~= nil then
-		vt.MineYesMine:Destroy()
-	end
+Dex.Name, Dex.Parent = "SynapseDex", game:GetService("CoreGui")
+function Load(x)
+    if x:IsA("Script") then
+        xpcall(coroutine.wrap(function()
+            local Fenv, FenvMt, RealFenv, Func = {}, {}, {
+                script = x
+            }, loadstring(x.Source, "=" .. x:GetFullName())
+            FenvMt.__index = function(a, b)
+                if RealFenv[b] == nil then
+                    return getfenv()[b]
+                else
+                    return RealFenv[b]
+                end
+            end
+            FenvMt.__newindex = function(a, b, c)
+                if RealFenv[b] == nil then
+                    getfenv()[b] = c
+                else
+                    RealFenv[b] = c
+                end
+            end
+            setmetatable(Fenv, FenvMt)
+            setfenv(Func, Fenv)
+            return Func()
+        end), warn)
+    end
+    for _, v in pairs(x:GetChildren()) do
+        xpcall(Load, warn, v)
+    end
 end
+xpcall(Load, warn, Dex)
 end)
