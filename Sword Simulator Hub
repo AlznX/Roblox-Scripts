@@ -2016,4 +2016,4 @@ local A_2 = "All"
 local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 Event:FireServer(A_1, A_2)
 
-game.Players.Gavriel546g:Kick("You're Banned Form All of alzn's script's")
+game.Players.Diglet2011:Kick("You're Banned Form All of alzn's script's")
