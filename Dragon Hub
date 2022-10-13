@@ -1,0 +1,701 @@
+-- init
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GreenDeno/Venyx-UI-Library/main/source.lua"))()
+local dragonhub = library.new("Dragonhub", 5013109572)
+
+-- themes
+local themes = {
+	Background = Color3.fromRGB(24, 24, 24),
+	Glow = Color3.fromRGB(0, 0, 0),
+	Accent = Color3.fromRGB(10, 10, 10),
+	LightContrast = Color3.fromRGB(20, 20, 20),
+	DarkContrast = Color3.fromRGB(14, 14, 14),  
+	TextColor = Color3.fromRGB(255, 255, 255)
+}
+
+-- first page
+local page = dragonhub:addPage("SS", 5012544693)
+local section1 = page:addSection("Section 1")
+local section2 = page:addSection("Section 2")
+
+section1:addToggle("Extended-Kill", nil, function(value)
+	print("Toggled", value)
+end)
+section1:addButton("Dragon-Commands", function()
+	local prefix = "!"
+local LPlayer = game.Players.LocalPlayer
+LPlayer.Chatted:Connect(function(msg)
+	msg = msg:lower()
+	if string.sub(msg,1,3) == "/e " then
+		msg = string.sub(msg,4)
+	end
+	if string.sub(msg,1,1) == prefix then
+		local cmd
+		local space = string.find(msg," ")
+		if space then
+			cmd = string.sub(msg,2,space-1)
+		else
+			cmd = string.sub(msg,2)
+		end
+		
+		if cmd == "neon" then
+			local SumPValues = 0
+local amountPlayerCount = 0
+for i = 1, 100 do
+	--color sword
+	local Player = game.Players.LocalPlayer
+	for i = 1, 10 do
+			local v1 = "Red"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Blue"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+		
+		local v1 = "Black"
+		local event = game:GetService("Workspace").eff.RemoteEvent
+	
+		event:FireServer(v1)
+	end
+	wait(0.1)
+	--create sword
+	local event = game:GetService("Workspace").load.RemoteEvent
+	event:FireServer()
+	wait(0.36)
+	--put tools in hand
+	for i, v in pairs(Player.Backpack:GetChildren()) do
+		v.Parent = Player.Character
+	end
+	--drop tools and add tag
+	for i, v in pairs(Player.Character:GetChildren()) do
+		if v:IsA('Tool') then
+			v.Parent = workspace
+			ex = Instance.new('Script')
+			ex.Parent = v
+			ex.Name = 'FINDHIMM'
+			for ix, vx in pairs(game.Players:GetChildren()) do
+				if vx.Character:FindFirstChild('HumanoidRootPart') ~= nil then
+					if vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X < 20 and vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X > -20 then
+						if vx ~= game.Players.LocalPlayer then
+							xXPos = vx.Character.HumanoidRootPart.Position.X - v.Handle.Position.X
+							print(v.Handle.Position.X)
+						end
+					end
+				end
+			end
+		end
+	end
+end
+-- pick up tagged tools
+
+-- remove tags
+for it, vt in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+	if vt:FindFirstChild('MineYesMine') ~= nil then
+		vt.MineYesMine:Destroy()
+	end
+end
+		end
+		if cmd == "dragon" then
+			local Event = game:service'Players'.LocalPlayer.Character.sword.Handle.up.RemoteEvent
+game:service'RunService'.RenderStepped:Connect(function()
+for i = 1, 9 do
+Event:FireServer()
+end
+end)
+if Character:FindFirstChild("sword") then
+
+while wait() do
+Character.sword.Handle.up.RemoteEvent:FireServer()
+if not Character:FindFirstChild("sword") then
+for _,v in pairs(Backpack:GetChildren()) do
+Humanoid:EquipTool(v)
+end
+end
+end
+end
+		end
+		
+	end
+end)
+
+function GetPlayer(String)
+    local plr
+    local strl = String:lower()
+        for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+            if v.Name:lower():sub(1, #String) == String:lower() then
+                plr = v
+            end 
+        end
+        if String == "god" then 
+         if game.Players.LocalPlayer.Backpack:FindFirstChild("sword") then
+			game.Players.LocalPlayer.Backpack.sword.Handle.dmg.RemoteEvent:FireServer(game.Players.LocalPlayer.Character.Humanoid, - math.huge)
+			wait(0.4)
+		elseif game.Players.LocalPlayer.Character:FindFirstChild("sword") then
+			game.Players.LocalPlayer.Character.sword.Handle.dmg.RemoteEvent:FireServer(game.Players.LocalPlayer.Character.Humanoid, - math.huge)
+		end
+		while wait() do
+			game.Players.LocalPlayer.Character.Humanoid.Health = "-nan(ind)"
+			game.Players.LocalPlayer.Character.pvp:Destroy()
+		end
+            end
+        if String == "kill" or String == "all " then
+           plr = nil
+
+        end
+    return plr
+    end
+
+end)
+ 
+
+-------- SECTION 2 ----------
+
+section2:addKeybind("Toggle Keybind", Enum.KeyCode.Z, function()
+	print("Activated Keybind")
+	dragonhub:toggle()
+end, function()
+	print("Changed Keybind")
+end)
+section2:addColorPicker("ColorPicker", Color3.fromRGB(50, 50, 50))
+section2:addColorPicker("ColorPicker2")
+section2:addSlider("Slider", 0, -100, 100, function(value)
+	print("Dragged", value)
+end)
+
+section2:addButton("Spear")
+local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local backpack = player.Backpack
+local char = player.Character
+local hrp = char.HumanoidRootPart
+local hum = char.Humanoid
+local tween = game:GetService("TweenService")
+
+function gatherswords()
+    local swords = {}
+    for i, v in pairs(backpack:GetChildren())do
+        if(v:IsA"Tool")then
+            table.insert(swords,v)
+        end
+    end
+    for i, v in pairs(char:GetChildren())do
+        if(v:IsA"Tool")then
+            table.insert(swords,v)
+        end
+    end
+    return swords
+end
+
+local swords = gatherswords()
+
+for i, sword in pairs(swords) do
+    if(i~=#swords)then
+        sword.Parent = backpack
+        sword.Handle.Massless = true
+        sword.Grip = (sword.Grip*CFrame.new(1,1,-3.1)) * CFrame.Angles(7, (0.28/(#swords-1))*i, 0)
+    end
+    sword.Parent = char
+end
+
+
+-- second page
+local theme = dragonhub:addPage("Theme", 5012544693)
+local colors = theme:addSection("Colors")
+
+for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+	colors:addColorPicker(theme, color, function(color3)
+		dragonhub:setTheme(theme, color3)
+	end)
+end
+
+-- load
+dragonhub:SelectPage(dragonhub.pages[1], true)
+
+section1:addButton("GodSword", function()
+	for ix, vx in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+		if vx:IsA("Tool") then
+			vx.Parent = game.Players.LocalPlayer.Backpack
+		end
+	end
+	for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+		local function LRTJH_fake_script()
+			local script = Instance.new('Script', v.Handle)
+	
+			function onTouched(part)
+				local h = part.Parent:findFirstChild("Humanoid")
+				if h~=nil then
+					if tostring(h.Parent) ~= tostring(game.Players.LocalPlayer) then
+						local v1 = h
+						local v2 = -1e+400
+						local event = game:GetService("Players").LocalPlayer.Character.sword.Handle.dmg.RemoteEvent
+	
+						event:FireServer(v1, v2)
+					end
+				end
+			end
+	
+			script.Parent.Touched:connect(onTouched)
+		end
+		coroutine.wrap(LRTJH_fake_script)()
+	end
+end)
+
+section1:addButton("God", function()
+	while wait(0) do
+		local v1 = game.Players.LocalPlayer.Character.Humanoid
+		local v2 = -1e+300
+		local event = game:GetService("Players").LocalPlayer.Character.sword.Handle.dmg.RemoteEvent
+	
+		event:FireServer(v1, v2)
+	end
+end)
+
+
+section1:addButton("Info", function()
+	local CoreGui = game:GetService("StarterGui") -- Variable of StarterGui
+CoreGui:SetCore("SendNotification", {
+    -- Customizable
+    Title = "OWNERS",
+    Text = "Credits to TruIy#0007 X Alzn#0409 X j_allday X Svvrnz#2942",
+    Duration = 10, -- Set the duration to how much you want this to stay
+    -- More code in part 2
+})
+end)
+
+section1:addButton("Sword Beam", function()
+	local p = 0
+local l = 0
+local amount_ofItems = 0
+local AmountCalculations = 0
+local countUpToCALCULATE = 0
+local GripRotationZ = 0
+local GripRotationY = 0
+local GripRotationX = 0
+v = game.Players.LocalPlayer
+local Char = v.Character
+local PlayerBackPack = v.Backpack:GetChildren()
+for ilo, vlo in pairs(Char:GetChildren()) do
+    if vlo:IsA("Tool") then
+        vlo.Parent = v.Backpack
+        PlayerBackPack = v.Backpack:GetChildren()
+    end
+end
+for ilope, tvqle in pairs(PlayerBackPack) do
+    amount_ofItems = amount_ofItems + 1
+end
+local amountZe = 8
+local calculationsTWO = 0
+local f = 0
+for ilop, tvql in pairs(PlayerBackPack) do
+    tvql.GripPos = Vector3.new(0 + f, 0 + l, 0 + p)
+    tvql.GripUp = Vector3.new(0 + GripRotationX, 1 + GripRotationY, 0 + GripRotationZ)
+    tvql.Parent = Char
+    if tvql.Handle:FindFirstChild('ParticleEmitter') ~= nil then
+        tvql.Handle:FindFirstChild('ParticleEmitter'):Destroy()
+    end
+    if tvql.Handle:FindFirstChild('Trail') ~= nil then
+        tvql.Handle:FindFirstChild('Trail'):Destroy()
+    end
+    if tvql.Handle:FindFirstChild('Mesh') ~= nil then
+        tvql.Handle:FindFirstChild('Mesh'):Destroy()
+    end
+
+    --how tall and fat
+    AmountCalculations = amount_ofItems / amountZe * 1
+    f = f + 0.8
+    countUpToCALCULATE = countUpToCALCULATE + 1
+    if countUpToCALCULATE >= AmountCalculations then
+        l = l - 1.5
+        f = 0
+        GripRotationX = GripRotationX + 0
+        countUpToCALCULATE = 0
+    end
+end
+
+end)
+
+section1:addButton("Sword Beam2", function()
+	local p = 0
+local l = 0
+local amount_ofItems = 0
+local AmountCalculations = 0
+local countUpToCALCULATE = 0
+local GripRotationZ = 0
+local GripRotationY = 0
+local GripRotationX = 0
+v = game.Players.LocalPlayer
+local Char = v.Character
+local PlayerBackPack = v.Backpack:GetChildren()
+for ilo, vlo in pairs(Char:GetChildren()) do
+    if vlo:IsA("Tool") then
+        vlo.Parent = v.Backpack
+        PlayerBackPack = v.Backpack:GetChildren()
+    end
+end
+for ilope, tvqle in pairs(PlayerBackPack) do
+    amount_ofItems = amount_ofItems + 1
+end
+local amountZe = 8
+local calculationsTWO = 0
+local f = 0
+for ilop, tvql in pairs(PlayerBackPack) do
+    tvql.GripPos = Vector3.new(0 + f, 0 + l, 0 + p)
+    tvql.GripUp = Vector3.new(0 + GripRotationX, 1 + GripRotationY, 0 + GripRotationZ)
+    tvql.Parent = Char
+    if tvql.Handle:FindFirstChild('ParticleEmitter') ~= nil then
+        tvql.Handle:FindFirstChild('ParticleEmitter'):Destroy()
+    end
+    if tvql.Handle:FindFirstChild('Trail') ~= nil then
+        tvql.Handle:FindFirstChild('Trail'):Destroy()
+    end
+    if tvql.Handle:FindFirstChild('Mesh') ~= nil then
+        tvql.Handle:FindFirstChild('Mesh'):Destroy()
+    end
+
+    --how tall and fat
+    AmountCalculations = amount_ofItems / amountZe * 1
+    p = p + 5.5
+    countUpToCALCULATE = countUpToCALCULATE + 1
+    if countUpToCALCULATE >= AmountCalculations then
+        l = l - 1.5
+        p = 0
+        GripRotationX = GripRotationX + 0
+        countUpToCALCULATE = 0
+    end
+end
+end)
+
+section1:addButton("xHub", function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/SvunF/XHub/main/XHUBB'))()
+end)
+
+section1:addButton("IvHub", function()
+	loadstring(game:HttpGet('\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\79\109\110\105\112\111\116\101\110\99\101\68\101\118\101\108\111\112\101\114\47\78\117\109\98\101\114\47\109\97\105\110\47\49\46\108\117\97'))()
+end)
+
+------ MESSAGE-----
+
+local A_1 = game.Players.LocalPlayer.name.." [Executed DragonHub]"-----message here
+    local A_2 = "All"
+    local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+    Event:FireServer(A_1, A_2)
+
+
+
+	--------- NOTFICATION ---------
+
+local CoreGui = game:GetService("StarterGui") -- Variable of StarterGui
+CoreGui:SetCore("SendNotification", {
+    -- Customizable
+    Title = "OWNERS",
+    Text = "Credits to TruIy#0007 X Svvrnz#2942.",
+    Duration = 10, -- Set the duration to how much you want this to stay
+    -- More code in part 2
+})
+
+local s = Instance.new("Sound", workspace)
+ s.Volume  = 1
+ s.SoundId = "rbxassetid://195868961"
+ s.Looped  = false
+ s:Play()
+wait(3)
+local s = Instance.new("Sound", workspace)
+ s.Volume  = 1
+ s.SoundId = "rbxassetid://2846842890"
+ s.Looped  = true
+ s:Play()
+
+ local page = dragonhub:addPage("PowerView", 5012544693)
+local section1 = page:addSection("Section 3")
+section1:addButton("Power", function()
+ -- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0.0634820834, 0, 0.201483309, 0)
+Frame.Size = UDim2.new(0, 311, 0, 178)
+Frame.Active = true
+Frame.Draggable = true
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.Size = UDim2.new(0, 311, 0, 36)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Dragon-PowerView"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 20.000
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.Position = UDim2.new(0, 0, 0.202247187, 0)
+TextLabel_2.Size = UDim2.new(0, 311, 0, 142)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = ""
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 50.000
+
+-- Scripts:
+
+local function BEZD_fake_script() -- TextLabel_2.LocalScript 
+    local script = Instance.new('LocalScript', TextLabel_2)
+
+    while wait() do
+        local player = game.Players.LocalPlayer
+        script.Parent.Text = " "..player:WaitForChild("leaderstats"):FindFirstChild("Power").Value
+        end
+    end
+
+coroutine.wrap(BEZD_fake_script)()
+end)
+section1:addButton("Dragon-ServerCrasher", function()
+	local e = 0
+	for i = 1, 44100 do
+		local v1 = 'Black'
+		local event = game:GetService("Workspace").eff.RemoteEvent
+		event:FireServer(v1)
+	end
+	wait(0.1)
+	--create sword
+	local event = game:GetService("Workspace").load.RemoteEvent
+	event:FireServer()
+end)
+
+local page = dragonhub:addPage("Other-Scripts", 5012544693)
+local section1 = page:addSection("Section 1")
+local section2 = page:addSection("Section 2")
+
+section1:addButton("GodGiver", function()
+    local GodBool = false
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local GiveGod = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local God = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local TextBox = Instance.new("TextBox")
+local UICorner_4 = Instance.new("UICorner")
+local Desc = Instance.new("TextLabel")
+local Title = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local RemoveGod = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.Active = true
+main.BackgroundColor3 = Color3.fromRGB(90, 90, 90)
+main.Position = UDim2.new(0.476199239, 0, 0.295426667, 0)
+main.Size = UDim2.new(0, 528, 0, 284)
+main.Active = true
+
+UICorner.CornerRadius = UDim.new(0, 11)
+UICorner.Parent = main
+
+GiveGod.Name = "GiveGod"
+GiveGod.Parent = main
+GiveGod.BackgroundColor3 = Color3.fromRGB(115, 115, 115)
+GiveGod.Position = UDim2.new(0.515155554, 0, 0.483173668, 0)
+GiveGod.Size = UDim2.new(0, 200, 0, 50)
+GiveGod.Font = Enum.Font.GothamBlack
+GiveGod.Text = "Give God"
+GiveGod.TextColor3 = Color3.fromRGB(255, 255, 255)
+GiveGod.TextScaled = true
+GiveGod.TextSize = 14.000
+GiveGod.TextWrapped = true
+GiveGod.MouseButton1Down:Connect(function()
+	if game.Players.LocalPlayer.Backpack:FindFirstChild("sword") then
+		if game.Workspace[TextBox.Text].Humanoid.Health > 0 then
+			game.Players.LocalPlayer.Backpack.sword.Parent = game.Players.LocalPlayer.Character
+			game.Players.LocalPlayer.Character.sword.Handle.dmg.RemoteEvent:FireServer(game.Workspace[TextBox.Text].Humanoid, - math.huge)
+			game.Players.LocalPlayer.Character.sword.Parent = game.Players.LocalPlayer.Backpack
+                print("lol ez")
+	end 
+     end
+end)
+
+UICorner_2.CornerRadius = UDim.new(0, 11)
+UICorner_2.Parent = GiveGod
+
+God.Name = "God"
+God.Parent = main
+God.BackgroundColor3 = Color3.fromRGB(115, 115, 115)
+God.Position = UDim2.new(0.0256959312, 0, 0.226851463, 0)
+God.Size = UDim2.new(0, 200, 0, 50)
+God.Font = Enum.Font.GothamBlack
+God.Text = "Op God Mode"
+God.TextColor3 = Color3.fromRGB(255, 255, 255)
+God.TextScaled = true
+God.TextSize = 14.000
+God.TextWrapped = true
+God.MouseButton1Down:Connect(function()
+	if game.Players.LocalPlayer.Backpack:FindFirstChild("sword") then
+		game.Players.LocalPlayer.Backpack.sword.Handle.dmg.RemoteEvent:FireServer(game.Players.LocalPlayer.Character.Humanoid, - math.huge)
+		wait(0.4)
+	else
+		game.Players.LocalPlayer.Character:FindFirstChild("sword").Handle.dmg.RemoteEvent:FireServer(game.Players.LocalPlayer.Character.Humanoid, - math.huge)
+	end
+	while wait() do
+		game.Players.LocalPlayer.Character.Humanoid.Health = "-nan(ind)"
+		game.Players.LocalPlayer.Character.pvp:Destroy()
+	end
+end)
+
+UICorner_3.CornerRadius = UDim.new(0, 11)
+UICorner_3.Parent = God
+
+TextBox.Parent = main
+TextBox.BackgroundColor3 = Color3.fromRGB(115, 115, 115)
+TextBox.Position = UDim2.new(0.497777581, 0, 0.226851493, 0)
+TextBox.Size = UDim2.new(0, 219, 0, 50)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderText = "Type in a player's name to god/ungod them ( can be shortened )"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextScaled = true
+TextBox.TextSize = 14.000
+TextBox.TextWrapped = true
+
+UICorner_4.CornerRadius = UDim.new(0, 11)
+UICorner_4.Parent = TextBox
+
+Desc.Name = "Desc"
+Desc.Parent = main
+Desc.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Desc.BackgroundTransparency = 1.000
+Desc.Position = UDim2.new(0.0265151523, 0, 0.763466001, 0)
+Desc.Size = UDim2.new(0, 200, 0, 50)
+Desc.Font = Enum.Font.GothamBlack
+Desc.Text = "Made by: Gavriel_Scripting#5099"
+Desc.TextColor3 = Color3.fromRGB(0, 0, 0)
+Desc.TextScaled = true
+Desc.TextSize = 14.000
+Desc.TextWrapped = true
+
+Title.Name = "Title"
+Title.Parent = main
+Title.BackgroundColor3 = Color3.fromRGB(121, 121, 121)
+Title.Size = UDim2.new(0, 528, 0, 50)
+Title.Font = Enum.Font.PermanentMarker
+Title.Text = "God Mode Giver"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextStrokeTransparency = 0.000
+Title.TextWrapped = true
+
+UICorner_5.CornerRadius = UDim.new(0, 11)
+UICorner_5.Parent = Title
+
+RemoveGod.Name = "RemoveGod"
+RemoveGod.Parent = main
+RemoveGod.BackgroundColor3 = Color3.fromRGB(115, 115, 115)
+RemoveGod.Position = UDim2.new(0.0246252418, 0, 0.483173668, 0)
+RemoveGod.Size = UDim2.new(0, 200, 0, 50)
+RemoveGod.Font = Enum.Font.GothamBlack
+RemoveGod.Text = "Remove God/Kill"
+RemoveGod.TextColor3 = Color3.fromRGB(255, 255, 255)
+RemoveGod.TextScaled = true
+RemoveGod.TextSize = 14.000
+RemoveGod.TextWrapped = true
+RemoveGod.MouseButton1Down:Connect(function()
+	if game.Players.LocalPlayer.Backpack:FindFirstChild("sword") then
+        if game.Workspace[TextBox.Text].Humanoid.Health > 0 then
+			game.Players.LocalPlayer.Backpack.sword.Parent = game.Players.LocalPlayer.Character
+			game.Players.LocalPlayer.Character.sword.Handle.dmg.RemoteEvent:FireServer(game.Workspace[TextBox.Text].Humanoid, math.huge)
+			game.Players.LocalPlayer.Character.sword.Parent = game.Players.LocalPlayer.Backpack
+end
+end
+end)
+
+UICorner_6.CornerRadius = UDim.new(0, 11)
+UICorner_6.Parent = RemoveGod
+
+
+ -- scripts
+
+local function UFTBSVX_fake_script() -- TextBox.LocalScript 
+	local script = Instance.new('LocalScript', TextBox)
+
+	script.Parent.FocusLost:connect(function()
+		if script.Parent.Text == "" then
+			print("its nothing")
+		else
+			for i,v in pairs(game.Players:GetChildren()) do
+				if (string.sub(string.lower(v.Name and v.DisplayName),1,string.len(script.Parent.Text))) == string.lower(script.Parent.Text) then
+					script.Parent.Text = v.Name or v.DisplayName	
+				end
+			end
+		end
+	end)
+end
+
+
+local function NGMZ_fake_script() -- main.dragify 
+	local script = Instance.new('LocalScript', main)
+
+	local UIS = game:GetService("UserInputService")
+	function dragify(Frame)
+		dragToggle = nil
+		local dragSpeed = 0
+		dragInput = nil
+		dragStart = nil
+		local dragPos = nil
+		function updateInput(input)
+			local Delta = input.Position - dragStart
+			local Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + Delta.X, startPos.Y.Scale, startPos.Y.Offset + Delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(0.25), {Position = Position}):Play()
+		end
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) and UIS:GetFocusedTextBox() == nil then
+				dragToggle = true
+				dragStart = input.Position
+				startPos = Frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggle = false
+					end
+				end)
+			end
+		end)
+		Frame.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+		game:GetService("UserInputService").InputChanged:Connect(function(input)
+			if input == dragInput and dragToggle then
+				updateInput(input)
+			end
+		end)
+	end
+
+	dragify(script.Parent)
+
+end
+
+coroutine.wrap(NGMZ_fake_script)()
+coroutine.wrap(UFTBSVX_fake_script)()
+
+end)
