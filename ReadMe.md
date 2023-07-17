@@ -1,6 +1,6 @@
 ## Documentation / Example
 ```lua
-local Link = loadstring(game:HttpGet('[https://raw.githubusercontent.com/GhostDuckyy/Ui-Librarys/main/Playstation%20Ui%20Library/Source](https://raw.githubusercontent.com/AlznX/Roblox-Scripts/main/source.lua)'))()
+local Link = loadstring(game:HttpGet('https://raw.githubusercontent.com/AlznX/Roblox-Scripts/main/source.lua'))()
 
 local Win = Link:CreateWindow('Name','Yeah Info') -- :CreateWindow(Title,Info) Note: info no space
 
