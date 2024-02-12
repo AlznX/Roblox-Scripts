@@ -12,7 +12,7 @@ game.Players.LocalPlayer:Kick("The owner, has joined the server you have been ki
 end)
 
 wait(2)
-local name = "Ezpower221" 
+local name = "EzPower221" 
 game:GetService'Players'.PlayerAdded:Connect(function(player)
 game.Players.LocalPlayer:Kick("Sorry for the inconvenience but this script has unfortunately crashed please reload and try again later.")
 print("loadded detection.")
