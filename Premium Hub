@@ -1,7 +1,7 @@
 -- New Detection System.
 pcall(function() 
 -- Developer Console Logs
-print("Player: ??? Demon Hub, Leaked version was detected therefore it was patched, You must get the official Demon Hub for you to use this script. Thank you.  Reason: Outdated Version.")
+print("Player: Attention! The script detected a leaked version of Demon Hub, which has since been patched. To continue using this script, please ensure you have the official Demon Hub. Thank you for your cooperation. Reason: Outdated Version.")
 
-game.Players.LocalPlayer:Kick("You Have Been detected, using Old Solex Premium 0.4, Hub. Please go to the developer console if you believe this was a mistake, or for Information, by clicking F9")
+game.Players.LocalPlayer:Kick("You have been detected using an outdated version (Solex Premium 0.4) of the hub. If you believe this is a mistake, access the developer console (F9) for information or resolution.")
 end)
