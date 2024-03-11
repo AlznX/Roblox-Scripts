@@ -1,7 +1,7 @@
--- I love you all Goodbye <3
--- Version: The Last Edition Of 2021
+Farewell, dear ones! <3
+-- Version: The Final Chapter of Sword Simulator Hub 2021
 
--- Nothing Here imao.
+-- Nothing to see here, lmao.
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
@@ -1698,7 +1698,7 @@ Godmode.MouseButton1Down:connect(function()
 	Desc.Position = UDim2.new(0.0265151523, 0, 0.763466001, 0)
 	Desc.Size = UDim2.new(0, 200, 0, 50)
 	Desc.Font = Enum.Font.GothamBlack
-	Desc.Text = "Made by: Alzn#0409"
+	Desc.Text = "Made by: Niko"
 	Desc.TextColor3 = Color3.fromRGB(0, 0, 0)
 	Desc.TextScaled = true
 	Desc.TextSize = 14.000
@@ -1811,7 +1811,7 @@ Godmode.MouseButton1Down:connect(function()
 	coroutine.wrap(UFTBSVX_fake_script)()
 
 
-	local A_1 = game.Players.LocalPlayer.name.." [Has Loaded Alzn's God Giver NEW]"-----message here
+	local A_1 = game.Players.LocalPlayer.name.." [Has Loaded Niko's God Giver]"-----message here
 	local A_2 = "All"
 	local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 	Event:FireServer(A_1, A_2)
@@ -2012,7 +2012,7 @@ local function BCQRGT_fake_script() -- OpenHub.LocalScript
 	
 end
 coroutine.wrap(BCQRGT_fake_script)()
-local A_1 = game.Players.LocalPlayer.name.." [Loaded Alzn's Sword Simulator Hub The Last Edition Thank You All <3]"-----message here
+local A_1 = game.Players.LocalPlayer.name.." [Loaded Sword Simulator Hub The Last Edition Thank You All <3]"-----message here
 local A_2 = "All"
 local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 Event:FireServer(A_1, A_2)
