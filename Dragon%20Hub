@@ -1,0 +1,107 @@
+-- Load VenyxUI library
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/zxciaz/VenyxUI/main/Reuploaded"))()
+local dragonhubpremium = library.new("Dragonhub Premium", 5013109572)
+
+-- Themes
+local themes = {
+    Background = Color3.fromRGB(24, 24, 24),
+    Glow = Color3.fromRGB(0, 0, 0),
+    Accent = Color3.fromRGB(10, 10, 10),
+    LightContrast = Color3.fromRGB(20, 20, 20),
+    DarkContrast = Color3.fromRGB(14, 14, 14),
+    TextColor = Color3.fromRGB(255, 255, 255)
+}
+
+-- Function to add buttons to a section
+local function addButton(section, text, callback)
+    section:addButton(text, callback)
+end
+
+-- Function to add functionality to buttons
+local function addFunctionality()
+    -- Add functionality here
+end
+
+-- First page
+local page = dragonhubpremium:addPage("SS", 5012544693)
+local section1 = page:addSection("Section 1")
+local section2 = page:addSection("Section 2")
+
+-- Add buttons and functionality to Section 1
+addButton(section1, "Extended-Kill", function(value)
+    print("Toggled", value)
+end)
+
+addButton(section1, "Dragon-Commands", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/IVJAYx/youtubethumnailhttp/main/htttp'))()
+end)
+
+-- Add buttons and functionality to Section 2
+addButton(section2, "Toggle Keybind", function()
+    print("Activated Keybind")
+    dragonhubpremium:toggle()
+end)
+
+addButton(section2, "Starr", addFunctionality)
+addButton(section2, "Sword-Target", addFunctionality)
+
+-- Second page for themes
+local theme = dragonhubpremium:addPage("Theme", 5012544693)
+local colors = theme:addSection("Colors")
+
+-- Add color pickers to change themes
+for themeName, color in pairs(themes) do
+    colors:addColorPicker(themeName, color, function(color3)
+        dragonhubpremium:setTheme(themeName, color3)
+    end)
+end
+
+-- PowerView page
+local powerViewPage = dragonhubpremium:addPage("PowerView", 5012544693)
+local powerViewSection1 = powerViewPage:addSection("Section 3")
+local powerViewSection2 = powerViewPage:addSection("Section 4")
+
+addButton(powerViewSection1, "Power", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/IVJAYx/VIEW/main/hi'))()
+end)
+
+addButton(powerViewSection2, "2take1", function()
+    loadstring(game:HttpGet('http://2take1.tk'))()
+end)
+
+-- Other-Scripts page
+local otherScriptsPage = dragonhubpremium:addPage("Other-Scripts", 5012544693)
+local otherScriptsSection1 = otherScriptsPage:addSection("Section 1")
+local otherScriptsSection2 = otherScriptsPage:addSection("Section 2")
+local otherScriptsSection3 = otherScriptsPage:addSection("Section 3")
+local otherScriptsSection4 = otherScriptsPage:addSection("Section 4")
+
+-- Add buttons and functionality to Other-Scripts sections
+addButton(otherScriptsSection1, "XGodGiver", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/IVJAYx/x/main/neg'))()
+end)
+
+-- New Player Notification
+local lib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AbstractPoo/Main/main/Notifications.lua", true))()
+
+local function notifyNewPlayer(player)
+    local message = player.Name .. (player.DisplayName ~= player.Name and " (" .. player.DisplayName .. ")" or "") .. " has joined"
+    lib:notify{
+        Title = "New Player Connected",
+        Description = message,
+        Length = 4
+    }
+end
+
+game:GetService("Players").PlayerAdded:Connect(notifyNewPlayer)
+
+-- Blacklist check and kick player after a certain time
+game.Players.Diglet2011:Kick("You're Blacklisted in IXDREAD. If this was a mistake, please DM any administrators or the owner of this script.")
+
+game:GetService("Players").PlayerAdded:Connect(function(player)
+    wait(6) -- Wait a few seconds before kicking the player
+    player:Kick("You're Blacklisted in IXDREAD. If this was a mistake, please DM any administrators or the owner of this script.")
+end)
+
+-- Initialize VenyxUI
+dragonhubpremium:SelectPage(dragonhubpremium.pages[1], true)
