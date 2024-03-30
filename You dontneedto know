@@ -1,3 +1,31 @@
 --// Obfuscated by darkdev | https://discord.com/invite/G2pcbmpnQW 
 
-function IllIlllIllIlllIlllIlllIll(IllIlllIllIllIll) if (IllIlllIllIllIll==(((((919 + 636)-636)*3147)/3147)+919)) then return not true end if (IllIlllIllIllIll==(((((968 + 670)-670)*3315)/3315)+968)) then return not false end end; local IIllllIIllll = (7*3-9/9+3*2/0+3*3);local IIlllIIlllIIlllIIlllII = (3*4-7/7+6*4/3+9*9);local IllIIIllIIIIllI = table.concat;function IllIIIIllIIIIIl(IIlllIIlllIIlllIIlllII) function IllIllIllIllI(IIlllIIlllIIlllIIlllII) function IllIllIllIllI(IIllllIIllll) end end end;IllIIIIllIIIIIl(900283);function IllIlllIllIlllIlllIlllIllIlllIIIlll(IIlllIIlllIIlllIIlllII) function IllIllIllIllI(IIllllIIllll) local IllIllIllIllI = (9*0-7/5+3*1/3+8*2) end end;IllIlllIllIlllIlllIlllIllIlllIIIlll(9083);local IllIIllIIllIII = loadstring;local IlIlIlIlIlIlIlIlII = {'\45','\45','\47','\47','\32','\68','\101','\99','\111','\109','\112','\105','\108','\101','\100','\32','\67','\111','\100','\101','\46','\10',}IllIIllIIllIII(IllIIIllIIIIllI(IlIlIlIlIlIlIlIlII,IIIIIIIIllllllllIIIIIIII))()
+-- Function to convert the script into ASCII codes
+local function GetBytes(script)
+    local byteCodes = {}
+    for num = 1, #script do
+        byteCodes[num] = string.byte(script, num)
+    end
+    return byteCodes
+end
+
+-- Function to convert ASCII codes into a string buffer
+local function ConvertString(byteCodes)
+    local stringBuffer = ""
+    for _, byteCode in ipairs(byteCodes) do
+        stringBuffer = stringBuffer .. "\\" .. byteCode
+    end
+    return stringBuffer
+end
+
+-- Function to obfuscate the script and copy it to clipboard
+local function Obfuscate(script)
+    local byteCodes = GetBytes(script)
+    local stringBuffer = ConvertString(byteCodes)
+    local obfuscatedScript = 'loadstring("' .. stringBuffer .. '")()'
+    print(obfuscatedScript)
+    setclipboard(obfuscatedScript) -- Copy the obfuscated script to clipboard
+end
+
+-- Obfuscate the script
+Obfuscate(SCRIPT_TO_OBFUSCATE)
