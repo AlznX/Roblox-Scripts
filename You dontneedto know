@@ -1,4 +1,11 @@
---// Obfuscated by darkdev | https://discord.com/invite/G2pcbmpnQW 
+-- For people who are new to obfuscating, here is an easy and simple way to obfuscate your scripts!
+-- By Darkdev
+
+-- Define the script to obfuscate
+local SCRIPT_TO_OBFUSCATE = [[
+-- Your script here
+
+]]
 
 -- Function to convert the script into ASCII codes
 local function GetBytes(script)
