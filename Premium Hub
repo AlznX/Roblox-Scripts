@@ -1,7 +1,14 @@
--- New Detection System.
-pcall(function() 
--- Developer Console Logs
-print("Player: Attention! The script detected a leaked version of Demon Hub, which has since been patched. To continue using this script, please ensure you have the official Demon Hub. Thank you for your cooperation. Reason: Outdated Version.")
+-- Enhanced Detection System
+pcall(function()
+    -- Friendly Developer Console Notification
+    local warningMessage = "Hello, Adventurer! It looks like you're using an older version of the Demon Hub (Solex Premium 0.4). We've made a lot of improvements and patches since then. For the best experience and new features, please update to the latest version of the official Demon Hub. We're here to help if you need it!"
 
-game.Players.LocalPlayer:Kick("You have been detected using an outdated version (Solex Premium 0.4) of the hub. If you believe this is a mistake, access the developer console (F9) for information or resolution.")
+    -- Print warning to Developer Console for transparency and assistance
+    print("NOTICE: " .. warningMessage)
+
+    -- Notify Player with a Kick but Provide Guidance
+    game.Players.LocalPlayer:Kick("Hi there! Just a heads-up: We noticed you're using an outdated version of our hub (Solex Premium 0.4). Don't worry, though! Just check the developer console (press F9) for more information on how to update to the latest version. We can't wait to see you back with all the new features and improvements. Happy gaming!")
+
+    -- Log the detection for further improvements
+    -- [Consider adding any log function here, if applicable, to help track and improve the detection system]
 end)
