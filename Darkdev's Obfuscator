@@ -1,11 +1,11 @@
 -- Darkdev's Basic Obfuscator
 -- Instructions:
--- 1. Replace the placeholder text within -- Script Here with your actual script, ensuring you remove any print statements.
+-- 1. Replace the placeholder text within "Script here" with your actual script, ensuring you remove any print statements.
 -- 2. Execute this script within Roblox.
 -- 3. Press F9 to open the console.
 -- After these steps, your script will be automatically copied to your clipboard in an obfuscated format, ready for use.
 local SCRIPT_TO_OBFUSCATE = [[
--- Script Here
+Script Here
 ]]
 
 local function Obfuscate(script)
