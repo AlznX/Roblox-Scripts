@@ -82,23 +82,6 @@ Screen.Name = "By Shaddow"
 Screen.Parent = game:WaitForChild("CoreGui")
 Screen.Enabled = true
 
-local UserInputService = game:GetService("UserInputService")
-
-local dragging
-local dragInput
-local dragStart
-local startPos
-
-local UserInputService = game:GetService("UserInputService")
-
-local draggingTop
-local draggingTextLabel
-local dragInput
-local dragStart
-local startPosTop
-local startPosTextLabel
-
-local Top = Instance.new("Frame")
 Top.Name = "Top"
 Top.Parent = Screen
 Top.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -114,7 +97,6 @@ Top.SliceCenter = Rect.new(100, 100, 100, 100)
 Top.SliceScale = 0.030
 Top.Draggable = true
 
-local TextLabel = Instance.new("TextLabel")
 TextLabel.Parent = Top
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
@@ -124,69 +106,6 @@ TextLabel.Font = Enum.Font.SourceSansSemibold
 TextLabel.Text = name
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 14.000
-
-local function updateTop(input)
-    local delta = input.Position - dragStart
-    Top.Position = UDim2.new(startPosTop.X.Scale, startPosTop.X.Offset + delta.X, startPosTop.Y.Scale, startPosTop.Y.Offset + delta.Y)
-end
-
-local function updateTextLabel(input)
-    local delta = input.Position - dragStart
-    TextLabel.Position = UDim2.new(startPosTextLabel.X.Scale, startPosTextLabel.X.Offset + delta.X, startPosTextLabel.Y.Scale, startPosTextLabel.Y.Offset + delta.Y)
-end
-
-Top.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        draggingTop = true
-        dragStart = input.Position
-        startPosTop = Top.Position
-
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                draggingTop = false
-            end
-        end)
-    end
-end)
-
-Top.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragInput = input
-    end
-end)
-
-UserInputService.InputChanged:Connect(function(input)
-    if input == dragInput and draggingTop then
-        updateTop(input)
-    end
-end)
-
-TextLabel.InputBegan:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-        draggingTextLabel = true
-        dragStart = input.Position
-        startPosTextLabel = TextLabel.Position
-
-        input.Changed:Connect(function()
-            if input.UserInputState == Enum.UserInputState.End then
-                draggingTextLabel = false
-            end
-        end)
-    end
-end)
-
-TextLabel.InputChanged:Connect(function(input)
-    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
-        dragInput = input
-    end
-end)
-
-UserInputService.InputChanged:Connect(function(input)
-    if input == dragInput and draggingTextLabel then
-        updateTextLabel(input)
-    end
-end)
-
 
 Toggle.Name = "Toggle"
 Toggle.Parent = Top
@@ -198,6 +117,14 @@ Toggle.Size = UDim2.new(0, 15, 0, 16)
 Toggle.ImageColor3 = Color3.fromRGB(255, 255, 255)
 Toggle.Image = "https://www.roblox.com/Thumbs/Asset.ashx?width=420&height=420&assetId=4731371541"
 
+local UserInputService = game:GetService("UserInputService")
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local Main = Instance.new("Frame")
 Main.Name = "Main"
 Main.Parent = Top
 Main.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -210,6 +137,38 @@ Main.ImageColor3 = theme2
 Main.ScaleType = Enum.ScaleType.Slice
 Main.SliceCenter = Rect.new(100, 100, 100, 100)
 Main.SliceScale = 0.030
+
+local function update(input)
+    local delta = input.Position - dragStart
+    Main.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
+
+Main.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+        dragging = true
+        dragStart = input.Position
+        startPos = Main.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+Main.InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+        dragInput = input
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if input == dragInput and dragging then
+        update(input)
+    end
+end)
+
 
 Tabs.Name = "Tabs"
 Tabs.Parent = TabContainer
