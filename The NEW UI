@@ -82,6 +82,14 @@ Screen.Name = "By Shaddow"
 Screen.Parent = game:WaitForChild("CoreGui")
 Screen.Enabled = true
 
+local UserInputService = game:GetService("UserInputService")
+
+local dragging
+local dragInput
+local dragStart
+local startPos
+
+local Top = Instance.new("Frame")
 Top.Name = "Top"
 Top.Parent = Screen
 Top.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -95,45 +103,17 @@ Top.ImageColor3 = theme1
 Top.ScaleType = Enum.ScaleType.Slice
 Top.SliceCenter = Rect.new(100, 100, 100, 100)
 Top.SliceScale = 0.030
-Top.Draggable = true
-
-TextLabel.Parent = Top
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(0.0358817279, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 515, 0, 20)
-TextLabel.Font = Enum.Font.SourceSansSemibold
-TextLabel.Text = name
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 14.000
-local UserInputService = game:GetService("UserInputService")
-
-local dragging
-local dragInput
-local dragStart
-local startPos
-
-local TextLabel = Instance.new("TextLabel")
-TextLabel.Parent = Top
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(0.0358817279, 0, 0, 0)
-TextLabel.Size = UDim2.new(0, 515, 0, 20)
-TextLabel.Font = Enum.Font.SourceSansSemibold
-TextLabel.Text = name
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextSize = 14.000
 
 local function update(input)
     local delta = input.Position - dragStart
-    TextLabel.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+    Top.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 end
 
-TextLabel.InputBegan:Connect(function(input)
+Top.InputBegan:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
         dragging = true
         dragStart = input.Position
-        startPos = TextLabel.Position
+        startPos = Top.Position
 
         input.Changed:Connect(function()
             if input.UserInputState == Enum.UserInputState.End then
@@ -143,7 +123,7 @@ TextLabel.InputBegan:Connect(function(input)
     end
 end)
 
-TextLabel.InputChanged:Connect(function(input)
+Top.InputChanged:Connect(function(input)
     if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
         dragInput = input
     end
@@ -155,6 +135,16 @@ UserInputService.InputChanged:Connect(function(input)
     end
 end)
 
+
+TextLabel.Parent = Top
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.0358817279, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 515, 0, 20)
+TextLabel.Font = Enum.Font.SourceSansSemibold
+TextLabel.Text = name
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 14.000
 
 Toggle.Name = "Toggle"
 Toggle.Parent = Top
