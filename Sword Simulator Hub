@@ -1,7 +1,7 @@
 -- Farewell, dear ones! <3
--- Version: The Final Chapter of Sword Simulator Hub 2021
+-- Version: The Final changes, to this script Sword Simulator, 2021
 
--- Nothing to see here, lmao.
+-- Nothing to see here
 
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
