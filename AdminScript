@@ -1,4 +1,3 @@
--- Script setup
 local prefix, Owner, au = ";", game.Players.LocalPlayer, false
 local isAdmin = { [Owner.Name] = true, FRIEND1 = true, FRIEND2 = true }
 
@@ -85,6 +84,28 @@ local function AF()
     end
 end
 
+-- Godmode function
+local function Godmode(targets)
+    local localPlayer = game.Players.LocalPlayer
+    local backpack = localPlayer.Backpack
+    local sword = backpack:FindFirstChild("sword")
+    
+    if not sword then
+        -- Wait until the sword is in the backpack and equip it
+        repeat task.wait() until backpack:FindFirstChild("sword")
+        localPlayer.Character.Humanoid:EquipTool(backpack.sword)
+        sword = backpack:FindFirstChild("sword")
+    end
+
+    for _, target in ipairs(targets) do
+        if target and target.Character and target.Character:FindFirstChild("Humanoid") then
+            pcall(function()
+                sword.Handle.dmg.RemoteEvent:FireServer(target.Character.Humanoid, -math.huge)
+            end)
+        end
+    end
+end
+
 -- Command handler
 local function HandleCommand(message, player)
     if not message:sub(1, #prefix) == prefix then return end
@@ -94,7 +115,7 @@ local function HandleCommand(message, player)
         -- Prevent duplicate system messages
         if not _G.CMD_SENT then
             _G.CMD_SENT = true
-            local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, cmds"
+            local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(plr), cmds"
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
         end
     elseif msg:sub(1, 5) == "kill " and isAdmin[player.Name] then
@@ -137,7 +158,6 @@ local function HandleCommand(message, player)
                     isAdmin[p.Name] = false
                 end
             end
-            -- Corrected message here
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everybody is no longer Admin.", "All")
         else
             for _, p in ipairs(GetPlayer(target)) do
@@ -146,6 +166,38 @@ local function HandleCommand(message, player)
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] "..p.Name.." is no longer Admin.", "All")
                 end
             end
+        end
+    elseif msg:sub(1, 4) == "god " and isAdmin[player.Name] then
+        local target = msg:sub(5)
+        local players = {}
+        
+        if target == "all" then
+            -- Apply god mode to all players except the owner and admins
+            for _, p in ipairs(game.Players:GetPlayers()) do
+                if p.Name ~= Owner.Name then
+                    table.insert(players, p)
+                end
+            end
+        elseif target == "others" then
+            -- Apply god mode to everyone except the player issuing the command
+            for _, p in ipairs(game.Players:GetPlayers()) do
+                if p.Name ~= player.Name and p.Name ~= Owner.Name then
+                    table.insert(players, p)
+                end
+            end
+        elseif target == "me" then
+            -- Apply god mode to the player issuing the command
+            table.insert(players, player)
+        else
+            -- Look for a specific player by name
+            players = GetPlayer(target)
+        end
+        
+        -- Apply Godmode to each player with a 2-second delay
+        for _, p in ipairs(players) do
+            Godmode({p})
+            task.wait(1)  -- Adds a 2-second delay between each player
+            print(p.Name.." now has Godmode.")  -- Print instead of sending chat message
         end
     elseif msg == "af" and player == Owner then
         AF()
