@@ -1,8 +1,6 @@
-local prefix = ";"
-local isAdmin = {[game.Players.LocalPlayer.Name] = true, ["FRIEND1"] = true, ["FRIEND2"] = true}
-local lplr = game.Players.LocalPlayer.Name
-local au = false
-local Owner = game.Players.LocalPlayer
+-- Script setup
+local prefix, Owner, au = ";", game.Players.LocalPlayer, false
+local isAdmin = { [Owner.Name] = true, FRIEND1 = true, FRIEND2 = true }
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Sword Simulator Admin Script",
@@ -61,7 +59,7 @@ local function TrackAndKill(targets)
     end
 end
 
--- Auto-Farm
+-- Auto-Farm function
 local function AF()
     au = true
     local Player = game.Players.LocalPlayer
@@ -87,14 +85,18 @@ local function AF()
     end
 end
 
--- Chat command handler
-local function onChatted(message, player)
+-- Command handler
+local function HandleCommand(message, player)
     if not message:sub(1, #prefix) == prefix then return end
     local msg = message:sub(#prefix + 1)
 
     if msg == "cmds" and player == Owner then
-        local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, cmds"
-        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
+        -- Prevent duplicate system messages
+        if not _G.CMD_SENT then
+            _G.CMD_SENT = true
+            local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, cmds"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
+        end
     elseif msg:sub(1, 5) == "kill " and isAdmin[player.Name] then
         local target = msg:sub(6)
         if target == "all" then
@@ -114,12 +116,14 @@ local function onChatted(message, player)
         local target = msg:sub(7)
         if target == "all" then
             for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.Name ~= Owner.Name then isAdmin[p.Name] = true end
+                if p.Name ~= Owner.Name and not isAdmin[p.Name] then
+                    isAdmin[p.Name] = true
+                end
             end
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everyone is now Admin.", "All")
         else
             for _, p in ipairs(GetPlayer(target)) do
-                if p.Name ~= Owner.Name then
+                if p.Name ~= Owner.Name and not isAdmin[p.Name] then
                     isAdmin[p.Name] = true
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] "..p.Name.." is now Admin.", "All")
                 end
@@ -129,12 +133,15 @@ local function onChatted(message, player)
         local target = msg:sub(9)
         if target == "all" then
             for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.Name ~= Owner.Name then isAdmin[p.Name] = false end
+                if p.Name ~= Owner.Name and isAdmin[p.Name] then
+                    isAdmin[p.Name] = false
+                end
             end
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Admin rights removed from all.", "All")
+            -- Corrected message here
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everybody is no longer Admin.", "All")
         else
             for _, p in ipairs(GetPlayer(target)) do
-                if p.Name ~= Owner.Name then
+                if p.Name ~= Owner.Name and isAdmin[p.Name] then
                     isAdmin[p.Name] = false
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] "..p.Name.." is no longer Admin.", "All")
                 end
@@ -147,11 +154,19 @@ local function onChatted(message, player)
     end
 end
 
--- Connect events
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message) onChatted(message, player) end)
-end)
+-- Prevent multiple Chatted listeners
+local handledPlayers = {}
+
+local function SetupPlayer(player)
+    if not handledPlayers[player] then
+        handledPlayers[player] = true
+        player.Chatted:Connect(function(message) HandleCommand(message, player) end)
+    end
+end
+
+-- Connect chat commands
+game.Players.PlayerAdded:Connect(SetupPlayer)
 
 for _, player in ipairs(game.Players:GetPlayers()) do
-    player.Chatted:Connect(function(message) onChatted(message, player) end)
+    SetupPlayer(player)
 end
