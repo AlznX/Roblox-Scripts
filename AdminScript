@@ -1,38 +1,36 @@
 local prefix = ";"
 local isAdmin = {[game.Players.LocalPlayer.Name] = true, ["FRIEND1"] = true, ["FRIEND2"] = true}
-local lplr = game.Players.LocalPlayer.Name
-local au = false
+local farming = false
 local Owner = game.Players.LocalPlayer
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "Sword Simulator Admin Script.",
+    Title = "Sword Simulator Admin Script",
     Text = "Enjoy the script while it's available!"
 })
 
--- Helper function to get player by username or display name
+-- Helper function to get players by username or display name
 local function GetPlayer(name)
     local players = {}
-    for _, v in ipairs(game.Players:GetPlayers()) do
-        if v.Name:lower():sub(1, #name) == name:lower() or v.DisplayName:lower():sub(1, #name) == name:lower() then
-            table.insert(players, v)
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player.Name:lower():sub(1, #name) == name:lower() or player.DisplayName:lower():sub(1, #name) == name:lower() then
+            table.insert(players, player)
         end
     end
     return players
 end
 
--- Function to kill a list of players using the sword's damage RemoteEvent
+-- Function to kill target players
 local function Kill(targets)
-    local sword = game.Players.LocalPlayer.Backpack:FindFirstChild("sword")
+    local sword = game.Players.LocalPlayer.Backpack:FindFirstChild("sword") or 
+                  game.Players.LocalPlayer.Character:FindFirstChild("sword")
+
     if sword then
-        -- Find the RemoteEvent that handles damage within the sword's handle
-        local damageRemoteEvent = sword.Handle:FindFirstChild("dmg") and sword.Handle.dmg:FindFirstChild("RemoteEvent")
-        
-        if damageRemoteEvent then
-            for _, v in ipairs(targets) do
-                if v and v.Character and v.Character:FindFirstChild("Humanoid") then
+        local damageEvent = sword.Handle:FindFirstChild("dmg") and sword.Handle.dmg:FindFirstChild("RemoteEvent")
+        if damageEvent then
+            for _, target in ipairs(targets) do
+                if target and target.Character and target.Character:FindFirstChild("Humanoid") then
                     pcall(function()
-                        -- Fire the RemoteEvent with math.huge to instantly kill the player
-                        damageRemoteEvent:FireServer(v.Character.Humanoid, math.huge)
+                        damageEvent:FireServer(target.Character.Humanoid, math.huge)
                     end)
                 end
             end
@@ -40,73 +38,45 @@ local function Kill(targets)
             warn("Damage RemoteEvent not found in sword.")
         end
     else
-        warn("Sword not found in backpack.")
+        warn("Sword not found in backpack or character.")
     end
 end
 
--- Function to track and kill all players or others continuously
-local function TrackAndKill(targets)
-    local remainingTargets = targets
-    while #remainingTargets > 0 do
-        for i = #remainingTargets, 1, -1 do
-            local target = remainingTargets[i]
-            if target.Character and target.Character:FindFirstChild("Humanoid") and target.Character.Humanoid.Health > 0 then
-                Kill({target})
-            else
-                table.remove(remainingTargets, i) -- Remove the target if they are dead
-            end
-        end
-        task.wait(1)  -- Wait a moment before checking again
+-- Optimized Auto-Farm Function
+local function farmAction()
+    local sword = game.Players.LocalPlayer.Backpack:FindFirstChild("sword") or 
+                  game.Players.LocalPlayer.Character:FindFirstChild("sword")
+
+    if sword and sword.Handle:FindFirstChild("up") then
+        pcall(function()
+            sword.Handle.up.RemoteEvent:FireServer()
+        end)
+    else
+        warn("Sword or upgrade RemoteEvent not found.")
     end
 end
 
--- New Auto-Farm function (Fix for crashes)
-local function AF()
-    au = true
-    local Player = game.Players.LocalPlayer
-    local swordFound = false
-
-    -- Check if the player has a "sword" for auto-farming
-    for _, v in ipairs(Player.Backpack:GetChildren()) do
-        if v.Name == "sword" then
-            swordFound = true
-            break
-        end
-    end
-
-    -- If no sword is found, notify the player and stop the AF function
-    if not swordFound then
-        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] No sword found for auto-farming.", "All")
-        return
-    end
-
-    while au do
-        for _, v in ipairs(Player.Backpack:GetChildren()) do
-            if v.Name == "sword" then
-                local Handle = v:FindFirstChild("Handle")
-                if Handle then
-                    local up = Handle:FindFirstChild("up")
-                    if up then
-                        local RE = up:FindFirstChild("RemoteEvent")
-                        if RE then
-                            pcall(function()
-                                RE:FireServer()
-                            end)
-                        end
-                    end
-                end
-            end
-            task.wait(.001)
-        end
+-- Start Auto-Farm
+local function StartAutoFarm()
+    farming = true
+    while farming do
+        farmAction()
+        task.wait(0) -- Reduce delay for faster farming
     end
 end
 
--- Handle chat commands
+-- Stop Auto-Farm
+local function StopAutoFarm()
+    farming = false
+end
+
+-- Chat Command Handler
 local function onChatted(message, player)
+    if not message:lower():sub(1, #prefix) == prefix then return end
     local msg = message:sub(#prefix + 1)
 
     if msg == "cmds" then
-        local cmds = "[System]CMDS: [1]kill(me/plr/others/all), [2]admin(all/plr), [3]unadmin(all/plr), [4]af(autofarm), [5]saf(stop autofarm), [6]cmds"
+        local cmds = "[System] CMDS: [1]kill(me/plr/others/all), [2]admin(all/plr), [3]unadmin(all/plr), [4]af(autofarm), [5]saf(stop autofarm), [6]cmds"
         if player == game.Players.LocalPlayer then
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
         end
@@ -114,7 +84,7 @@ local function onChatted(message, player)
         local target = msg:sub(6)
 
         if target == "all" then
-            TrackAndKill(game.Players:GetPlayers())
+            Kill(game.Players:GetPlayers())
         elseif target == "me" then
             Kill({player})
         elseif target == "others" then
@@ -124,62 +94,52 @@ local function onChatted(message, player)
                     table.insert(others, v)
                 end
             end
-            TrackAndKill(others)
+            Kill(others)
         else
             Kill(GetPlayer(target))
         end
     elseif msg:sub(1, 6) == "admin " and isAdmin[player.Name] then
         local target = msg:sub(7)
 
-        if target == player.Name then
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] You cannot admin yourself.", "All")
-        elseif target == "all" then
-            for _, v in ipairs(game.Players:GetPlayers()) do
-                if v.Name ~= Owner.Name then
-                    isAdmin[v.Name] = true
+        if target == "all" then
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if player.Name ~= Owner.Name then
+                    isAdmin[player.Name] = true
                 end
             end
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everyone has admin now!", "All")
         else
-            local playersToAdmin = GetPlayer(target)
-            for _, v in pairs(playersToAdmin) do
-                if v.Name ~= Owner.Name then
-                    isAdmin[v.Name] = true
-                    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System]"..v.Name.." is now Admin!", "All")
+            local targets = GetPlayer(target)
+            for _, adminTarget in ipairs(targets) do
+                if adminTarget.Name ~= Owner.Name then
+                    isAdmin[adminTarget.Name] = true
                 end
             end
         end
     elseif msg:sub(1, 8) == "unadmin " and isAdmin[player.Name] then
         local target = msg:sub(9)
 
-        if target == Owner.Name then
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] This player is the owner of this script and can't be unadminned.", "All")
-        else
-            if target == "all" then
-                for _, v in ipairs(game.Players:GetPlayers()) do
-                    if v.Name ~= Owner.Name then
-                        isAdmin[v.Name] = false
-                    end
+        if target == "all" then
+            for _, player in ipairs(game.Players:GetPlayers()) do
+                if player.Name ~= Owner.Name then
+                    isAdmin[player.Name] = false
                 end
-                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everyone is no longer admin!", "All")
-            else
-                local playersToUnadmin = GetPlayer(target)
-                for _, v in pairs(playersToUnadmin) do
-                    if v.Name ~= Owner.Name then
-                        isAdmin[v.Name] = false
-                        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System]"..v.Name.." is no longer Admin!", "All")
-                    end
+            end
+        else
+            local targets = GetPlayer(target)
+            for _, unadminTarget in ipairs(targets) do
+                if unadminTarget.Name ~= Owner.Name then
+                    isAdmin[unadminTarget.Name] = false
                 end
             end
         end
     elseif msg == "af" and player.Name == Owner.Name then
-        AF()
+        StartAutoFarm()
     elseif msg == "saf" and player.Name == Owner.Name then
-        au = false
+        StopAutoFarm()
     end
 end
 
--- Listen to players' chat
+-- Connect Chat Events
 game.Players.PlayerAdded:Connect(function(player)
     player.Chatted:Connect(function(message) onChatted(message, player) end)
 end)
