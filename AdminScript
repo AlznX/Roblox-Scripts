@@ -1,6 +1,5 @@
--- Sword Simulator Admin Script 2024 --
 local prefix, Owner, au = ";", game.Players.LocalPlayer, false
-local isAdmin = { [Owner.UserId] = true, [FRIEND1_ID] = true, [FRIEND2_ID] = true }
+local isAdmin = { [Owner.UserId] = true, 1212018424 = true, FRIEND2_ID = true }
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Sword Simulator Admin Script",
@@ -106,11 +105,8 @@ local function HandleCommand(message, player)
     local msg = message:sub(#prefix + 1)
 
     if msg == "cmds" and (isAdmin[player.UserId] or player.UserId == Owner.UserId) then
-        if not _G.CMD_SENT then
-            _G.CMD_SENT = true
-            local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(plr), cmds"
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
-        end
+        local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(plr), cmds"
+        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
     elseif msg:sub(1, 5) == "kill " and isAdmin[player.UserId] then
         local target = msg:sub(6)
         if target == "all" then
@@ -207,7 +203,3 @@ game.Players.PlayerAdded:Connect(SetupPlayer)
 for _, player in ipairs(game.Players:GetPlayers()) do
     SetupPlayer(player)
 end
-
-game.Players.PlayerRemoving:Connect(function(player)
-    handledPlayers[player] = nil
-end)
