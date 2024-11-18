@@ -1,6 +1,6 @@
 -- Sword Simulator Admin Script 2024 --
 local prefix, Owner, au = ";", game.Players.LocalPlayer, false
-local isAdmin = { [Owner.Name] = true, FRIEND1 = true, FRIEND2 = true }
+local isAdmin = { [Owner.UserId] = true, [FRIEND1_ID] = true, [FRIEND2_ID] = true }
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Sword Simulator Admin Script",
@@ -105,10 +105,13 @@ local function HandleCommand(message, player)
     if not message:sub(1, #prefix) == prefix then return end
     local msg = message:sub(#prefix + 1)
 
-    if msg == "cmds" and (isAdmin[player.Name] or player == Owner) then
-        local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(plr), cmds"
-        game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
-    elseif msg:sub(1, 5) == "kill " and isAdmin[player.Name] then
+    if msg == "cmds" and (isAdmin[player.UserId] or player.UserId == Owner.UserId) then
+        if not _G.CMD_SENT then
+            _G.CMD_SENT = true
+            local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(plr), cmds"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
+        end
+    elseif msg:sub(1, 5) == "kill " and isAdmin[player.UserId] then
         local target = msg:sub(6)
         if target == "all" then
             TrackAndKill(game.Players:GetPlayers())
@@ -117,59 +120,59 @@ local function HandleCommand(message, player)
         elseif target == "others" then
             local others = {}
             for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.Name ~= player.Name then table.insert(others, p) end
+                if p.UserId ~= player.UserId then table.insert(others, p) end
             end
             TrackAndKill(others)
         else
             Kill(GetPlayer(target))
         end
-    elseif msg:sub(1, 6) == "admin " and isAdmin[player.Name] then
+    elseif msg:sub(1, 6) == "admin " and isAdmin[player.UserId] then
         local target = msg:sub(7)
         if target == "all" then
             for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.Name ~= Owner.Name and not isAdmin[p.Name] then
-                    isAdmin[p.Name] = true
+                if p.UserId ~= Owner.UserId and not isAdmin[p.UserId] then
+                    isAdmin[p.UserId] = true
                 end
             end
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everyone is now Admin.", "All")
         else
             for _, p in ipairs(GetPlayer(target)) do
-                if p.Name ~= Owner.Name and not isAdmin[p.Name] then
-                    isAdmin[p.Name] = true
+                if p.UserId ~= Owner.UserId and not isAdmin[p.UserId] then
+                    isAdmin[p.UserId] = true
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] "..p.Name.." is now Admin.", "All")
                 end
             end
         end
-    elseif msg:sub(1, 8) == "unadmin " and isAdmin[player.Name] then
+    elseif msg:sub(1, 8) == "unadmin " and isAdmin[player.UserId] then
         local target = msg:sub(9)
         if target == "all" then
             for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.Name ~= Owner.Name and isAdmin[p.Name] then
-                    isAdmin[p.Name] = false
+                if p.UserId ~= Owner.UserId and isAdmin[p.UserId] then
+                    isAdmin[p.UserId] = false
                 end
             end
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everybody is no longer Admin.", "All")
         else
             for _, p in ipairs(GetPlayer(target)) do
-                if p.Name ~= Owner.Name and isAdmin[p.Name] then
-                    isAdmin[p.Name] = false
+                if p.UserId ~= Owner.UserId and isAdmin[p.UserId] then
+                    isAdmin[p.UserId] = false
                     game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] "..p.Name.." is no longer Admin.", "All")
                 end
             end
         end
-    elseif msg:sub(1, 4) == "god " and isAdmin[player.Name] then
+    elseif msg:sub(1, 4) == "god " and isAdmin[player.UserId] then
         local target = msg:sub(5)
         local players = {}
         
         if target == "all" then
             for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.Name ~= Owner.Name then
+                if p.UserId ~= Owner.UserId then
                     table.insert(players, p)
                 end
             end
         elseif target == "others" then
             for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.Name ~= player.Name and p.Name ~= Owner.Name then
+                if p.UserId ~= player.UserId and p.UserId ~= Owner.UserId then
                     table.insert(players, p)
                 end
             end
@@ -184,9 +187,9 @@ local function HandleCommand(message, player)
             task.wait(1)
             print(p.Name.." now has Godmode.")
         end
-    elseif msg == "af" and player == Owner then
+    elseif msg == "af" and player.UserId == Owner.UserId then
         AF()
-    elseif msg == "saf" and player == Owner then
+    elseif msg == "saf" and player.UserId == Owner.UserId then
         au = false
     end
 end
@@ -204,3 +207,7 @@ game.Players.PlayerAdded:Connect(SetupPlayer)
 for _, player in ipairs(game.Players:GetPlayers()) do
     SetupPlayer(player)
 end
+
+game.Players.PlayerRemoving:Connect(function(player)
+    handledPlayers[player] = nil
+end)
