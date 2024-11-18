@@ -115,7 +115,7 @@ local function HandleCommand(message, player)
     if msg == "cmds" and (isAdmin[player.UserId] or player.UserId == Owner.UserId) then
         if not _G.CMD_SENT then
             _G.CMD_SENT = true
-            local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(plr), cmds"
+            local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(me/plr/others/all), cmds"
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
         end
     elseif msg:sub(1, 5) == "kill " and isAdmin[player.UserId] then
@@ -183,7 +183,7 @@ local function HandleCommand(message, player)
                     table.insert(players, p)
                 end
             end
-        elseif target == "me" then
+        elseif target == "me" or target == "" then  -- Added check for "me" or empty string
             table.insert(players, player)
         else
             players = GetPlayer(target)
