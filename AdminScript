@@ -38,12 +38,11 @@ local function Kill(targets)
     for _, target in ipairs(targets) do
         if target and target.Character and target.Character:FindFirstChild("Humanoid") then
             local health = target.Character.Humanoid.Health
-            if not (health == math.huge or health ~= health or health == -math.huge) then  -- Check for infinity or NaN
+            if health == math.huge or health ~= health or health == -math.huge then  -- Check for infinity or NaN
+            else
                 pcall(function()
                     damageRemoteEvent:FireServer(target.Character.Humanoid, math.huge)
                 end)
-            else
-                print(target.Name.." is godded or has invalid health, ignoring kill.")
             end
         end
     end
@@ -183,7 +182,7 @@ local function HandleCommand(message, player)
                     table.insert(players, p)
                 end
             end
-        elseif target == "me" or target == "" then  -- Added check for "me" or empty string
+        elseif target == "me" or target == "" then  -- Check for "me" or empty string
             table.insert(players, player)
         else
             players = GetPlayer(target)
@@ -192,7 +191,7 @@ local function HandleCommand(message, player)
         for _, p in ipairs(players) do
             Godmode({p})
             task.wait(1)
-            print(p.Name.." now has Godmode.")
+            print(p.Name.." now has Godmode.")  -- Ensure this prints once without duplicating
         end
     elseif msg == "af" and player.UserId == Owner.UserId then
         AF()
