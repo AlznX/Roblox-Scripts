@@ -1,4 +1,12 @@
 -- Sword Simulator Admin Script 2024 --
+
+-- Add sound here
+local s1 = Instance.new("Sound", workspace)
+s1.Volume = 1
+s1.SoundId = "rbxassetid://195868961"
+s1.Looped = false
+s1:Play()
+
 local prefix, Owner, au = ";", game.Players.LocalPlayer, false
 local FRIEND1_ID = 1212018424
 local FRIEND2_ID = 0000
