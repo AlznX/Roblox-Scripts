@@ -1,6 +1,8 @@
 -- Sword Simulator Admin Script 2024 --
 local prefix, Owner, au = ";", game.Players.LocalPlayer, false
-local isAdmin = { [Owner.UserId] = true, [1212018424] = true, [FRIEND2_ID] = true }
+local FRIEND1_ID = 1212018424
+local FRIEND2_ID = 0000
+local isAdmin = { [Owner.UserId] = true, [FRIEND1_ID] = true, [FRIEND2_ID] = true }
 
 game:GetService("StarterGui"):SetCore("SendNotification", {
     Title = "Sword Simulator Admin Script",
@@ -35,9 +37,14 @@ local function Kill(targets)
 
     for _, target in ipairs(targets) do
         if target and target.Character and target.Character:FindFirstChild("Humanoid") then
-            pcall(function()
-                damageRemoteEvent:FireServer(target.Character.Humanoid, math.huge)
-            end)
+            local health = target.Character.Humanoid.Health
+            if not (health == math.huge or health ~= health or health == -math.huge) then  -- Check for infinity or NaN
+                pcall(function()
+                    damageRemoteEvent:FireServer(target.Character.Humanoid, math.huge)
+                end)
+            else
+                print(target.Name.." is godded or has invalid health, ignoring kill.")
+            end
         end
     end
 end
