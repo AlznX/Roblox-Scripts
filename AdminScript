@@ -1,8 +1,6 @@
--- Sword Simulator Admin Script 2024 --
-
 -- Add sound here
 local s1 = Instance.new("Sound", workspace)
-s1.Volume = 3
+s1.Volume = 1
 s1.SoundId = "rbxassetid://195868961"
 s1.Looped = false
 s1:Play()
@@ -118,12 +116,15 @@ end
 local function HandleCommand(message, player)
     if not message:sub(1, #prefix) == prefix then return end
     local msg = message:sub(#prefix + 1)
-
+    
+    -- Ensure each command is only executed once
     if msg == "cmds" and (isAdmin[player.UserId] or player.UserId == Owner.UserId) then
         if not _G.CMD_SENT then
             _G.CMD_SENT = true
             local cmds = "[System] Commands: kill(me/plr/others/all), admin(all/plr), unadmin(all/plr), af, saf, god(me/plr/others/all), cmds"
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmds, "All")
+            task.wait(1)  -- Add a wait time to prevent multiple executions
+            _G.CMD_SENT = false
         end
     elseif msg:sub(1, 5) == "kill " and isAdmin[player.UserId] then
         local target = msg:sub(6)
@@ -143,12 +144,18 @@ local function HandleCommand(message, player)
     elseif msg:sub(1, 6) == "admin " and isAdmin[player.UserId] then
         local target = msg:sub(7)
         if target == "all" then
-            for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.UserId ~= Owner.UserId and not isAdmin[p.UserId] then
-                    isAdmin[p.UserId] = true
+            -- Prevent multiple executions by using a flag
+            if not _G.ADMIN_COMMAND_EXECUTED then
+                _G.ADMIN_COMMAND_EXECUTED = true
+                for _, p in ipairs(game.Players:GetPlayers()) do
+                    if p.UserId ~= Owner.UserId and not isAdmin[p.UserId] then
+                        isAdmin[p.UserId] = true
+                    end
                 end
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everyone is now Admin.", "All")
+                task.wait(1)  -- Add a wait time to reset the flag
+                _G.ADMIN_COMMAND_EXECUTED = false
             end
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everyone is now Admin.", "All")
         else
             for _, p in ipairs(GetPlayer(target)) do
                 if p.UserId ~= Owner.UserId and not isAdmin[p.UserId] then
@@ -160,12 +167,17 @@ local function HandleCommand(message, player)
     elseif msg:sub(1, 8) == "unadmin " and isAdmin[player.UserId] then
         local target = msg:sub(9)
         if target == "all" then
-            for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.UserId ~= Owner.UserId and isAdmin[p.UserId] then
-                    isAdmin[p.UserId] = false
+            if not _G.UNADMIN_COMMAND_EXECUTED then
+                _G.UNADMIN_COMMAND_EXECUTED = true
+                for _, p in ipairs(game.Players:GetPlayers()) do
+                    if p.UserId ~= Owner.UserId and isAdmin[p.UserId] then
+                        isAdmin[p.UserId] = false
+                    end
                 end
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everybody is no longer Admin.", "All")
+                task.wait(1)  -- Add a wait time to reset the flag
+                _G.UNADMIN_COMMAND_EXECUTED = false
             end
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] Everybody is no longer Admin.", "All")
         else
             for _, p in ipairs(GetPlayer(target)) do
                 if p.UserId ~= Owner.UserId and isAdmin[p.UserId] then
@@ -179,10 +191,17 @@ local function HandleCommand(message, player)
         local players = {}
         
         if target == "all" then
-            for _, p in ipairs(game.Players:GetPlayers()) do
-                if p.UserId ~= Owner.UserId then
-                    table.insert(players, p)
+            if not _G.GODMODE_COMMAND_EXECUTED then
+                _G.GODMODE_COMMAND_EXECUTED = true
+                for _, p in ipairs(game.Players:GetPlayers()) do
+                    if p.UserId ~= Owner.UserId then
+                        table.insert(players, p)
+                    end
                 end
+                Godmode(players)
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("[System] All players now have Godmode.", "All")
+                task.wait(1)  -- Add a wait time to reset the flag
+                _G.GODMODE_COMMAND_EXECUTED = false
             end
         elseif target == "others" then
             for _, p in ipairs(game.Players:GetPlayers()) do
@@ -190,16 +209,13 @@ local function HandleCommand(message, player)
                     table.insert(players, p)
                 end
             end
-        elseif target == "me" or target == "" then  -- Check for "me" or empty string
+            Godmode(players)
+        elseif target == "me" or target == "" then
             table.insert(players, player)
+            Godmode(players)
         else
             players = GetPlayer(target)
-        end
-        
-        for _, p in ipairs(players) do
-            Godmode({p})
-            task.wait(1)
-            print(p.Name.." now has Godmode.")  -- Ensure this prints once without duplicating
+            Godmode(players)
         end
     elseif msg == "af" and player.UserId == Owner.UserId then
         AF()
