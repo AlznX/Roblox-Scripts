@@ -2011,10 +2011,3 @@ local function BCQRGT_fake_script() -- OpenHub.LocalScript
 	end)
 	
 end
-coroutine.wrap(BCQRGT_fake_script)()
-local A_1 = game.Players.LocalPlayer.name.." [Loaded Sword Simulator Hub 2021]"-----message here
-local A_2 = "All"
-local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
-Event:FireServer(A_1, A_2)
-
-game.Players.:Kick("You have been banned from utilizing all scripts provided by alzn due to a violation of our terms of use. For more information or to appeal this decision, please contact our support team.")
