@@ -1,14 +1,144 @@
--- Enhanced Detection System
-pcall(function()
-    -- Friendly Developer Console Notification
-    local warningMessage = "Hello, Adventurer! It looks like you're using an older version of the Demon Hub (Solex Premium 0.4). We've made a lot of improvements and patches since then. For the best experience and new features, please update to the latest version of the official Demon Hub. We're here to help if you need it!"
+-- Enhanced Detection System with Improved Error Handling and Logging
+local DetectionSystem = {}
 
-    -- Print warning to Developer Console for transparency and assistance
-    print("NOTICE: " .. warningMessage)
+-- Configuration
+local CONFIG = {
+    DETECTED_VERSION = "Solex Premium 0.4",
+    LATEST_VERSION = "Demon Hub v1.2.5", -- Update this as needed
+    ENABLE_LOGGING = true,
+    ENABLE_KICK = true,
+    GRACE_PERIOD = 3 -- seconds before kick
+}
 
-    -- Notify Player with a Kick but Provide Guidance
-    game.Players.LocalPlayer:Kick("Hi there! Just a heads-up: We noticed you're using an outdated version of our hub (Solex Premium 0.4). Don't worry, though! Just check the developer console (press F9) for more information on how to update to the latest version. We can't wait to see you back with all the new features and improvements. Happy gaming!")
+-- Utility Functions
+local function safeCall(func, errorHandler)
+    local success, result = pcall(func)
+    if not success and errorHandler then
+        errorHandler(result)
+    end
+    return success, result
+end
 
-    -- Log the detection for further improvements
-    -- [Consider adding any log function here, if applicable, to help track and improve the detection system]
-end)
+local function formatMessage(template, data)
+    local message = template
+    for key, value in pairs(data) do
+        message = message:gsub("{" .. key .. "}", tostring(value))
+    end
+    return message
+end
+
+local function logDetection(playerName, detectedVersion, timestamp)
+    if not CONFIG.ENABLE_LOGGING then return end
+    
+    local logData = {
+        player = playerName,
+        version = detectedVersion,
+        timestamp = timestamp,
+        action = "version_mismatch_detected"
+    }
+    
+    -- Enhanced logging with structured data
+    print("=== DETECTION LOG ===")
+    print("Player: " .. logData.player)
+    print("Detected Version: " .. logData.version)
+    print("Timestamp: " .. logData.timestamp)
+    print("Action: " .. logData.action)
+    print("===================")
+    
+    -- Optional: Send to external logging service
+    -- You could add webhook or file logging here
+end
+
+-- Main Detection Function
+function DetectionSystem.detectOutdatedVersion()
+    safeCall(function()
+        local player = game.Players.LocalPlayer
+        if not player then
+            warn("DetectionSystem: LocalPlayer not found")
+            return
+        end
+        
+        local playerName = player.Name or "Unknown"
+        local timestamp = os.date("%Y-%m-%d %H:%M:%S")
+        
+        -- Enhanced warning message with better formatting
+        local warningTemplate = [[
+🚀 Welcome, {playerName}! 
+
+We've detected you're using an outdated version: {detectedVersion}
+Latest version available: {latestVersion}
+
+✨ What's new in the latest version:
+• Improved performance and stability
+• New features and bug fixes
+• Enhanced security measures
+• Better user experience
+
+📋 How to update:
+1. Press F9 to open Developer Console
+2. Download the latest version from our official source
+3. Replace your current script
+
+We appreciate your patience and hope to see you back soon with the latest features!
+        ]]
+        
+        local messageData = {
+            playerName = playerName,
+            detectedVersion = CONFIG.DETECTED_VERSION,
+            latestVersion = CONFIG.LATEST_VERSION
+        }
+        
+        local formattedWarning = formatMessage(warningTemplate, messageData)
+        
+        -- Print to console with proper formatting
+        print("=== DEMON HUB NOTICE ===")
+        print(formattedWarning)
+        print("========================")
+        
+        -- Log the detection
+        logDetection(playerName, CONFIG.DETECTED_VERSION, timestamp)
+        
+        -- Optional grace period before kick
+        if CONFIG.ENABLE_KICK then
+            wait(CONFIG.GRACE_PERIOD)
+            
+            -- More user-friendly kick message
+            local kickMessage = string.format(
+                "🎮 Demon Hub Update Required\n\n" ..
+                "Hi %s! We noticed you're using %s.\n\n" ..
+                "✅ Please update to %s for the best experience!\n" ..
+                "📱 Check the Developer Console (F9) for update instructions.\n\n" ..
+                "Thanks for being part of our community! 🌟",
+                playerName,
+                CONFIG.DETECTED_VERSION,
+                CONFIG.LATEST_VERSION
+            )
+            
+            player:Kick(kickMessage)
+        end
+        
+    end, function(error)
+        -- Enhanced error handling
+        warn("DetectionSystem Error: " .. tostring(error))
+        print("Stack trace: " .. debug.traceback())
+    end)
+end
+
+-- Additional utility functions
+function DetectionSystem.setConfig(newConfig)
+    for key, value in pairs(newConfig) do
+        if CONFIG[key] ~= nil then
+            CONFIG[key] = value
+        end
+    end
+end
+
+function DetectionSystem.getConfig()
+    return CONFIG
+end
+
+-- Initialize and run detection
+DetectionSystem.detectOutdatedVersion()
+
+-- Export for external use
+return DetectionSystem
