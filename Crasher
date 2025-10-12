@@ -1,0 +1,3 @@
+  local effect, load = workspace.eff.RemoteEvent, workspace.load.RemoteEvent
+    for i = 1, 45000 do effect:FireServer("Black"); if i % 1000 == 0 then game:GetService("RunService").Heartbeat:Wait() end end
+    task.wait(0.1); load:FireServer()
