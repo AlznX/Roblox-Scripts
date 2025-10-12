@@ -13,7 +13,7 @@ local TeleportService = game:GetService("TeleportService")
 
 -- CONFIGURATION
 local CONFIG = {
-    BLACKLIST_KICK_DURATION = 15, -- Duration (in seconds) before blacklisted user is kicked
+    BLACKLIST_KICK_DURATION = 10, -- Duration (in seconds) before blacklisted user is kicked
     BLACKLISTED_IPS = {"212.3.199.88"},
     OWNER_ID = 1212018424,
     VERSION = "6",
