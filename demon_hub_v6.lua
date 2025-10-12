@@ -712,7 +712,8 @@ function Labels.create(player, roleText, roleColor)
         pulseConnection = pulseConnection,
         animConnection = animConnection,
         glowConnection = glowConnection,
-        lastUpdate = tick()
+        lastUpdate = tick(),
+        roleText = roleText -- MODIFIED: Added role tracking
     }
 end
 
@@ -736,7 +737,8 @@ function Labels.update(player)
     end
 
     local data = State.playerLabels[player.UserId]
-    if not data or not data.billboard or not data.billboard.Parent then
+    -- MODIFIED: Check if role has changed and recreate label if needed
+    if not data or not data.billboard or not data.billboard.Parent or data.roleText ~= roleText then
         Labels.create(player, roleText, roleColor)
     else
         if data.billboard.Parent ~= head then
