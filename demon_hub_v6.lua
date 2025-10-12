@@ -13,8 +13,8 @@ local TeleportService = game:GetService("TeleportService")
 
 -- CONFIGURATION
 local CONFIG = {
-    BLACKLIST_KICK_DURATION = 10, -- Duration (in seconds) before blacklisted user is kicked
-    BLACKLISTED_IPS = {"212.3.199.88"},
+    BLACKLIST_KICK_DURATION = 13, -- Duration (in seconds) before blacklisted user is kicked
+    BLACKLISTED_IPS = {""},
     OWNER_ID = 1212018424,
     VERSION = "6",
     SCRIPT_NAME = "Demon Hub",
@@ -72,14 +72,14 @@ end
 
 function Utils.getUserRole(userId)
     if not State.scriptUsers then
-        return "", Color3.fromRGB(100, 149, 237)
+        return "PLAYER", Color3.fromRGB(100, 149, 237)
     end
     if Utils.isOwner(userId) then
         return "SCRIPT CREATOR", Color3.fromRGB(138, 43, 226)
     elseif State.scriptUsers[userId] then
         return "SCRIPT USER", Color3.fromRGB(85, 255, 127)
     end
-    return "SCRIPT USER", Color3.fromRGB(100, 149, 237)
+    return "PLAYER", Color3.fromRGB(100, 149, 237)
 end
 
 function Utils.canSendWebhook(userId)
